@@ -1,0 +1,158 @@
+% ===== % Essential Document Setup % ===== %
+\documentclass[14pt]{article} % Base document class 
+\usepackage[utf8]{inputenc} % Input encoding 
+\usepackage[a4paper,top=3cm,bottom=1.5cm,left=2.5cm,right=2.2cm]{geometry}% Page margins 
+% \usepackage[11pt]{extsizes} % Font size customization
+
+% ===== % Fonts & Typography % ===== %
+\usepackage{anyfontsize}
+\AtBeginDocument{\fontsize{12pt}{15pt}\selectfont}
+\usepackage{mathpazo} % Palatino font 
+\usepackage{lmodern} % Improved version of Computer Modern 
+\usepackage{setspace} % Line spacing control
+
+% ===== % Colors and Graphics % ===== %
+\usepackage{xcolor} % Color definitions 
+\usepackage{graphicx} % Include graphics 
+\graphicspath{{figures/}}
+\usepackage{grffile} % Extended filename support for graphics 
+\usepackage{tikz} % TikZ for drawing
+
+% ===== % Math Packages % ===== %
+\usepackage{amsmath, amsfonts, amssymb} % AMS math packages 
+\usepackage{siunitx} % SI units formatting
+\usepackage{braket}
+
+% ===== % Lists and Itemization % ===== %
+\usepackage{enumitem} % Custom list formatting
+
+% ===== % Code Listings % ===== %
+\usepackage{minted} % Code highlighting 
+\usepackage{listings} % Code formatting 
+\usepackage{fancyvrb} % Enhanced verbatim support
+
+% ===== % Table and Figure Tools % ===== % 
+\usepackage{caption} % Custom captions 
+\usepackage{subcaption} % Sub-figures 
+\usepackage{float} % Float placement control 
+\usepackage{multirow} % Multiple row cells in tables 
+\usepackage{multicol} % Multiple columns 
+\usepackage{adjustbox} % Adjust content inside a box 
+\usepackage{booktabs} % Professional tables
+
+% ===== % Boxes and Styling % ===== %
+\usepackage{framed} % Simple framed boxes
+\usepackage{tcolorbox} % Colored and styled boxes 
+\tcbuselibrary{skins, breakable} % Enable skin and breakable features
+
+% ===== % Define the page style % ===== %
+\usepackage{fancyhdr} % Customizing headers and footers
+\usepackage{everypage} % to execute code on every page
+
+\setlength{\headheight}{0pt} % Setting the height of the header
+\addtolength{\topmargin}{0.4cm} % Adjusting the top margin
+\addtolength{\footskip}{-0.2cm} % Adjusting the top margin
+
+\fancypagestyle{customstyle}{
+  \fancyhf{} % Clear header and footer
+  \fancyhead[L]{Experiment $A_4$} % Left header
+  \fancyhead[R]{Page \thepage\ of 15} % Right header with page number
+  \renewcommand{\headrulewidth}{0.4pt} % Horizontal line under the header
+}
+% Apply the custom page style
+\pagestyle{customstyle}
+
+\fancypagestyle{customstyle}{
+\fancyhf{} % Clear header and footer
+\fancyhead[L]{\textit{Quantum Field Theory}} % Left header
+\fancyhead[R]{Exercises}
+
+\fancyfoot[C]{\textbf{\textit{\thepage}}} % Right header with page number
+\renewcommand{\headrulewidth}{0.4pt} % Horizontal line under the header
+\renewcommand{\footrulewidth}{0.4pt}
+}
+
+% ===== % Apply the custom page style % ===== %
+\pagestyle{customstyle}
+
+% ===== % Table of Contents & Navigation % ===== % 
+\usepackage{hyperref} % Hyperlinks support 
+\hypersetup{colorlinks=true, allcolors=black} % Black hyperlinks 
+\usepackage{tocloft} % Custom TOC formatting 
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % Dotted TOC lines 
+\usepackage{titletoc} % TOC appearance customization
+
+% ===== % Citations % ===== % 
+\usepackage[numbers]{natbib} % Numbered citations
+
+% ===== % Miscellaneous % ===== %
+\usepackage{etoolbox} % Logic and patching commands 
+\usepackage{changepage} % Adjustable width environment 
+\usepackage{lipsum} % Dummy text
+
+\begin{document}
+\begin{titlepage}
+    \centering
+    \vspace*{3cm}
+    {Exercises on \par}
+    \vspace{1cm}
+    \hrule
+    \vspace{1cm}
+    {\huge \textit{\textbf{Quantum Field Theory}} \par}
+    \vspace{1cm}
+    \hrule
+    \vspace{1cm}
+    \small
+   (Based on the lectures by \textit{Dr. Mohammed Arshad Momen})
+\vspace{3cm}
+% \vfill
+\end{titlepage}
+%-------------------------------
+% Table of Contents
+%-------------------------------
+\tableofcontents
+\newpage
+\section{Exercise for Class-2 [Lecture (-1)]}
+Derive the Euler–Lagrange equations corresponding to this action:
+\[
+S[x] = m \int \sqrt{ \eta_{ab} \, dx^a dx^b }=m \int d \tau \\
+    = m \int \sqrt{ \eta_{ab} \, \frac{dx^a}{d\lambda} \frac{dx^b}{d\lambda} } \, d\lambda
+\]
+\section{Exercise for Class-4 [Lecture (1)]}
+\subsection{Assignment-1}
+How does $\hat{J}^{rs}$ transform under Poincaré transformation? (It's a semi direct product)
+
+\subsection{Assignment-2}
+Recover $3D$ rotation algebra from angular momentum.
+
+\section{Exercise for Class-5 [Lecture (2)]}
+\subsection{Exercise-1}
+Show that we can recover the Lorentz force from the action:
+\[
+S = \frac{1}{2} \int m~ \dot{\xi}^2 d\tau + q \int A_b(\xi) \dot{\xi}^b \, d\tau
+\]
+\[
+\left[~\text{This latter interaction term is geometrical as well}~\right]
+\]
+
+\subsection{Exercise-2}
+Check the commutations:
+\begin{align*}
+    [J, p]~~ &\sim ~~p \\
+    [p, p]~~ &\sim ~~0 \\
+    [J, J]~~ &\sim ~J \\
+    [J, p^2]~ &\sim ~0 \\
+    [J, p_ap^a] &= [J, p_a]p^a + p_a[J, p^a]\sim 0
+\end{align*}
+
+
+
+\section{Exercise for Class-6 [Lecture (3)]}
+\subsection{Exercise-1}
+Show that the lie derivatives of vector field satisfies:
+\[
+\mathfrak{L}_{\hat{V}} \mathfrak{L}_{\hat{W}} - \mathfrak{L}_{\hat{W}} \mathfrak{L}_{\hat{V}} = \mathfrak{L}_{[\hat{V},\hat{W}]}
+\]
+\subsection{Exercise-2}
+Derive the lie derivative for a tensor $\mathfrak{L}_{\hat{V}}\, \tilde{T}^a\,_b $.
+\end{document}
