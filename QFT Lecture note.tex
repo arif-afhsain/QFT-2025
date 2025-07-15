@@ -17,6 +17,7 @@
 \graphicspath{{figures/}}
 \usepackage{grffile} % Extended filename support for graphics 
 \usepackage{tikz} % TikZ for drawing
+\usetikzlibrary{arrows.meta, positioning}
 % \usepackage{pgfplots}
 % \pgfplotsset{compat=1.17}
 
@@ -73,23 +74,35 @@
 \fancyhead[L]{\textit{Quantum Field Theory}} % Left header
 
 \fancyhead[R]{%
-\ifnum\value{page}<5
+\ifnum\value{page}<8
 \textit{Introductory Class}%
 \else
-\ifnum\value{page}<16
+\ifnum\value{page}<17
 \textit{Review of Special Relativity}
 \else
-\ifnum\value{page}<22
+\ifnum\value{page}<23
 \textit{Preliminary QFT}
 \else
-\ifnum\value{page}<31
+\ifnum\value{page}<32
 \textit{Poincaré Algebra}
 \else
-\ifnum\value{page}<37
-\textit{Basic GR for CFT}
+\ifnum\value{page}<38
+\textit{GR basics for Classical Field}
 \else
+\ifnum\value{page}<44
 \textit{Lie Derivative}
-\fi\fi\fi\fi\fi
+\else
+\ifnum\value{page}<48
+\textit{Covariant Derivative}
+\else
+\ifnum\value{page}<54
+\textit{Classical Field Theory}
+\else
+\ifnum\value{page}<59
+\textit{Gauge Theory}
+\else
+\textit{Path Integral Formalism}
+\fi\fi\fi\fi\fi\fi\fi\fi\fi
 }
 
 \fancyfoot[C]{\textbf{\textit{\thepage}}} % Right header with page number
@@ -184,9 +197,9 @@
     \begin{minipage}{0.85\textwidth}
         \centering
         
-        These lecture notes are based on the \textit{Quantum Field Theory} course taught by $${\textbf{\textit{Dr. M Arshad Momen}}}$$ in the Department of Theoretical Physics, University of Dhaka, as part of the Master's program (2023–24). \\
+        These lecture notes are based on the \textit{Quantum Field Theory} course taught by $${\textbf{\textit{Dr. M Arshad Momen}}}$$ in the Department of Theoretical Physics, University of Dhaka, as a part of the Master's program (2023–2024). \\
         \vspace{0.6cm}
-        They have been prepared by $$\href{mailto:biswasfalguni282@gmail.com}{\textbf{\textit{Falguni Biswas}}}$$ $$\textbf{\&}$$ $$\href{mailto:arif.afhsain@gmail.com}{\textbf{\textit{Muhammad Arif Hussain}}}$$ Master's students (2023–24) in the Department of Theoretical Physics, University of Dhaka.\\
+        They have been prepared by $$\href{mailto:biswasfalguni282@gmail.com}{\textbf{\textit{Falguni Biswas}}}$$ $$\textbf{\&}$$ $$\href{mailto:arif.afhsain@gmail.com}{\textbf{\textit{Muhammad Arif Hussain}}}$$ Master's students (2023–2024) in the Department of Theoretical Physics, University of Dhaka.\\
         \vspace{0.6cm}
         Please note that these are working drafts and may contain typographical errors. If you find any mistakes or have suggestions for improvement, feel free to contact us.
     \end{minipage}
@@ -226,7 +239,7 @@ Here,
 \end{enumerate}
 \end{itemize}
 % ---
-\begin{tcolorbox}[proofbox, title=\textbf{Question: How to know whether a system is ferro or antiferromagnetic?}]
+\begin{tcolorbox}[ title=\textbf{Question: How to know whether a system is ferro or antiferromagnetic?}]
 \vspace*{-0.5cm}
 \begin{align*}
     \text{Ground}& \text{ State} \\
@@ -296,7 +309,7 @@ Conditions to be operators:
 \omega(\mathbb{I}) = 1 \quad , \quad \omega(A^\dagger A) \geq 0
 \]
 % ---
-\begin{tcolorbox}[proofbox, title=\textbf{Question: What is algebra?}]
+\begin{tcolorbox}[ title=\textbf{Question: What is algebra?}]
 Algebra is a mathematical structure consisting of a set equipped with one or more operations, where the operations are \textbf{\textit{defined}} and the set is \textbf{\textit{closed}} under those operations.
 \end{tcolorbox}
 % ---
@@ -346,7 +359,7 @@ However, these two principles are not inherently compatible. For instance, takin
 Energy uncertainty generates multi-particles. This leads to new phenomena, such as particle creation, which cannot be fully explained by either theory alone — highlighting the need for \textbf{Quantum Field Theory}. \\
 % ---
 \textbf{Reading Assignments:}
-\begin{tcolorbox}[proofbox, title=Reading Assignments:]
+\begin{tcolorbox}[ title=Reading Assignments:]
 \begin{itemize}
     \item Von Neumann — \textit{Mathematical Foundations of Quantum Mechanics}, \\
     (for mathematical formalism and axiomatic treatment.)
@@ -368,7 +381,7 @@ Energy uncertainty generates multi-particles. This leads to new phenomena, such 
 % ---
 \subsection{Manifold}
 Spacetime is endowed with a manifold structure $\Rightarrow$ means that: spacetime, although it can be curved and complex on a large scale, is treated mathematically as a \textbf{manifold} — a space that, in small patches, looks like regular, flat space and time.
-\begin{tcolorbox}[proofbox, title=\textbf{Definition}]
+\begin{tcolorbox}[ title=\textbf{Definition}]
 A mathematical space on which calculus can be consistently defined. It is typically covered by multiple coordinate charts (or `patches') that together form an ``atlas''.
 \[
 \text{Spacetime} \rightarrow \text{Manifold } (\mathbb{R}^4)
@@ -476,7 +489,7 @@ $$\fbox{\textbf{\textit{The speed of information transfer is limited by the spee
 
 $$\fbox{\textcolor{red}{\textbf{\textit{By convention, we will measure everything in energy scales.}}}}$$
 \vspace{0.3cm}
-\begin{tcolorbox}[proofbox, title=Postulate 1 :]
+\begin{tcolorbox}[ title=Postulate 1 :]
 Laws of nature must be such that all (\ldots \footnote{Something else wll sit here}) observers\footnote{One who records--- always tied to the coordinate system.} will experience the same causal phenomena.
 \end{tcolorbox}
 \noindent
@@ -869,7 +882,7 @@ From equation \eqref{eq:2}, the conjugate momenta will be -
      \Rightarrow p_a &= m\frac{\left(\dot{x}_a + \dot{x}_a\right)}{2 \sqrt{\dot{x}^b \dot{x}_b}} \\
     \therefore p_a &= \frac{m\dot{x}_a}{\sqrt{\dot{x}^b \dot{x}_b}} \tag{4} \label{eq:4}
 \end{align*}
-\begin{tcolorbox}[proofbox, title=\textbf{Note: How are $p$ and $v$ related?}]
+\begin{tcolorbox}[ title=\textbf{Note: How are $p$ and $v$ related?}]
 The trivial answer is $p = mv$, but more generally,
 \[
 p_a = \frac{\partial \mathcal{L}}{\partial \dot{x}^a}.
@@ -1129,12 +1142,12 @@ So a particle is on shell if: $p^\mu p_\mu = m^2$
 This is called the \textbf{mass-shell condition}.
 
 % ---
-\begin{tcolorbox}[proofbox, title=\textbf{Question: What is a particle?}]
+\begin{tcolorbox}[ title=\textbf{Question: What is a particle?}]
 % \vspace*{-0.5cm}
 Particle is something that carries a unitary representation of the Poincaré group.
 \end{tcolorbox}
 % ---
-\begin{tcolorbox}[proofbox, title=\textbf{Question: What is Lorentz transformation?}]
+\begin{tcolorbox}[ title=\textbf{Question: What is Lorentz transformation?}]
 A Lorentz transformation is a linear transformation that preserves the Minkowski spacetime interval-
 \[
 \eta_{\mu \nu} ~x^\mu x^\nu = \eta_{\rho \sigma} ~x^\rho x^\sigma 
@@ -1155,7 +1168,7 @@ Here the requirement that the origin remain invariant is relaxed, allowing trans
 
 Linear transformation which leaves the distance square between any two points invariant constitute Poincaré transformation. It is also a group.
 % ---
-\begin{tcolorbox}[proofbox, title=\textbf{Question: What are groups? \hfill (set + binary operation)}]
+\begin{tcolorbox}[ title=\textbf{Question: What are groups? \hfill (set + binary operation)}]
 A group is denoted by $(G,*)$ is set of objects denoted $G$ and some operation on those objects denoted *, subject to the following -
 \begin{align*}
 &\bullet~\text{Associative} \quad \bullet~\text{Inverse} \\
@@ -1183,7 +1196,7 @@ x^m \rightarrow x'~^m = (\Lambda x)^m + a^m = \Lambda^{m}~_{n}~x^n + a^m
     \Rightarrow x &= \Lambda^{-1} x' -  \Lambda^{-1}a \\
     \therefore (\Lambda&, a)^{-1} = (\Lambda^{-1}, -\Lambda^{-1}a) \tag{4.1} \label{eq:4.1}
 \end{align*}
-\begin{tcolorbox}[proofbox, title=\textbf{Note:}]
+\begin{tcolorbox}[ title=\textbf{Note:}]
 
 Is the space-time position operator $(x^a)$ a well-defined operator or observable in relativistic quantum theory? 
 
@@ -1235,7 +1248,7 @@ Applying matrices R:
 \[R(\Lambda', a')R(\Lambda, a) = R(\Lambda'\Lambda,\Lambda' a + a') \tag{4.3} \label{eq:4.3}
 \]
 %  ---
-\begin{tcolorbox}[proofbox, title=\textbf{Question: Why Unitary representation}]
+\begin{tcolorbox}[ title=\textbf{Question: Why Unitary representation}]
 \textit{Eugene Wigner} classified all possible elementary particles in terms of irreducible unitary representations of the Poincaré group. These representations are labeled by:
 \[
 \bullet ~\text{Particle's mass}\quad \bullet ~\text{Particle's spin}
@@ -1251,7 +1264,7 @@ Therefore the unitary representation must satisfy \eqref{eq:4.3} -
 \[
 U(\Lambda', a')U(\Lambda, a) = U(\Lambda'\Lambda,\Lambda' a + a') \tag{4.4} \label{eq:4.4}
 \]
-\begin{tcolorbox}[proofbox, title=\textbf{Note: Dimension of Unitary Transformation in Hilbert Space}]
+\begin{tcolorbox}[ title=\textbf{Note: Dimension of Unitary Transformation in Hilbert Space}]
 In Hilbert space, unitary transformations are not restricted to infinite dimensions. They can be finite or infinite dimensional depending on the physical system:
 
 \begin{itemize}
@@ -1269,10 +1282,10 @@ Now, $U^\dagger U = \hat{\mathbb{I}}$ ; If isomorphic and acts on Hilbert space.
 This transformation acts on space time.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\linewidth]{L1_1.jpg}
+\includegraphics[width=0.6\linewidth]{L1_1.jpg}
 \caption*{}
 \end{figure}
-\begin{tcolorbox}[proofbox, title=\textbf{Notes:}]
+\begin{tcolorbox}[ title=\textbf{Notes:}]
 \textbf{Group Representation}
 \vspace{0.1cm}
 \newline
@@ -1356,7 +1369,7 @@ $$ \boxed{\textbf{Unitary transformation transforms the additive space to multip
 \includegraphics[width=0.7\linewidth]{L1_2.jpg}
 \caption*{}
 \end{figure}
-\begin{tcolorbox}[proofbox, title=\textbf{Note}]
+\begin{tcolorbox}[ title=\textbf{Note}]
 It is also possible for $U = -\hat{\mathbb{I}}$, since
 \[
 U^\dagger U = \mathbb{I}
@@ -1489,7 +1502,7 @@ Thus we can see that, $\hat{P}$ transforms like a vector under the group. It is 
 \noindent How does $\hat{J}^{rs}$ transform under Poincaré transformation? (It's a semi direct product)
 \end{framed}
 \vspace{-0.5cm}
-\begin{tcolorbox}[proofbox, title=\textbf{Note:}]
+\begin{tcolorbox}[ title=\textbf{Note:}]
 \textbf{Direct Product and Semi-direct product}
 \newline
 In group theory, a direct product of two groups means that the groups combine in a way where elements of one group do not affect the operation of the other. That is:
@@ -1564,7 +1577,7 @@ In addition, we know in $3D, \quad \hat{J}^m = i~\epsilon^{amn} \hat{J}_{a}$
 \renewcommand{\thesection}{\arabic{section}}
 \fancysection{(\textit{\textbf{Class-5})} Lecture \textbf{2}: Sat, May 24, 2025}{\textbf{\textit{A Glimpse of GR via The Classical Field Theory }}}
 %------------%
-\subsection{Road to GR}
+\subsection{Road to GR (General relativity is a classical field theory because no quantization is involved here)}
 In freely falling coordinates (FFC), the line element is given by:
 \begin{align*}
     ds^2 &= \eta_{ab}~d\xi^a d\xi^b \tag{5.1} \label{5.1} \\
@@ -1574,7 +1587,7 @@ In freely falling coordinates (FFC), the line element is given by:
     x^a &: \text{General coordinates}
 \end{align*}
 %------------
-\begin{tcolorbox}[proofbox, title=\textbf{Note:}]
+\begin{tcolorbox}[ title=\textbf{Note:}]
 \begin{itemize}
     \item In Special Relativity (SR), there is no representation of gravity.
     \item Only in curved space there is an existence of gravity hence acceleration arises.
@@ -1633,7 +1646,7 @@ Such a manifold is known as a \textit{Riemannian manifold} (or pseudo-Riemannian
 
 When $m = 0$, both $s$ and $s'$ are same, they yield the same dynamics.
 %------------
-\begin{tcolorbox}[proofbox, title=\textbf{Note:}]
+\begin{tcolorbox}[ title=\textbf{Note:}]
 For flat spacetime in Cartesian coordinates, the trajectory of a free particle is:
 \[
 x^i = x^i_0 + \left( \frac{p^i}{m} \right)t
@@ -1670,7 +1683,7 @@ Recall equation \eqref{5.3}:
 \end{align*}
 These equations \eqref{5.3} and \eqref{5.4} are inverse to each other — they reflect the transformation between coordinates and dual coordinates.
 %------------
-\begin{tcolorbox}[proofbox, title=\textbf{Note:}]
+\begin{tcolorbox}[ title=\textbf{Note:}]
 \subsubsection*{Phase Space}
 \begin{itemize}
     \item The cotangent space of a manifold is called the \textbf{phase space}.
@@ -1807,7 +1820,7 @@ Suppose there exists a linear map (or matrix) $X: V \to V'$ such that for all $g
 \[
 X R(g) = R'(g) X
 \]
-\begin{tcolorbox}[proofbox, title=Intertwiner]
+\begin{tcolorbox}[ title=Intertwiner]
 Let $R, R'$ be two irreps and 
 $$RX = XR'$$ 
 To make this possible, there exists two possibilities for $X$.
@@ -1824,7 +1837,7 @@ If $X$ commutes with all the matrices of an irrep, then $X = \lambda \mathbb{I}$
 \]
 That is, any linear transformation that commutes with all the representation matrices must be a scalar multiple of the identity.
 % ---
-\begin{tcolorbox}[proofbox, title=Note: Commutator is a derivative]
+\begin{tcolorbox}[ title=Note: Commutator is a derivative]
 Anything that follows the product rule, is called a \textbf{derivation}.
 \begin{align*}
     \frac{d}{dx}(uv) &= \frac{du}{dx}~v ~~+~~ u~\frac{dv}{dx} \\ \\
@@ -1904,7 +1917,7 @@ Therefore, if $h = e^A$ where $A \in$ Lie algebra and $h \in$ Lie group, then:
 \end{center}
 Because boosts and rotations are mixed under commutators, they don’t form invariant pieces.
 % ---
-\begin{tcolorbox}[proofbox, title=Notes]
+\begin{tcolorbox}[ title=Notes]
 \begin{itemize}
     \item The Lorentz group also has no unitary representation because it is \textbf{non-compact}.
     \item The Poincare group has unitary representation because is \textbf{compact}.
@@ -2034,7 +2047,7 @@ This is the lie derivative of a vector field. Let's simply it,
 Hence, two vector fields are mapped to another vector field. 
 $[ \hat{V}, \hat{W}]$ creates a vector field out of the two vector fields $\hat{V}$ and $\hat{W}$.
 % ---
-\begin{tcolorbox}[proofbox, title=Note:]
+\begin{tcolorbox}[ title=Note:]
 Recall the Jacobi identity:
 \[
 \left[~ [ A, B], C~ \right] + \left[ ~[ B, C], A~ \right] + \left[~[ C, A ], B~ \right] = 0
@@ -2058,7 +2071,7 @@ SO far we've seen that a Lie derivative maps -
     \item Tensor to tensor. All of the same type.
 \end{itemize}
 % ---
-\begin{tcolorbox}[proofbox, title=Covector]
+\begin{tcolorbox}[ title=Covector]
 A \textbf{covector} is a type of linear map that acts on vectors and returns real or complex numbers.
 \begin{itemize}
     \item A vector is an element of the space V
@@ -2081,6 +2094,1143 @@ A \textbf{covector} is a type of linear map that acts on vectors and returns rea
 \[
 \boxed{\therefore \mathfrak{L}_{\hat{V}} U_a = -(V^c~\partial_c U_a + \partial_a V^c ~U_c)}
 \]
+\newpage
+
+\stepcounter{section}
+\renewcommand{\thesection}{\arabic{section}}
+\fancysection{(\textit{\textbf{Class-7})} Lecture \textbf{4}: Wed, June 18, 2025}{\textbf{\textit{Covariant Derivative}}}
+%---
+\subsection*{Deriving Lie Derivative from the Vector Field}
+\vspace{-0.7cm}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\linewidth]{L4.jpeg}
+\caption*{}
+\end{figure}
+\vspace{-1cm}
+\begin{itemize}
+\item Vector field maps from manifold to manifold.
+\item All Lie groups are manifolds, but all manifolds are not Lie groups.
+\item Lie derivative can be defined on any manifold.
+\item In a manifold, there is no composition rule.
+\end{itemize}
+\begin{tcolorbox}[ title=Previous class discussion]
+$\bullet$ Adjoint map and Lie derivative are not same.
+
+Adjoint definition :
+\[
+\langle v,A \rangle = \langle A^*v , u \rangle
+\]
+Whereas, Lie derivative:
+\[ \mathfrak{L}_v \, u = -[u,v] = [v,u] \]
+
+$\bullet$ Lie derivative and Lie algebra are not same.
+\[
+f=f(x,y) \quad; \quad g=g(x,y)
+\]
+\begin{align*}
+f=f(x,y) \quad; \quad g=g(x,y) \\
+v = f \frac{\partial}{\partial x} + g \frac{\partial}{\partial y} \\
+[v,v'] = \frac{\partial f}{\partial x}\frac{\partial g}{\partial y} - \frac{\partial g}{\partial x} \frac{\partial f}{\partial y} \tag{7.1} \label{7.1}
+\end{align*}
+This \eqref{7.1} is not constant for Lie derivative. However,
+\[
+[T^a , T^b] = f^{ab}\,_c \,T^c \tag{7.2} \label{7.2}
+\]
+The term $f^{ab}\,_c$ in \eqref{7.2} is \textbf{constant} in Lie algebra or Lie group.
+\end{tcolorbox}
+% ---
+Now, $\xi^a =$ local cartesian coordinate. We know that,
+\[
+ds^2 = \left( d \xi^a \right)^2 = \delta_{ab}~d\xi^a d\xi^b \tag{7.3} \label{7.3}
+\]
+But we also know that,
+\begin{align*}
+d\xi^a &= \frac{\partial\xi^a}{\partial x}dx^m \tag{7.4} \label{7.4} \\
+\Rightarrow d\xi^a&= M^a\,_m ~dx^m \\
+\therefore~ dx^m &= (M^{-1})^m{}_a \, d\xi^a
+\end{align*}
+\textbf{Notes :}
+\begin{itemize}
+\item A vector has to transform according to \eqref{7.4}.
+\item If $M^{-1}$ doesn't exist, we can onlyy go to one way, known as singular. Example - the origin.
+\end{itemize}
+Using \eqref{7.4} to \eqref{7.3} we get
+\begin{align*}
+ds^2 &= \delta_{ab} \frac{\partial\xi^a}{\partial x^m} \frac{\partial  \xi^b}{\partial x^n}~dx^m \, dx^n \\
+\therefore~ ds^2 &= G_{mn} \, dx^m \, dx^n \quad ; \quad G_{mn} = G_{nm} \quad \text{(symmetric)}
+\end{align*}
+If such symmetric $G_{mn}$ exists which is also invertible, the manifold is called \textbf{Riemannian manifold}.
+
+Since $ds^2$ is a scalar, it can also be given as:
+\[
+    \langle v, u \rangle \equiv g_{ab} \, V^a \, V^b
+\]
+
+\subsection{Killing Vector}
+[It is connected to symmetry hence related to a conserved quantity via Noether's theorem.]\\
+
+\noindent
+\textbf{Definition:} A vector field $X$ on $M$ is called a Killing vector field if the Lie derivative of the metric with respect to $X$ is zero:
+\[
+    \mathfrak{L}_X~g_{ab} = 0
+\]
+\noindent
+This means that the metric doesn't change along the flow of $X$, i.e., distances and angles are preserved under the transformation generated by $X$.
+\begin{tcolorbox}[ title=Cyclic Coordinates]
+A cyclic coordinate is a generalized coordinate $q_i$ that doesn't appear explicitly in the Lagrangian $\mathcal{L}(q, \dot{q},t)$. 
+\[
+    \frac{\partial \mathcal{L}}{\partial q_i} = 0
+\]
+Which implies $q_i$ is cyclic.
+
+\end{tcolorbox}
+Also,
+\[
+    [\mathfrak{L}_u, \mathfrak{L}_v] = \mathfrak{L}_{[u, v]}
+\]
+Two Killing vectors also constitute another Killing vector.
+\subsection{Covariant Derivative}
+
+\begin{itemize}
+    \item[1.] It has to satisfy Leibniz rule (Derivative).
+    \item[2.] Mapping from algebra to algebra.
+\end{itemize}
+Now, $D : A \rightarrow A$
+\begin{align*}
+D(ab) = (Da)b + a(Db) \quad; \quad a, b \in A \\
+\end{align*}
+For a constant $c$,
+\[
+D(ca) = (Dc)a + c(Da) = c(Da)
+\]
+\[
+    \therefore (Dc) \text{ needs to be zero for a constant } c
+\]
+
+Also,
+\[
+    D g_{ab} = 0 \quad \Rightarrow \quad \nabla_m~ g_{ab} = 0
+\]
+
+\begin{itemize}
+    \item $\nabla \rightarrow$ generic case
+    \item $\partial \rightarrow$ flat space only
+\end{itemize}
+
+When $\nabla_a$ hits a scalar $\phi$, it produces a vector:
+\[
+    \nabla_a \phi = \partial_a \phi \quad \text{(vector)}
+\]
+But,
+\[
+    \nabla_a u^b \ne \partial_a u^b \quad \text{in this way.}
+\]
+Like,
+\begin{align*}
+& U^b \rightarrow U'^c = M^c{}_b \, U^b \\
+\Rightarrow ~& \partial_d'~U'^c = \partial_d' (M^c{}_b \, U^b) \\
+\Rightarrow ~& \partial'_d~U'^c = M^c\,_b \,\partial'_d \,U^b + (\partial'_d M^c{}_b)\, U^b
+\end{align*}
+Here exist an additive part, $(\partial'_d M^c{}_b)\, U^b$ that is the problem part which keeps the traces of previous map, mixing of objects of different type. Therefore, to kill it, we need to get:
+\[
+\partial'_d\,M^c{}_b = 0.
+\]
+Hence,
+\[
+\nabla'_a (M U) = M \,\nabla_a U \quad \text{and} \quad \nabla'_a \rightarrow M^{-1} \nabla_a \, M.
+\]
+Now,
+\[
+\nabla_a = \partial_a + A_b
+\]
+This $A_b$ is the additive part called the connection. In older books it was called \textbf{connexion}.
+
+Also,
+\begin{align*}
+& \nabla_a \phi = \partial_a \phi \\
+\Rightarrow~ &\nabla_a U^b = \partial_a U^b + {\Gamma_a\,^b}_{c}\, U^c \tag{7.5} \label{7.5} \\
+\Rightarrow~ & \nabla_a V_b = \partial_a V_b - \Gamma_{ab}^c V_c
+\end{align*}
+The connection in \eqref{7.5} is called \textit{Levi-Civita connection}. Now let,
+\begin{align*}
+& U^a \nabla_a = \phi \\
+\Rightarrow~ & \nabla_c (U^a \nabla_a) = \partial_c \phi \\
+\Rightarrow~ & (\nabla_c U^a)\nabla_a + U^a (\nabla_c \nabla_a) = \partial_c \phi
+\end{align*}
+Then,
+\begin{align*}
+\nabla_a (V_b\,W_c) &= (\nabla_a V_b) W_c + V_b (\nabla_a W_c) \\
+&= \partial_a (V_b W_c) - \Gamma^d_{ab} V_d W_c - \Gamma^d_{ac} V_b W_d \\
+\therefore \nabla_a~g_{bc} &= \partial_a\,g_{bc} - \Gamma^d_{ab}~g_{dc} - \Gamma^d_{ac}~g_{bd} 
+\end{align*}
+Previously, we know that:
+\begin{align*}
+\mathfrak{L}_V W_a &= V^c~\partial_c W_a + W_c\, \partial_a V^c \\
+\therefore \mathfrak{L}_V U^a &= V^c~ \partial_c U^a - U^c\, \partial_c V^a
+\end{align*}
+\begin{tcolorbox}[ title=HW]
+$\bullet$ Calculate $\mathfrak{L}~g_{ab}$
+\textbf{Hint :} Let choose, 
+\[ g_{ab} = P_a Q_b \]
+\begin{align*}
+& \mathfrak{L}_v (P_a Q_b) = (\mathfrak{L}_vP_a) Q_b + P_a (\mathfrak{L}_v Q_b) \\
+& \mathfrak{L}_v g_{ab} = V^c~ \partial_c\, g_{ab} + g_{ac}\, \partial_b V^c + g_{cb}\, \partial_a V^c
+\end{align*}
+$\bullet$ Verify if the partial derivative is switched with the covariant derivative ($\partial \rightarrow\nabla$) the Lie derivative won't change.
+\end{tcolorbox}
+% ---
+Here one way is given for the second task,
+\begin{align*}
+\mathfrak{L}_V'\,U^a &= V^c~ \nabla_c \, U^a - U^c~ \nabla_c \,V^a \\
+&= V^c (\partial_c\, U^a + {\Gamma_c\,^a}_b\,U^b) - U^c (\partial_c\, V^a + {\Gamma_c\,^a}_b\,V^b) \\
+&= (V^c \partial_c\, U^a - U^c \partial_c\, V^a ) + {\Gamma_c\,^a}_b\,U^b \, V^c - {\Gamma_c\,^a}_b\,U^c \, V^b \\
+&= \mathfrak{L}_V\, U^a + {\Gamma_c\,^a}_b\,U^b \, V^c - {\Gamma_b\,^a}_c\,U^b \, V^c \\
+&= \mathfrak{L}_V\, U^a \quad \quad [ {\Gamma_c\,^a}_b = {\Gamma_b\,^a}_c ] \quad \quad \text{(Torsion-free condition)}\\
+\therefore \mathfrak{L}_V '\, U^a &= \mathfrak{L}_V\, U^a
+\end{align*}
+One covariant derivative and another covariant derivative is related with their connection:
+\begin{align*}
+&[\nabla_a, \nabla_b]\phi = 0 \\
+&~[\partial_a, \partial_b]\phi = 0
+\end{align*}
+Also, 
+\begin{align*}
+\nabla_c ~(g_{ab}\, U^b) &= g_{ab} (\nabla_c \,U^b) + (\nabla_c \,g_{ab}) \,U^b \\
+&= g_{ab} \nabla_c \,U^b \\
+\end{align*}
+This suggests that the latter term must be zero,
+\[
+\boxed{\nabla_c \,g_{ab} = 0}
+\]
+This is known as the \textbf{Metricity condition}.
+\newpage
+
+\stepcounter{section}
+\renewcommand{\thesection}{\arabic{section}}
+\fancysection{(\textit{\textbf{Class-8})} Lecture \textbf{5}: Sat, June 21, 2025}{\textbf{\textit{Classical Field Theory}}}
+%---
+Recall the Line element:
+\[
+ds^2 = g_{ab}\, dx^a\, dx^b
+\]
+\begin{tcolorbox}[ title=Notes]
+In GR, one takes $g_{ab}=g_{ab}(x)$ itself as a dynamical field: $\quad g_{ab}(x) = g_{ba}(x)$
+
+Also, in the \textbf{Finsler metric} $g$ not only depends on $x$ but also the derivative,
+\[
+g_{ab} = g_{ab}(x, \partial x)
+\]
+It is used in transportation.
+\end{tcolorbox}
+Now,
+\[
+g'_{ab}(x') = g_{mn}\,\frac{\partial x^m}{\partial x'^a}\,\frac{\partial x^n}{\partial x'^b}
+\]
+
+\[
+G \to G' = M^T\, G\, M \quad ; \quad M = \frac{\partial x}{\partial x'}
+\]
+From multivariable calculus,
+\begin{align*}
+&~~ \quad d^n x \to d^n x' = \left| \frac{\partial x'}{\partial x} \right| d^n x \\
+&\Rightarrow d^n x' = \det(M^{-1})\, d^n x = \frac{1}{\det(M)}\, d^n x \\
+&\Rightarrow \frac{\partial x'}{\partial x} = \det\left(\frac{\partial x'^m}{\partial x^n}\right)\end{align*}
+(Jacobian)
+Now,
+\begin{align*}
+\det(G') = \det(M^T\, G\, M) &= \det(M^T)\,\det(G)\,\det(M) \\
+&= \bigl[\det(M)\bigr]^2\, \det(G) \\
+\therefore\sqrt{\det(G')} &= \lvert \det(M) \rvert\, \sqrt{\det(G)} \\
+\Rightarrow \sqrt{g'}\, d^n x' &= \sqrt{g}\, d^n x
+\end{align*}
+\[
+\therefore\sqrt{g}\, d^n x ~\text{ is an invariant volume element}
+\]
+\subsection{DeWitt Notation}
+\[ a \cdot b = a_\mu\, b^\mu \]
+Quantum Mechanics (QM) says, in the Schrödinger picture:
+\begin{align*}
+\psi(x) &= \langle x | \psi \rangle \quad \to \quad x\text{ component of } \psi \\
+\Rightarrow \langle \phi | \psi \rangle &= \int \langle \phi | x \rangle \langle x | \psi \rangle \, d\mu(x) \\
+&= \int \phi^*(x) \psi(x) \, d\mu(x) = \phi_i^* \,\psi_i \quad \to \quad \text{DeWitt}
+\end{align*}
+\subsection{Point vs Field}
+% ----- 
+\begin{figure}[H]
+    \centering
+    
+    % Subfigure 1: Point
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/L5_1.jpeg}
+        \caption*{\underline{\textbf{Point}}\\[1ex]}
+    \end{subfigure}
+    \hfill
+    % Subfigure 2: Field
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/L5_2.jpeg}
+        \caption*{\underline{\textbf{Field}}\\[1ex]}
+    \end{subfigure}    
+    \caption*{}
+\end{figure}
+\vspace{-1cm}
+\begin{itemize}
+    \item \textbf{Point:} $q(t)$, in only one point.
+    \item \textbf{Field:} $\phi(x) = \phi(t, x^i)$
+\end{itemize}
+% -----
+Now action,
+\[
+S = \int \mathcal{L} \, dt = \int \left[ \int d^3x \, \mathcal{L}[\phi] \right] dt
+\]
+\subsection*{Tenet:}
+\begin{enumerate}
+    \item[(a)] Action is invariant under a set of transformations.
+    \begin{itemize}
+        \item Space-time symmetries (Poincaré and diffeomorphism)
+        \item Internal symmetries
+    \end{itemize}
+    \[
+    ds^2 = (dt)^2 - dx \cdot dx \quad \to \quad \text{Automorphism}
+    \]
+Now,
+\vspace{-0.5cm}
+\begin{center}
+    $t \rightarrow -t$ \quad (time reversal) \\
+    $~x \rightarrow -x$ \quad (space inversion)
+\end{center}
+These are discrete symmetries — \textbf{\textit{no conserved quantity}}. However if,
+\[
+x'^\mu = (\Lambda wx)^p + aw^p \quad \to \quad \text{continuous symmetry}
+\]
+According to Noether’s theorem, there's a conserved quantity for \textbf{\textit{continuous symmetry}}.
+
+\begin{tcolorbox}[ title=Notes]
+\subsection*{Coleman–Mandula Theorem (No-go Theorem):}
+A sarcastic way to put it is - Internal symmetry cannot be married off to space-time symmetry within the framework of Lie group theory. \textbf{Example:} Generators:
+\[
+M = (J + P) + T
+\]
+Can't write like this so that:
+\[
+[J, T] \ne 0
+\]
+and
+\[
+JT^+ |-\frac{1}{2} \rangle = J~ |\frac{1}{2} \rangle
+\]
+\end{tcolorbox}
+
+    \item[(b)] $\delta S = 0$ \quad $\to$ equation of motion
+    \item[(c)] $\mathcal{L}[\phi]$ will be a polynomial of $\phi$ and its first-order derivative
+\end{enumerate}
+Now the Potential,
+\[
+V[\phi] = \phi^r + a \phi^3 + a' \phi^4 + \dots
+\]
+not  $e^\phi$ or $\sin\, \phi, cos\,\phi$ since we can take it in 1+1 dimension (In case $\phi(t, \sigma)$ )
+\subsubsection*{Example:}
+\[
+S[\phi] = \alpha\, \phi_i \phi_i + \beta\, \partial \phi_i \, \partial \phi_i + \gamma_i\, \phi_i
+\]
+\[
+= \int d^4x \left[~ \alpha \, \phi(x)\phi(x) + \beta \, \partial_\mu \phi(x) \partial^\mu \phi(x) + \gamma_i(x) \phi_i(x) ~\right]
+\]
+\[
+[ \text{looking at this, it is too cumbersome without the DeWitt notation} ]
+\]
+Now taking variation,
+\[
+\delta S = 2\alpha\, \phi_i\, \delta \phi_i + 2\beta \, \partial \phi_i \, \delta(\partial \phi_i) + \gamma_i \,\delta \phi_i
+\]
+The variation is assumed to be between two differentiable configurations.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{L5_3.jpeg}
+    \caption*{}
+\end{figure}
+\vspace{-1.5cm}
+\begin{align*}
+\delta \phi(x) &= \phi_2(x) - \phi_1(x) \\
+\Rightarrow \partial \left[ \delta \phi(x) \right] &= \partial (\phi_2(x) - \phi_1(x)) \\
+&= \partial \phi_2(x) - \partial \phi_1(x) \\ 
+\therefore \partial(\delta \phi) &= \delta (\partial \phi)
+\end{align*}
+So, \textbf{\textit{variation and differentiation commute}}. Hence,
+\begin{align*}
+\delta S &= 2\alpha\, \phi_i\, \delta \phi_i + 2\beta \, \partial \phi_i \, \partial(\delta \phi_i) + \gamma_i \,\delta \phi_i \\
+&= (2\alpha \,\phi_i + \gamma_i)\,\delta \phi_i - 2\beta \, \partial^2 \phi_i \, \delta \phi_i + \int (\partial \phi_i \, \partial \phi_i) \, d^4x \bigg|_{\text{boundary}} \\
+&= \delta \phi_i \left( 2\alpha \phi_i + \gamma_i - 2\beta \, \partial^2 \phi_i \right)
+\end{align*}
+Since $\delta \phi_i$ is arbitrary,
+\begin{align*}
+& 2\alpha \phi_i + \gamma_i - 2\beta \, \partial^2 \phi_i = 0 \\
+\Rightarrow & (2\beta \, \partial^2 - 2\alpha) \phi_i = \gamma_i
+\end{align*}
+\begin{itemize}
+\item If $\alpha = \alpha(x)$:
+\[
+(2\beta \, \partial^2 - 2\alpha) \phi_i = \gamma_i
+\quad \quad \text{(No problem)}\]
+\item If $\beta = \beta(x)$:
+\[
+2 \partial\,(\beta \, \partial \phi_i) - 2\alpha_i \phi_i = \gamma_i
+\]
+\end{itemize} 
+To match with the Klein-Gordon equation:,
+\[
+(\partial^2 + m^2)\phi = 0
+\]
+We need
+
+\begin{align*}
+    & 2\beta = +1 \\
+    & 2\alpha = -1 \\
+    & ~~\gamma = 0
+\end{align*}
+% \[
+% 2\beta = 1 \quad , \quad 2\alpha = -1 \quad, \quad \gamma = 0
+% \]
+\begin{framed}
+\textbf{Exercise:} Do the similar procedure for this action -
+\[
+S[\phi] = \alpha\, \phi_i \phi_i + \beta\, \partial \phi_i \, \partial \phi_i + \gamma_i\, \phi_i + K_i \partial \phi_i
+\]
+\textbf{Note:} The last term is important for $\pi$-meson.
+\end{framed}
+\begin{tcolorbox}[ title=Note]
+A huge problem in Quantum Mechanics is linear independence which results in the potential \( V(x)\). $V(x)$ is not being spacetime invariant. A fundamental theory should not have the potential \( V(x) \).
+\end{tcolorbox}
+
+\textbf{Klein-Gordon Action:}
+
+\begin{align*}
+S &= \frac{1}{2} (\partial \phi)^2 - \frac{1}{2} m^2 \phi^2 + J\phi \\
+  &= \int d^4x \left[ \frac{1}{2} \partial_\mu \phi \,\partial^\mu \phi - \frac{1}{2} m^2 \phi^2 + J(x)\, \phi(x) \right]
+\end{align*}
+
+\subsection{Electromagnetism}
+Equation of Motion (EOM):
+\[
+\partial_\mu F^{\mu \nu} = j^\nu \quad \to \quad 4\text{ equations}
+\]
+Where,
+\begin{align*}
+F^{\mu \nu} &= \partial^\mu A^\nu - \partial^\nu A^\mu \\
+\vec{B} &= \vec{\nabla} \times \vec{A} \\
+\vec{E} &= -\vec{\nabla} A_0 - \frac{\partial \vec{A}}{\partial t}
+\end{align*}
+Thus we get two sets of equations from the equation of motion:
+\begin{align*}
+\vec{\nabla} \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \tag{M1} \\
+\vec{\nabla} \times \vec{B} &= \mu_0 \vec{j} + \frac{\partial \vec{E}}{\partial t} \tag{M3}
+\end{align*}
+\newpage
+The remaining two are found from:
+\[
+\partial_{[\mu}F_{\nu \lambda ]} = \partial_\mu F_{\nu \lambda} + \partial_\nu F_{\lambda \mu} + \partial_\lambda F_{\mu \nu} = 0 \tag*{[Bianchi identity]}
+\]
+\begin{align*}
+\vec{\nabla} \cdot \vec{B} &= 0 \tag{M2} \\
+\vec{\nabla} \times \vec{E} &= -\frac{\partial \vec{B}}{\partial t} \tag{M4}
+\end{align*}
+\begin{tcolorbox}[ title=Notes]
+\begin{itemize}
+    \item There are total 8 Maxwell’s (scaler) equations — 2 scalar divergence equations, 6 scalar components from the 2 vector curl equations.
+    \item The vector equations evolve with time; their validity is confirmed from the previous two equations.
+    \item Maxwell's EOM are equivalent to Hamilton's EOM, not the Lagrange's.
+\end{itemize}
+\end{tcolorbox}
+Now for the action,
+\[
+S = \int \mathcal{L}(\phi, \partial \phi) \sqrt{-g}~ d^4x
+\]
+The determinant of $g$ is negative so we put a minus sign inside to make the $(-g)$ positive. However we omit it in flat space:
+\begin{align*}
+\delta S &= \int \left[ \frac{\partial \mathcal{L}}{\partial \phi} \delta \phi + \frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi)} \delta(\partial_\mu \phi) \right] d^4x \\
+&= \int \left[ \frac{\partial \mathcal{L}}{\partial \phi} \delta \phi + \frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi)} \partial_\mu(\delta \phi) \right] d^4x \\
+&= \int \left[ \frac{\partial \mathcal{L}}{\partial \phi} - \partial_\mu \left( \frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi)} \right) \right] \delta \phi \, d^4x 
++ \int d^3x~\eta^\mu \frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi)} \delta \phi \\
+&= \quad0 \quad\left( \int d^3x~\eta^\mu \frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi)} \delta \phi = 0 \to \text{ Dirichlet condition} \right)
+\end{align*}
+\begin{tcolorbox}[ title=Verifying Dirichlet condition]
+Let's verify this,
+\begin{align*}
+\nabla \cdot (\psi \nabla \phi) &= \nabla \psi \cdot \nabla \phi + \psi \nabla^2 \phi \\
+\Rightarrow \int \nabla \phi \cdot \nabla \psi~d^3x &= -\int \psi \, \nabla^2 \phi~d^3 x +\int\nabla \cdot(\psi \nabla \phi)~ d^3 x \\
+&=  -\int \psi \, \nabla^2 \phi~d^3 x +\int \psi (n\cdot\nabla) \phi~ d \mathcal{S}
+\end{align*}
+\end{tcolorbox}
+% ---
+\begin{tcolorbox}[ title=Post-class discussions]
+\begin{figure}[H]
+    \centering
+    \vspace{-0.7cm}
+    % Time-like Space
+    \begin{minipage}[t]{0.6\textwidth}
+    \vspace{-2.5cm}
+        \textbf{Time-like Space:}
+        \begin{itemize}
+            \item Perpendicular is in time-like direction.
+        \end{itemize}
+    \end{minipage}%
+    \hfill
+    % \vspace{-1cm}
+    \begin{minipage}[t]{0.35\textwidth}
+        \includegraphics[width=\linewidth]{figures/L5_5.jpeg}
+    \end{minipage}
+    % Space-like Space
+    \begin{minipage}[t]{0.6\textwidth}
+    \vspace{-3.5cm}
+        \textbf{Space-like Space:}
+        \begin{itemize}
+            \item Perpendicular is in z-direction.
+        \end{itemize}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.35\textwidth}
+        \includegraphics[width=\linewidth]{figures/L5_4.jpeg}
+    \end{minipage}
+    % Null-like Space
+    \begin{minipage}[t]{0.6\textwidth}
+    \vspace{-3cm}
+        \textbf{Null-like Space:}
+        \begin{itemize}
+            \item Null object's perpendicular is also null.
+            \item E.g., light ray.
+        \end{itemize}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.35\textwidth}
+        \includegraphics[width=\linewidth]{figures/L5_6.jpeg}
+    \end{minipage}
+
+\end{figure}
+\end{tcolorbox}
+\newpage
+
+\stepcounter{section}
+\renewcommand{\thesection}{\arabic{section}}
+\fancysection{(\textit{\textbf{Class-9})} Lecture \textbf{6}: Sat, June 28, 2025}{\textbf{\textit{Gauge Theory}}}
+%---
+% For a free particle, $m = 1$. The Lagrangian, 
+% \[
+% \mathcal{L} = \frac{1}{2} m \dot{q}^2 \rightarrow q, \dot{q}~\text{as independent}
+% \]
+% Also, if 
+% \[
+% \mathcal{L} = -\frac{1}{2}q\,\ddot{q} \to q, \dot{q}~\text{as independent}
+% \]
+
+% Therefore, $\delta \mathcal{L} = 0$ implies
+% \begin{align*}
+% &\quad \frac{\partial \mathcal{L}}{\partial q} - \frac{d}{dt} \left( \frac{\partial \mathcal{L}}{\partial \dot{q}} \right) + \frac{d^2}{dt^2} \left( \frac{\partial \mathcal{L}}{\partial \ddot{q}} \right) = 0 \\
+% &\Rightarrow 0 - \frac{d}{dt} \left( \frac{1}{2} \times 2m \dot{q} \right) + \frac{d^2}{dt^2}(0) = 0  \quad [\,\because \ddot{q}=0~]\\
+% & \Rightarrow \frac{d}{dt}(m \dot{q}) = 0
+% \Rightarrow m \ddot{q} = 0
+% \Rightarrow \ddot{q} = 0 
+% \end{align*}
+% Now, if 
+% \[
+% \mathcal{L} = \frac{1}{2} \ddot{q}^2 \Rightarrow \frac{d^2}{dt^2} \left( \frac{\partial \mathcal{L}}{\partial \ddot{q}} \right) = \frac{d^2}{dt^2} (\ddot{q}) = 0
+% \]
+
+% \[
+% \Rightarrow \text{No Unique Lagrangian!}
+% \]
+
+\subsection{Gauge Field}
+\subsubsection{Free Field}
+Maxwell field $\equiv$ EM field \\
+Electromagnetism is \textbf{not} a theory of \textbf{field strength tensor}, but a \textbf{theory of potential}.
+
+Now, 
+\[
+\mathcal{L} = -\frac{1}{4} F^{ab} F_{ab} \quad;\quad F_{ab} = \partial_{[a}A_{b]} = \partial_a A_b - \partial_b A_a
+\]
+\begin{tcolorbox}[ proofbox, title=Note about the factor-$\frac{1}{2}$ ]
+\begin{itemize}
+    \item If we put $\frac{1}{4}$ in the Lagrangian, the $\frac{1}{2}$ is necessary in $F_{ab}$, otherwise we can omit it.
+    \item `$\frac{1}{2}$' was also used in \textit{Penrose's} book
+\end{itemize}
+\end{tcolorbox}
+To find the equation of motion from the Lagrangian, we vary $A$,
+\begin{align*}
+\delta \mathcal{L} &= -\frac{1}{4} F^{ab}~\delta F_{ab}  -\frac{1}{4} \delta F_{ab}~ F^{ab} \\
+&= -\frac{1}{2} F_{ab}~ \delta F^{ab} \\
+&= -\frac{1}{2} F_{ab}~\delta ( \partial^a A^b - \partial^b A^a ) \\
+&= -F_{ab}~ \delta (\partial^a A^b) \tag{9.1} \label{9.1} \\
+\therefore \delta \mathcal{L}&= -F_{ab}~ \partial^a (\delta A^b) =0 \quad [\text{however, } \delta A^b \ne 0] \\
+\therefore \partial^a &F_{ab} = 0 \quad \text{(Free Maxwell Equation)}
+\end{align*}
+\begin{tcolorbox}
+Derivation of \eqref{9.1}
+\begin{align}
+F_{ab}~(\partial^a C^b - \partial^b C^a ) &= F_{ab}~\partial^a C^b - F_{ab}~\partial^b C^a  \\
+&= F_{ab}~\partial^a C^b - F_{ba}~\partial^a C^b \\
+&= F_{ab}~\partial^a C^b + F_{ab}~\partial^a C^b \quad [\because F_{ab} = -F_{ba} ] \\
+\therefore F_{ab}~(\partial^a C^b - \partial^b C^a ) &= 2F_{ab}~\partial^a C^b = 2F_{ab}~\partial^a A^b \quad[ C\to A ]
+\end{align}
+\end{tcolorbox}
+\subsubsection{In Presence of a Source}
+\begin{align*}
+&\partial^a F_{ab} = J_b \\
+\Rightarrow ~&\partial^a F_{ab} - J_b = 0
+\end{align*}
+and variation:
+\[
+F_{ab}~\partial^a (\delta A^b) - J_b \, \delta A^b = 0
+\]
+Thus in presence of a source the Lagrangian becomes,
+\[
+\mathcal{L} = -\frac{1}{4} F_{ab} F^{ab} - J_b \,A^b
+\]
+\[
+J_b \, A^b \to \text{Interaction term}
+\]
+\begin{tcolorbox}[ proofbox, title=Notes ]
+\begin{itemize}
+    \item Everything else other than the gauge field is matter.
+    \item In the theory of gravitation, electromagnetism will act as a matter.
+\end{itemize}
+\end{tcolorbox}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{figures/C09_1.jpeg}
+    \caption*{}
+\end{figure}
+\vspace{-1.5cm}
+Therefore,
+\[
+J^b = -\frac{\delta \mathcal{L}_{\text{matter}}}{\delta A^b(x)}
+\]
+\subsubsection*{Question: When can a current couple to a photon?}
+Answer: Let's do a gauge transformation.
+\[
+A_a \rightarrow A_a' = A_a + \partial_a F \tag{9.2} \label{9.2}
+\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{figures/C09_2.jpeg}
+    \caption*{}
+\end{figure}
+\vspace{-1cm}
+\begin{tcolorbox}[title=Notes]
+\begin{itemize}
+    \item It's like a translation in internal space.
+    \item Translation of a configuration space.
+    \item Transformation is thought as a translation in extra dimension.
+\end{itemize}
+\end{tcolorbox}
+Now, we want the action (Lagrangian) to be invariant under gauge transformation \eqref{9.2}.
+\begin{align*}
+-J_b A^b &\to -J_b (A^b + \partial^b F) \\
+&= -J_b \, A^b - J_b \,\partial^b F \\
+&= -J_b \, A^b +(\partial^b J_b) F \quad [ \text{integration by parts} ]
+\end{align*}
+\begin{itemize}
+    \item $F$ must vanish on boundaries
+    \item $F$ is not arbitrary.
+    \item Therefore the current must be conserved.
+\end{itemize}
+\[
+\therefore ~\partial^b J_b = 0 \quad; \quad \text{for all } J
+\]
+\begin{itemize}
+    \item Classical EOM $\neq$ Whole Configuration Space.
+    \item Here, we extremize action.
+\end{itemize}
+
+\subsection{Covariant Derivative}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{figures/C09_3.jpeg}
+    \caption*{}
+\end{figure}
+\vspace{-1.5cm}
+\[
+\phi \rightarrow \phi' = M \phi \quad; \quad M = M(x)
+\]
+\[
+\partial_\mu \phi \to  \partial_\mu \phi' =\partial_\mu (M \phi) = M \partial_\mu \phi + (\partial_\mu M) \phi
+\]
+The latter term $(\partial_\mu M) \phi$ denotes there is another space dependency on $\phi$
+
+$M$ is a matrix valued. Now we have to add terms whose linear addition removes this garbage (extra term). Therefore,
+\[
+D_\mu \phi \to M D_\mu \phi \equiv D'_\mu \phi' \equiv D'_\mu (M \phi)
+\]
+\begin{tcolorbox}
+Derivative is not hermitian, it is anti-hermitian. Hence we write,
+\[
+D_\mu \phi = \partial_\mu \phi + i A_\mu \phi \quad \text{instead of} \quad \partial_\mu \phi + A_\mu \phi.
+\]
+Also $D_\mu$ is an associative operation.
+\end{tcolorbox}
+
+\begin{align*}
+&\quad \quad \quad D_\mu'b = M ~D_\mu ~ M^{-1} \\
+&\Rightarrow (\partial_\mu + i A'_\mu) = M (\partial_\mu + i A_\mu) M^{-1} \\
+&\Rightarrow \partial_\mu + i A'_\mu = \partial_\mu + i ~M A_\mu M^{-1} \quad [\because M \partial_\mu M^{-1} = \partial_\mu]\\
+&\Rightarrow i A'_\mu = M (\partial_\mu M^{-1}) + i~ M A_\mu M^{-1}\\
+&\Rightarrow i A'_\mu = M \partial_\mu M^{-1} + i ~M A_\mu M^{-1} \\
+&\therefore ~~~ A'_\mu = M A_\mu M^{-1} - i ~M \partial_\mu M^{-1}
+\end{align*}
+
+\textbf{Findings:}
+\begin{itemize}
+\item $D$ is matrix valued.
+\item $D_\mu$ transforms covariantly $\to$ Tensor
+\item $A_\mu$ doesn't transform covariently $\to$ Tensor
+\end{itemize}
+Now,
+\begin{align*}
+\tilde{F}_{\mu \nu} &= \frac{1}{i} [D_\mu, D_\nu] \\
+&= \frac{1}{i}\big[\partial_\mu \mathbb{I}+ i A_\mu ~,~ \partial_\nu \mathbb{I}+ i A_\nu  \big] \\
+&= \frac{1}{i}\left\{ i \big[ \mathbb{I} \partial_\mu , A_\nu \big] + i\big[ A_{\mu}, \mathbb{I} \partial_\nu\big]+i^2 \big[A_\mu , A_\nu \big] \right\} \quad \big( \because \big[ \partial_\mu , \partial_\nu \big] =0 \big)  \\
+\therefore\tilde{F}_{\mu\nu} &= \partial_\mu A_\nu - \partial_\nu A_\mu + i[A_\mu, A_\nu] \\
+\therefore [D_\mu, &D_\nu] \text{ is a curvature}
+\end{align*}
+% $A, B$ are hermitian, so
+% \[
+% [A, B] \text{ is antihermitian}
+% \]
+Now,
+\begin{align*}
+\tilde{F}_{\mu \nu} &= M \,F_{\mu \nu} \, M^{-1} \\
+&= -\frac{1}{i} \big[D_\mu, D_\nu \big] \\
+&= -\frac{1}{i} \left[ M \,D_\mu \,M^{-1}, M \, D_\nu \, M^{-1} \right] \\
+&= -\frac{1}{i} M \big[D_\mu, D_\nu \big] M^{-1} \\
+\therefore \tilde{F}_{\mu \nu}&= M \,\tilde{F}_{\mu \nu}\, M^{-1}
+\end{align*}
+Now, for a transformation $\quad \phi \to \phi' = M \phi$
+\begin{align*}
+A_\mu \to M A_\mu M^{-1} - i \,M \partial_\mu M^{-1} \quad \tag{9.3a} \label{9.3a} \\
+\bar{A}_\mu \to M \bar{A}_\mu M^{-1} - i\,M \partial_\mu M^{-1} \quad \tag{9.3b} \label{9.3b}
+\end{align*}
+Subtracting \eqref{9.3b} to \eqref{9.3a} we get
+\[
+(\bar{A}_\mu - A_\mu) \to M\,(\bar{A}_\mu - A_\mu) \, M^{-1}
+\]
+Therefore, the variation $(\bar{A}_\mu - A_\mu)$ of a connection acts as a tensor, not $A_\mu$ itself.
+\begin{tcolorbox}[ title=Extra information]
+\begin{itemize}
+\item [a)] \textbf{Affine space}: the origin is not known.
+\item [b)] If $A$ is a matrix, we can define some norm out of it:
+    \begin{itemize}
+        \item $\det A \to$ not additive
+        \item Tr $A \to$ additive
+    \end{itemize}
+\end{itemize}
+\end{tcolorbox}
+Now,
+\begin{align*}
+S_{YM} &= -\frac{1}{4} \int d^D x \, \mathrm{Tr}\left( \tilde{F}_{\mu \nu} \tilde{F}^{\mu \nu} \right) \\
+\delta S_{YM} &= -\frac{1}{2} \int d^D x \, \mathrm{Tr}\left( \tilde{F}^{\mu \nu} \delta \tilde{F}_{\mu \nu} \right) =0 \tag{9.4} \label{9.4}
+\end{align*}
+Here,
+\begin{align*}
+\delta \tilde{F}_{\mu \nu} &= \frac{1}{i}\, \delta [D_\mu, D_\nu] \\
+&= \frac{1}{i} \delta (D_\mu D_\nu - D_\nu D_\mu) \\
+&= \frac{1}{i} \left\{ (\delta D_\mu) D_\nu + D_\mu (\delta D_\nu) - (\delta D_\nu) D_\mu - D_\nu (\delta D_\mu) \right\} \\
+&= -\frac{1}{i} \left\{ [\delta D_\mu, D_\nu] + [D_\mu, \delta D_\nu] \right\} \\
+&=[\delta A_\mu, D_\nu] + [D_\mu, \delta A_\nu] \\
+\therefore \delta \tilde{F}_{\mu \nu} &= [D_\mu, \delta A_\nu] - [D_\nu, \delta A_\mu] \tag{9.5} \label{9.5}
+\end{align*}
+\begin{tcolorbox}
+Recall for electromagnetism,
+\[
+\delta F_{\mu \nu} = \partial_\mu (\delta A_\nu )-\partial_\nu (\delta A_\mu) = [\partial_\mu , \delta A_\nu ] - [\partial_\nu , \delta A_\mu]
+\]
+\end{tcolorbox}
+Using \eqref{9.5} in \eqref{9.4} we get,
+\begin{align*}
+\delta S_{YM} &= -\frac{1}{2} \int d^D x \, \mathrm{Tr}\left( \tilde{F}^{\mu \nu}\left\{ \big[ D_\mu, \delta A_\nu \big] - \left[ D_\nu, \delta A_\mu \right] \right\}\right) \\
+&= -\frac{1}{2} \int d^D x \, \mathrm{Tr}\left( \tilde{F}^{\mu \nu}\left[ D_\mu, \delta A_\nu \right] - \tilde{F}^{\mu \nu}\left[ D_\nu, \delta A_\mu \right] \right) \\
+&=- \int d^D x \, \mathrm{Tr}\left( \tilde{F}^{\mu \nu}\left[ D_\mu, \delta A_\nu \right]\right) \\
+\therefore \delta S_{YM}&= \int d^D x \, \mathrm{Tr}\left( \left[ D_\mu, \tilde{F}^{\mu \nu}\right] \delta A_\nu \right) = 0
+\end{align*}
+\[
+\therefore \left[ D_\mu, F^{\mu \nu}\right]=0 \quad (\tilde{F}_{\mu \nu} \to A^1 + A^2 \to A^3 \quad \text{highly nonlinear})
+\]
+\begin{tcolorbox}
+Proof of \eqref{9.5},
+\[
+\mathrm{Tr}\big( A[X,B] \big) = - \mathrm{Tr}\big([X,A]B \big)  
+\]
+\begin{align*}
+\mathrm{Tr}\big( A[X,B] \big) &= \mathrm{Tr}\big( AXB - ABX \big) \\
+&= \mathrm{Tr}\big( XAB \big) + \mathrm{Tr}\big( AXB \big) \\
+&= -\mathrm{Tr}\big( ~\{XA-AX\} B ~\big) \\
+\therefore \mathrm{Tr}\big( A[X,B] \big)&= - \mathrm{Tr}\big( [X,A]B \big) \\
+\therefore \mathrm{Tr}\big( \tilde{F}_{\mu \nu}[D_\mu,\delta A_\nu] \big)&= - \mathrm{Tr}\big( [D_\mu,\tilde{F}_{\mu \nu}] \delta A_\nu \big)
+\end{align*}
+\end{tcolorbox}
+
+\newpage
+
+\stepcounter{section}
+\renewcommand{\thesection}{\arabic{section}}
+\fancysection{(\textit{\textbf{Class-10})} Lecture \textbf{7}: Sat, July 5, 2025}{\textbf{\textit{Path Integral Formalism}}}
+%---
+\subsection{Quantization}
+\subsubsection{What is Quantization?}
+Quantization is the process that turns classical variables into quantum operators that act on a state space. 
+\newline
+\textbf{Example:} In the harmonic oscillator, we quantize by defining:
+\begin{itemize}
+    \item Ladder operators: \( a, a^\dagger \)
+    \item Number states: \( \ket{n} \)
+\end{itemize}
+
+Then, we can calculate overlaps like:
+\[
+\bra{m} e^{i\hat{H}t/\hbar} \ket{n}
+\]
+\begin{tcolorbox}[ title=Overlaps]
+In quantum mechanics, states are represented as vectors in a Hilbert space. The overlap between two quantum states \( \ket{\psi} \) and \( \ket{\phi} \) is their inner product:
+\[
+\braket{\phi|\psi} \quad \text{(Complex number)}
+\]
+\end{tcolorbox}
+This is only possible because we quantized—i.e., built a Hilbert space of states and defined how operators act.
+\[
+\boxed{\textbf{No Hilbert Space = No quantization.}}
+\]
+
+\subsubsection{Why Quantization?}
+\begin{itemize}
+    \item Matches with experimental results.
+    \item The ultimate goal is to calculate \textbf{overlaps}. No operators / Hilbert space is necessarily involved.
+\end{itemize}
+\vspace{1cm}
+\begin{tcolorbox}[ title=Note]
+\subsubsection*{Why in quantum mechanics we take \( [a, a^\dagger] = 1 \)but why not \( a^\dagger \ket{0} = 0 \)?}
+Because if \( a^\dagger \ket{0} = 0 \), then:
+\[
+(x + ip) \psi = 0 \quad \Rightarrow \quad \left( x - \frac{d}{dx} \right) \psi = 0
+\]
+If \( \psi \sim A e^{+x^2/2} \), it won't be normalizable.
+\end{tcolorbox}
+\subsection{Quantization Methods}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\linewidth]{figures/C10_1.jpeg}
+    \caption*{}
+\end{figure}
+% \vspace{}
+% Starting with classical action:
+
+% \[
+% \text{Classical Action} \longrightarrow \text{Phase Space} \longrightarrow \text{Poisson Bracket} \longrightarrow \text{Commutation Relation}
+% \]
+
+% \begin{itemize}
+%     \item[\textbf{M1}] Canonical Quantization
+%     \item[\textbf{M2}] Path Integrals
+% \end{itemize}
+
+% \textbf{Overlaps:} \( \braket{\phi | O | \psi} \) = Amplitude of observation
+
+\begin{tcolorbox}
+\subsection*{GNS Construction}
+\[\text{GNS Construction : Algebra} \rightarrow \text{Hilbert space} \]
+Regular Representation of a Group (Algebra):
+\[
+gg' = g' g
+\]
+Think of a vector:
+\[
+R(g)
+\begin{pmatrix}
+g_1 \\
+g_2 \\
+\vdots \\
+g_n
+\end{pmatrix}
+=
+\begin{pmatrix}
+g_1' \\
+g_2' \\
+\vdots \\
+g_n'
+\end{pmatrix}
+\]
+\begin{itemize}
+    \item Regular representation is not necessarily an irreducible representation (irrep).
+\end{itemize}
+
+\subsection*{Adjoint Representation}
+\[
+\big[T(g), g\big] = g''
+\]
+\begin{itemize}
+    \item Adjoint Rep. is an irrep.
+\end{itemize}
+Also,
+\[Algebra \to \text{existence of a cyclic vector} \equiv \text{choice of a vacuum state}
+\]
+\end{tcolorbox}
+
+\section*{Back to Hamiltonian Formulation}
+The Hamiltonian depends on a choice of coordinates. It's not a covariant concept.
+
+\begin{enumerate}
+    \item We find \( H \) from conjugate momenta.
+    \item Then need Lagrangian \( \mathcal{L} \)
+    \item Then need \textbf{dot} i.e., time derivatives
+    \item Which is frame dependent
+    \item Proper time needs to be defined
+\end{enumerate}
+Hence, not good from the vantage point of General Relativity.
+\begin{tcolorbox}
+\subsection*{Haag's Theorem}
+\textbf{Statement:} The interaction picture does not rigorously exist in interacting relativistic quantum field theory.
+\end{tcolorbox}
+\subsection{Pictures in Quantum Mechanics}
+\begin{center}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Pictures    & State & Operator \\
+\midrule
+Schrödinger & \checkmark & $\times$ \\
+Heisenberg  & $\times$   & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{center}
+\[
+\text{QFT} \to  \text{Infinite Degrees of Freedom}
+\]
+\textbf{Schrödinger Picture:} Needs a state vector which is a \textbf{functional} of the degrees of freedom (DOFs).
+
+In one particle,
+\begin{itemize}
+    \item \( \hat{x} \to \) can be independent of time
+    \item \( \psi \to \) can be time dependent
+\end{itemize}
+$\therefore \, \hat{x} \ket{\psi} \to$ eigenvalue can be dependent on time.
+\begin{tcolorbox}
+In Quantum Field Theory, 
+\[
+\psi (x) \to \psi [\phi]
+\]
+This is because $x$ is just a \textbf{label}, so relabeling does not change the wavefunction.
+\end{tcolorbox}
+\noindent
+Also for one particle,
+\[\psi \sim e^{-x^2/2}\]
+But for many particles,
+\[\psi \sim e^{-x_1^2/2} ~\cdot e^{-x_2^2/2} \dots \dotsc \sim \prod_i e^{-x_i^2/2} \]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{figures/C10_3.jpeg}
+    \caption*{}
+\end{figure}
+% \vspace{}
+For Hamiltonian:
+\[
+H = \sum_i p_i^2 + V = -\sum_i \left(\frac{\partial^2}{\partial x_i^2}\right) + V
+\]
+As we can see there are infinite derivatives $\big(\frac{\partial}{\partial x}\big)$ and we need to find their eigenvalues. This is why the Heisenberg picture is often preferred where, \textbf{states are independent of time}. 
+
+\begin{tcolorbox}
+\textbf{Notice, in Quantum Mechanics:}
+\[
+[x_i, p_j] = i \hbar \delta_{ij}
+\]
+- Eigenvalues are unbounded  
+- \(1 \leq i,j \leq \mathbb{N}\)  
+- Degrees of freedom are \textbf{finite} \\[1em]
+
+\textbf{In Quantum Field Theory:}
+\[
+[\phi(x), \pi(y)] = i\, \delta^3(x - y)\, \hat{\mathbb{I}}
+\]
+- Degrees of freedom are \textbf{infinite}  
+- Representations of the commutation relations are \textbf{not unitarily equivalent} \\[1em]
+
+\textbf{Another way to realize this:}
+\[
+[x_i, p_j] = i \hbar \delta_{ij}
+\]
+The trace of the right-hand side is non-zero:  
+\[
+\mathrm{Tr}(\mathbb{I}) \neq 0
+\]
+But the trace of the left-hand side:
+\[
+\mathrm{Tr}(xp - px) =
+\begin{cases}
+0        & \text{(finite d.o.f.)} \\
+\neq 0   & \text{(infinite d.o.f.)}
+\end{cases}
+\]
+\end{tcolorbox}
+\noindent
+We use the Heisenberg picture,
+
+\subsubsection*{Free Particle Wavefunction}
+
+\begin{align*}
+\psi(x,t) &= e^{i(kx - \omega t)} \\
+          &= e^{\frac{i}{\hbar}(px - Et)} \\
+          &= e^{\frac{i}{\hbar} \int (p \frac{dx}{dt} - E) \, dt} \\
+          &= e^{\frac{i}{\hbar} \int \mathcal{L} \, dt} \\
+          &= e^{\frac{i}{\hbar} S}
+\end{align*}
+
+Also,
+\[
+\psi(x,t) = \braket{x |\, \psi, t}_S = \braket{x,t\, | \psi}_H
+\]
+
+We are interested in this "kernel":
+\[
+\braket{x',t' \,|\, x,t}
+\]
+
+\textbf{Why This Kernel?}
+
+We assume we are dealing with linear equations:
+\[
+\hat{L} \phi(x) = J(x)  \quad ; \quad \text{Effect} \rightarrow \text{Cause} \tag{10.1} \label{10.1}
+\]
+
+Recall Ohm's law:
+
+\begin{align*}
+J &= \sigma E \\
+\Rightarrow J(x) &= \sigma(x) E(x) \quad \text{(Local, like Maxwell's equations)} \\
+\text{But,} \quad V &= IR \quad \text{(Bilocal: Involves two points)}
+\end{align*}
+
+Inversion of \eqref{10.1} yields:
+\[
+\phi(x) = \int G(x, y) J(y) \, dy
+\]
+
+Where:
+
+\begin{itemize}
+    \item \( G(x,y) \): Green’s Function (Kernel)
+    \item \( \hat{L} \, G(x, y) = \delta(x,y) \quad \) (not \( \delta(x-y) \))
+\end{itemize}
+Effect at point $x$ caused by a source of unit strength localized at point $y$. That is: 
+$$\langle b | V | a \rangle$$
+\vspace{0.5cm}
+
+\textbf{Important Notes:}
+\begin{itemize}
+    \item \( \delta(x, y) \rightarrow \) Localized cause
+    \item \( G(x, y) \) is not necessarily symmetric
+    \item Operator \( \hat{L} \) possesses translation symmetry
+\end{itemize}
+\begin{tcolorbox}
+Checking \eqref{10.1}:
+\begin{align*}
+    \hat{L} \phi(x) &= \int \hat{L}\,G (x,y) J(y) \, dy \\
+    &= \int \delta(x,y) J(y) \, dy \\
+    &= J(x) \\
+    \therefore \phi(x) &= \int G(x,y) J(y) \, dy
+\end{align*}
+\end{tcolorbox}
+
+\subsection{Double Slit}
+\vspace{-1.5cm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/C10_4.jpeg}
+    \caption*{}
+\end{figure}
+\vspace{-2cm}
+\begin{align*}
+\langle x', t' | x, t \rangle &= \sum_i \langle x', t' | x_i'', t_2 \rangle \langle x_i'', t_2 | x, t \rangle
+ \\
+&= \int dx'' \, \langle x', t' | x'' \rangle \langle x' | t \rangle
+\end{align*}
+\textbf{Completeness Theorem:}
+\[
+\int dx'' \, \ket{x''} \bra{x''} = \mathbb{I} \quad \to \quad \text{must be a complete set.}
+\]
+All calculations hereafter are to be done on a discrete space-time and we will take the continuum limit.\\
+
+\noindent
+Hence,
+\[
+\langle x', t' | x, t \rangle = \int \prod_{i=1}^N dx_i \, \langle x', t' | x_{i-1} \rangle \langle x_{i-1}| x_{i-2} \rangle \langle x_{i-2}| \dots \rangle \langle x_1 | x, t \rangle
+\]
+Now, we need to measure:
+\[
+\langle x',\, t + \delta t \,| x, t \rangle
+\]
+Recall,
+\[
+\langle x, t | \psi \rangle_H = \langle x | \psi, t \rangle_S
+\]
+Schrödinger equation:
+\begin{align*}
+i \frac{\partial}{\partial t} \ket{\psi(t)} &= \hat{H} \ket{\psi} \\
+\Rightarrow \ket{\psi(t)} &= e^{-i \hat{H} t}  \ket{\psi(0)} = e^{- i \hat{H}t } |\psi \rangle_H \\
+\therefore  \langle x | \psi, t \rangle_S &= \langle x | e^{-i \hat{H} t} \ket{\psi}_H
+\end{align*}
+\[
+\boxed{\therefore \langle x',\, t + dt | x, t \rangle 
+= \langle x', \Delta t | x,0 \rangle =  ~_H\langle x' | e^{-i \hat{H} t} | x \rangle_H}
+\]
+\[
+\big[ \text{ here, } ~_H\langle x' | e^{-i \hat{H} t} | x \rangle_H \to \text{measure at the same time} \big]
+\]
+Note as $\Delta t \to 0$,
+\[
+\langle x', \Delta t | x,0 \rangle = \delta(x - x') \quad \text{(compare at the same time)}
+\]
+Hence,
+\begin{align*}
+\langle x' | e^{-i \hat{H} \Delta t} | x \rangle &= \int dp \, \langle x' | e^{-i \hat{H} \Delta t} |p \rangle \langle p | x \rangle \\
+&= \int dp \, dp' \, \langle x' | p' \rangle \langle p' | e^{-i \hat{H} \Delta t} | p \rangle \langle p | x \rangle \\
+&= \int dp \, dp' \, \frac{1}{2\pi} e^{ip'x'} \langle p' | e^{-i \hat{H} \Delta t} | p \rangle ~e^{-ipx} \\
+&\quad \quad \big[ \because \langle x|p \rangle = \frac{1}{\sqrt{2 \pi}} e^{ipx} ; \hbar=1 \big] \\
+&= \frac{1}{2\pi}\int dp \, dp' \,  e^{i(p'x'-px)}\, \langle p' | e^{-i \hat{H} \Delta t} | p \rangle \\
+\end{align*}
+Now, for a free particle,
+\[
+\hat{H} = \frac{\hat{p}^2}{2m} \quad \big[ V(x) ~\text{not discussed here} \big]
+\]
+Hence,
+\begin{align*}
+\langle p' | e^{-i \hat{H} \Delta t} | p \rangle &= \langle p' | e^{-i \frac{\hat{p}^2}{2m} \Delta t} | p \rangle\\
+&= e^{-i \frac{\hat{p}^2}{2m}} \langle p'|p \rangle \\
+&= e^{-i \frac{p^2}{2m} \Delta t} \delta(p - p')
+\end{align*}
+Therefore,
+\begin{align*}
+\langle x' | e^{-i \hat{H} \Delta t} | x \rangle &= \frac{1}{2\pi} \int dp \, dp' \, e^{i(p' x' - p x)} e^{-i \frac{p^2}{2m} \Delta t} \delta(p - p') \\
+&= \frac{1}{2\pi} \int dp \, e^{i (p x' - px)} e^{-i \frac{p^2}{2m} \Delta t}
+\end{align*}
+Using the Gaussian integral identity:
+\[
+\int_{-\infty}^{\infty} dz \, e^{-a z^2 + b z} = \sqrt{\frac{\pi}{a}} e^{\frac{b^2}{4a}}
+\]
+We get,
+\begin{align*}
+&= \frac{1}{2\pi} \int dp \,e^{- {(\frac{i \Delta t}{2m})}^2 p^2} ~ e^{ ip [ x' -x ] } \\
+&= \frac{1}{2\pi} \left( \frac{\pi}{\frac{i \Delta t}{2m}} \right)^{1/2} 
+e^{- \frac{(x' - x)^2}{4 i \Delta t / (2m)}} \\
+&= \left( \frac{m}{2 \pi i \Delta t} \right)^{1/2} 
+e^{i \frac{m}{2} {\left( \frac{x' - x}{\Delta t} \right)}^2 \Delta t} \\
+&= \left( \frac{m}{2 \pi i \Delta t} \right)^{1/2} 
+e^{i \frac{m}{2} v^2 \Delta t} \\\\
+&= A ~ e^{ i \mathcal{L} \Delta t } \quad ; \quad \big[ A= \left( \frac{m}{2 \pi i \Delta t} \right)^{1/2} \big] \quad
+\end{align*}
+So,
+\[
+\langle x', t' | x, t \rangle = \int dx'\,dx'' \, \prod_i e^{{i m \big[\frac{x_{i+1} - x_i}{2 \Delta t}}\big]^2} = \int \mathcal{D}x \, e^{i S[x]}
+\]
+Where $\mathcal{D}x$ is an infinite-dimensional factor.
+
 
 
 
