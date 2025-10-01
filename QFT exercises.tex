@@ -173,5 +173,83 @@ Derive the equation of motion for this action and compare with the KG equation t
 S[\phi] = \alpha\, \phi_i \phi_i + \beta\, \partial \phi_i \, \partial \phi_i + \gamma_i\, \phi_i + K_i \partial \phi_i
 \]
 \textbf{Note:} The last term is important for $\pi$-meson.
+\section{Exercise for Class-11 [Lecture-8]}
+Find the solution of the G(t).
+\section{Exercise for Class-13 [Lecture-10]} 
+Do this calculation for 6-point function and calculate $\langle \phi_a \phi_b \phi_c \phi_d \phi_e \phi_f\rangle $.
+\section{Exercise for Class-14 [Lecture-11]} 
+\subsection{Exercise-1}
+Consider a field theory for two fields $\phi, \chi$ and whose action is given by
+\begin{align*}
+S = \frac{1}{2} \phi^T A \phi + \frac{1}{2} \chi^T A\, \chi + \chi^T B \, \phi - \phi^T B\, \chi \quad, \quad [B = -B]
+\end{align*}
+Find the propagators for this field.
+\subsection{Exercise-2}
+For $V=\frac{{g \phi^3}}{3!}$, Calculate the $2^{\text{nd}}$ order contribution to $Z[J]$ due to this interaction.
+\section{Exercise for Class-15 [Lecture-12]} 
+Decompose the full 4-point function in terms of the connected Green's function of 4th order or less.
+\section{Exercise for Class-16 [Lecture-13]} 
+Decompose the 4-point connected Green function in terms of proper vertices and the 2-point function.
+\section{Exercise for Class-19 [Lecture-16]} 
+\begin{framed}
+For $n$ such vertex insertions: each minus comes from the propagator 
+in a Euclideanized way,
+\[
+(-1)^n \int \frac{d^Dk}{(2\pi)^D} \frac{[V''(\varphi)]^n}{(k^2+m^2)^n}.
+\]
 
+Using dimensional regularization,
+\[
+\int \frac{d^Dk}{(2\pi)^D} \frac{1}{(k^2+m^2)^n} 
+= \frac{1}{(4\pi)^{D/2}} \frac{\Gamma\!\left(n-\tfrac{D}{2}\right)}{\Gamma(n)} 
+\frac{1}{(m^2)^{\,n-D/2}}.
+\]
+
+Thus,
+\[
+=(-1)^n \frac{[V''(\varphi)]^n}{(4\pi)^{D/2}}
+\frac{1}{\Gamma(n)} \frac{\Gamma\!\left(n-\tfrac{D}{2}\right)}{(m^2)^{\,n-D/2}}.
+\]
+
+So,
+\[
+\Gamma[\varphi] = \frac{\hbar}{2i} \sum_{n=1}^{\infty} 
+\left[ -\frac{V''(\varphi)}{m^2} \right]^n 
+\frac{\Gamma\!\left(n-\tfrac{D}{2}\right)}{\Gamma(n)} 
+(m^2)^{D/2}.
+\]
+\end{framed}
+\textbf{HW:} Resume this series (the first terms) to obtain a closed expression.
+\section{Exercise for Class-20 [Lecture-17]} 
+\subsection{Assignment-1}
+Redo today's calculation for $D=3,6$.
+\subsection{Assignment-2}
+    Fix the today's $\mu$ factor.
+\subsection{Assignment-3}
+    Express $V_T$ in terms of $m^-2$ and $\phi$.
+    \subsection{Assignment-4}
+    \begin{framed}
+        \[
+\frac{d \Gamma_1}{d m^2}
+= \frac{\hbar}{16 \pi^2}
+\int_0^{\Lambda^2} \frac{z}{z + m^2} dz
+= \frac{\hbar}{16 \pi^2}
+\int_0^{\Lambda^2} \left[ 1 - \frac{m^2}{z + m^2} \right] dz.
+\]
+\end{framed}
+Perform the integral explicitly.
+\subsection{Assignment-5}
+Check that 
+\[
+[Q^a, Q^b] = i f^{abc} Q^c
+\]
+\subsection{Assignment-6}
+\[
+\int d\eta_1 \dots d\eta_N \; e^{\eta^T A \eta} = \det(A)
+\]
+
+By induction method:
+\[
+\eta^T = -\eta, \quad A^T = -A
+\]
 \end{document}
