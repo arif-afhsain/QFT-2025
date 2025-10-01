@@ -8,8 +8,7 @@
 \usepackage{anyfontsize}
 \AtBeginDocument{\fontsize{12pt}{15pt}\selectfont}
 \usepackage{mathpazo} % Palatino font 
-\usepackage{lmodern} % Improved version of Computer Modern 
-\usepackage{setspace} % Line spacing control
+\usepackage{lmodern} % Improved version of Comput
 
 % ===== % Colors and Graphics % ===== %
 \usepackage{xcolor} % Color definitions 
@@ -28,8 +27,7 @@
 
 \usepackage{physics}
 \usepackage{slashed}
-\usepackage{tikz}
-
+\usepackage{tikz} 
 % ===== % Lists and Itemization % ===== %
 \usepackage{enumitem} % Custom list formatting
 
@@ -66,71 +64,82 @@
 \setlength{\headheight}{0pt} % Setting the height of the header
 \addtolength{\topmargin}{0.4cm} % Adjusting the top margin
 \addtolength{\footskip}{-0.2cm} % Adjusting the top margin
+% ===========================
+\newcommand{\ClassHeader}{
+  \ifnum\value{page}<8
+    \textit{Introductory Class} % Class 1
+  \else\ifnum\value{page}<16
+    \textit{Review of Special Relativity} % Class 2
+  \else\ifnum\value{page}<22
+    \textit{Preliminary QFT} % Class 3
+  \else\ifnum\value{page}<32
+    \textit{Poincar\'e Algebra} % Class 4
+  \else\ifnum\value{page}<38
+    \textit{GR basics for Classical Field} % Class 5
+  \else\ifnum\value{page}<44
+    \textit{Lie Derivative} % Class 6
+  \else\ifnum\value{page}<49
+    \textit{Covariant Derivative} % Class 7
+  \else\ifnum\value{page}<55
+    \textit{Classical Field Theory} % Class 8
+  \else\ifnum\value{page}<60
+    \textit{Gauge Theory} % Class 9
+  \else\ifnum\value{page}<68
+    \textit{Path Integral Formalism} % Class 10
+  \else\ifnum\value{page}<76
+    \textit{Green's Function in QFT} % Class 11
+  \else\ifnum\value{page}<79
+    \textit{Green's Function Contd.} % Class 12
+  \else\ifnum\value{page}<85
+    \textit{Green's Function (n-point)} % Class 13
+  \else\ifnum\value{page}<95
+    \textit{Feynman Diagram} % Class 14
+  \else\ifnum\value{page}<99
+    \textit{Feynman Diagram Contd.} % Class 15
+  \else\ifnum\value{page}<104
+    \textit{1-Loop Effective Potential} % Class 16
+  \else\ifnum\value{page}<109
+    \textit{Dimensional Regularization} % Class 17
+  \else\ifnum\value{page}<112
+    \textit{Dimensional Regularization Contd.} % Class 18
+  \else\ifnum\value{page}<115
+    \textit{1-Loop Corrected Effective Action} % Class 19
+  \else
+    \textit{Calculating Effective Action \& Potential} % Class 20
 
+\fi % \ifnum for Class 1
+\fi % \ifnum for Class 2
+\fi % \ifnum for Class 3
+\fi % \ifnum for Class 4
+\fi % \ifnum for Class 5
+\fi % \ifnum for Class 6
+\fi % \ifnum for Class 7
+\fi % \ifnum for Class 8
+\fi % \ifnum for Class 9
+\fi % \ifnum for Class 10
+\fi % \ifnum for Class 11
+\fi % \ifnum for Class 12
+\fi % \ifnum for Class 13
+\fi % \ifnum for Class 14
+\fi % \ifnum for Class 15
+\fi % \ifnum for Class 16
+\fi % \ifnum for Class 17
+\fi % \ifnum for Class 18
+\fi % \ifnum for Class 19
+}
+
+% ----------------------------
+% Define custom fancy style
+% ----------------------------
 \fancypagestyle{customstyle}{
-\fancyhf{} % Clear header and footer
-\fancyhead[L]{\textit{Quantum Field Theory}} % Left header
-
-\fancyhead[R]{%
-\ifnum\value{page}<8
-\textit{Introductory Class}%
-\else
-\ifnum\value{page}<18
-\textit{Review of Special Relativity}
-\else
-\ifnum\value{page}<24
-\textit{Preliminary QFT}
-\else
-\ifnum\value{page}<33
-\textit{Poincaré Algebra}
-\else
-\ifnum\value{page}<39
-\textit{GR basics for Classical Field}
-\else
-\ifnum\value{page}<45
-\textit{Lie Derivative}
-\else
-\ifnum\value{page}<49
-\textit{Covariant Derivative}
-\else
-\ifnum\value{page}<55
-\textit{Classical Field Theory}
-\else
-\ifnum\value{page}<60
-\textit{Gauge Theory}
-\else
-\ifnum\value{page}<68
-\textit{Path Integral Formalism}
-\else
-\ifnum\value{page}<75
-\textit{Green's Function in QFT}
-\else
-\ifnum\value{page}<78
-\textit{Green's Function Continued}
-\else
-\ifnum\value{page}<84
-\textit{Green's Function (n-point)}
-\else
-\textit{Feynman Diagram}
-\fi % Class 2
-\fi % Class 3
-\fi % Class 4
-\fi % Class 5
-\fi % Class 6
-\fi % Class 7
-\fi % Class 8
-\fi % Class 9
-\fi % Class 10
-\fi % Class 11
-\fi % Class 12
-\fi % Class 13
-\fi % Class 14
+  \fancyhf{} % clear header/footer
+  \fancyhead[L]{\textit{Quantum Field Theory}}
+  \fancyhead[R]{\ClassHeader}         % dynamic right-hand header
+  \fancyfoot[C]{\textbf{\thepage}}    % centered page number
+  \renewcommand{\headrulewidth}{0.4pt} % header rule
+  \renewcommand{\footrulewidth}{0.4pt} % footer rule
 }
-
-\fancyfoot[C]{\textbf{\textit{\thepage}}} % Right header with page number
-\renewcommand{\headrulewidth}{0.4pt} % Horizontal line under the header
-\renewcommand{\footrulewidth}{0.4pt}
-}
+% ===========================
 
 % ===== % Apply the custom page style % ===== %
 \pagestyle{customstyle}
@@ -301,7 +310,7 @@ Describes the relationship between the frequency ($\omega$) and the wave vector 
 \vspace{-1cm}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\linewidth]{L(-2)_1.jpg}
+\includegraphics[width=0.6\linewidth]{figures/C01_1.png}
 \caption*{}
 \end{figure}
 \vspace{-1.5cm}
@@ -314,7 +323,7 @@ Describes the relationship between the frequency ($\omega$) and the wave vector 
 % ---
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.45\linewidth]{L(-2)_2.jpg}
+\includegraphics[width=0.45\linewidth]{C01_2.png}
 \caption*{}
 \end{figure}
 \vspace{-1cm}
@@ -332,7 +341,7 @@ Conditions to be operators:
 \end{align*}
 % ---
 \begin{tcolorbox}[ title=\textbf{Question: What is algebra?}]
-Algebra is a mathematical structure consisting of a set equipped with one or more operations, where the operations are \textbf{\textit{defined}} and the set is \textbf{\textit{closed}} under those operations.
+Algebra is a mathematical structure consisting of a set equipped with one or more operations, where the operations are \textbf{\textit{defined}} and the set is \textbf{\textit{closed}} under those \ operations.
 \end{tcolorbox}
 % ---
 \textbf{Angular Momentum Operators:}
@@ -360,7 +369,7 @@ This condition is violated when an atom undergoes a decay process, such as:
 \end{align*}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\linewidth]{L(-2)_3.jpg}
+\includegraphics[width=0.6\linewidth]{C01_3.png}
 \caption*{}
 \end{figure}
 The conservation of total probability in such transitions implies:
@@ -412,7 +421,7 @@ A mathematical space on which calculus can be consistently defined. It is typica
 \vspace{-0.5cm}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\linewidth]{L(-1)_1.jpg}
+\includegraphics[width=0.9\linewidth]{C02_1.png}
 \caption*{}
 \end{figure}
 \vspace{-0.9cm}
@@ -426,7 +435,7 @@ On the other hand,
 % ---
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\linewidth]{L(-1)_2.jpg}
+\includegraphics[width=0.5\linewidth]{C02_2.png}
 \caption*{}
 \end{figure}
 \vspace{-0.9cm}
@@ -459,7 +468,7 @@ To describe a sphere (specifically a 2D sphere like the surface of the Earth), a
 \end{center}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\linewidth]{L(-1)_3.jpg}
+\includegraphics[width=0.8\linewidth]{C02_3.png}
 \caption*{}
 \end{figure}
 \vspace{-0.9cm}
@@ -498,7 +507,7 @@ $$\fbox{\textbf{\textit{The speed of information transfer is limited by the spee
 % ---
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\linewidth]{L(-1)_4.jpg}
+\includegraphics[width=0.6\linewidth]{C02_4.png}
 \caption*{Figure: Light Cone}
 \end{figure}
 % \vspace{-1.2cm}
@@ -622,7 +631,7 @@ $$\fbox{$\left[R^T R = I\right] \subset \left[\Lambda^T H \Lambda = H\right]$ \t
 \subsection*{Dynamics}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\linewidth]{L(-1)_5.jpg}
+\includegraphics[width=0.5\linewidth]{C02_5.png}
 \caption*{}
 \end{figure}
 \vspace{-1cm}
@@ -635,13 +644,14 @@ Hence,
 d^2(A,B) = (dx^0)^2 - d\vec{x} \cdot d\vec{x} = d\tau^2
 \end{align*}
 
-For a comoving observer, we have $$d\vec{x} = 0$$
+For a comoving observer\footnote{An observer who is at rest relative to the object or system being studied — meaning their relative velocity is zero.}, we have $$d\vec{x} = 0$$
 \begin{align*}
 \text{thus:}~ d\tau^2 = (dx^0)^2
 \end{align*}
 \begin{align*}
 \textbf{(Time dilation simply arises from this equation)}
 \end{align*}
+\subsection*{A numerical explaination:}
 \begin{itemize}
     \item If $d^2(A,B) \to$ constant (let it be 10), then:
     $$d\tau^2 \to 10 \quad \text{(comoving)} \quad [\because d\vec{x} \cdot d\vec{x} = 0] $$
@@ -701,11 +711,10 @@ u \cdot u = 1 \quad \therefore \textbf{4-velocity is timelike}
 \hfill
 \begin{minipage}[c]{0.5\textwidth}
 \centering
-\includegraphics[width=\linewidth]{L(-1)_6.jpg}
+\includegraphics[width=\linewidth]{C02_6.png}
 \end{minipage}
 \end{figure}
 % ---
-\newpage
 \textbf{Significance:}
 \begin{enumerate}
     \item It is not contributing to your time flow.
@@ -787,81 +796,10 @@ $$\textbf{Action must be scalar, no change will happen under transformation.}$$
 $$(d\lambda\text{ can be any time, not necessarily just proper time})$$
 \noindent
 \textbf{HW:} \quad Derive the Euler–Lagrange equations corresponding to this action (Note: The Hamiltonian of this system is zero.)
-% --- HW ---
-\begin{framed}
-\vspace{-0.5cm}
-\subsection*{Solving the HW problem:}
-Given, the action
-\begin{align*}
-A[x(s)] = m \int_{s_1}^{s_2} \sqrt{\eta_{ab} \frac{dx^a}{ds} \frac{dx^b}{ds}} \, ds
-\end{align*}
-Where the Lagrangian:
-\begin{align*}
-\mathcal{L}(\dot{x}^a, \dot{x}^b) = m\left( \eta_{ab}~\dot{x}^a\dot{x}^b \right)^{1/2}
-\end{align*}
-\noindent
-Now, consider a variation in $x(s)$:
-\begin{align*}
-x(s,\epsilon) = x(s,0) + \epsilon\eta(s)
-\end{align*}
-with the boundary condition:
-\begin{align*}
-\eta(s_1) = \eta(s_2) = 0 \quad \text{[end points]}
-\end{align*}
-Therefore, the variation in the action is:
-\begin{align*}
-\delta A &= \delta \int_{s_1}^{s_2} \mathcal{L} \left( \dot{x}^a\left( s \right), \dot{x}^b \left(s\right) \right) ds \\
-\Rightarrow \delta A &= m \int_{s_1}^{s_2} \left( \frac{\partial \mathcal{L}}{\partial \dot{x}^a}~ \frac{\partial \dot{x}^a}{\partial \epsilon} d\epsilon + \frac{\partial \mathcal{L}}{\partial \dot{x}^b}~\frac{\partial \dot{x}^b}{\partial \epsilon} d\epsilon \right) ds \\
-\\
-\Rightarrow \delta A &= m \int_{s_1}^{s_2} \left[ 
-\frac{\dot{x}^a}{\sqrt{\dot{x}^b~ \dot{x}_b}}~ \frac{\partial^2 {x}^a}{\partial \epsilon~\partial s}~d \epsilon 
-+ 
-\frac{\dot{x}^b}{\sqrt{\dot{x}^a~\dot{x}_a}}~ \frac{\partial^2{x}^b}{\partial \epsilon~\partial s}~d\epsilon 
-\right] ds \\
-\\
-\Rightarrow \delta A &= m \int_{s_1}^{s_2} \left[ 
-\frac{\dot{x}^a}{\sqrt{\dot{x}^b~\dot{x}_b}} \frac{\partial^2{x}^a}{\partial \epsilon \partial s} d \epsilon 
-+ 
-\frac{\dot{x}^b}{\sqrt{\dot{x}^a~\dot{x}_a}} \frac{\partial^2 {x}^b}{\partial \epsilon \partial s} d \epsilon
-\right] ds \\
-\\
-&\text{Now using integration by parts:} \\
-% -----
-\delta A &= m
-\left\{ 
-\left[ 
-\frac{\dot{x}^a}{\sqrt{\dot{x}^b \dot{x}_b}} \frac{\partial x^a}{\partial \epsilon} \Bigg|_{s_1}^{s_2}
-- \int_{s_1}^{s_2} \frac{d}{ds} \left( \frac{\dot{x}^a}{\sqrt{\dot{x}^b \dot{x}_b}} \right) \frac{\partial x^a}{\partial \epsilon} \, d \epsilon
-\right] \right. \\
-&\quad + \left. \left[ 
-\frac{\dot{x}^b}{\sqrt{\dot{x}^a \dot{x}_a}} \frac{\partial x^b}{\partial \epsilon} \Bigg|_{s_1}^{s_2}
-- \int_{s_1}^{s_2} \frac{d}{ds} \left( \frac{\dot{x}^b}{\sqrt{\dot{x}^a \dot{x}_a}} \right) \frac{\partial x^b}{\partial \epsilon} \, d \epsilon
-\right]
-\right\} ds
-\\
-&\text{Since } \eta(s_1) = \eta(s_2) = 0,\ \text{boundary terms vanish:} \\
-\\
-\delta A &= m \left[ 
-- \int_{s_1}^{s_2} \frac{d}{ds} \left( \frac{\dot{x}^a}{\sqrt{\dot{x}^b~\dot{x}_b}} \right) \frac{\partial x^a}{\partial \epsilon} d\epsilon 
-- \int_{s_1}^{s_2} \frac{d}{ds} \left( \frac{\dot{x}^b}{\sqrt{\dot{x}^a~\dot{x}_a}} \right) \frac{\partial x^b}{\partial \epsilon} d\epsilon 
-\right] ds \\
-\text{ If a = b then , } \\
-\delta A &= m \left[ 
--2 \int_{s_1}^{s_2} \frac{d}{ds} \left( 
-\frac{\dot{x}_a}{\sqrt{\dot{x}^b~\dot{x}_b}} 
-\right)\right] \frac{\partial x^a}{\partial \epsilon} d\epsilon  ds  
-\end{align*}
-if a $\neq$ b , two integrands are separately zero.
-Therefore, for the action to be minimum i.e. to be zero, the integrands must be zero.
-Hence, we get the Euler-Lagrange equation:
-\begin{align*}
-\boxed{m \frac{d}{ds} \left( \frac{\dot{x}_a}{\sqrt{\dot{x}^b~\dot{x}_b}} \right) = 0}
-\end{align*}
-\end{framed}
+%----------------------
+% lecture -03
+%--------------------------
 \newpage
-%-------------------------------
-% Section: Lecture 0
-%-------------------------------
 \stepcounter{section}
 \renewcommand{\thesection}{\arabic{section}}
 \fancysection{(\textit{\textbf{Class-3})} Lecture \textbf{0}: Thrs, Apr 24, 2025}{\textbf{\textit{Preliminary QFT}}}
@@ -959,7 +897,7 @@ It is the concept that distant simultaneity—whether two spatially separated ev
 % ---
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\linewidth]{L0_1 (1).jpg}
+\includegraphics[width=0.9\linewidth]{C03_1.png}
 \caption*{}
 \end{figure}
 \vspace{-1.5cm}
@@ -1015,7 +953,7 @@ This will tell which quantum systems are physical.
 \vspace{-0.7cm}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.3\linewidth]{L0_2 (1).jpg}
+\includegraphics[width=0.3\linewidth]{C03_2.png}
 \caption*{}
 \end{figure}
 \vspace{-1.6cm}
@@ -1037,7 +975,7 @@ Now, following the procedures:
 \end{align*}
     Also, to incorporate the constraint into the Lagrangian, we need Lagrange's multiplier, i.e.,
 \begin{align*}
-L = \frac{1}{2} m (\dot{x}^2 + \dot{y}^2) - V(x,y) + \lambda \left(\neq x,y)(\dot{x}^2 + \dot{y}^2) - m^2 \right)
+L = \frac{1}{2} m (\dot{x}^2 + \dot{y}^2) - V(x,y) + \lambda \left(\neq x,y)(\dot{x}^2 + \dot{y}^2- m^2 \right)
 \end{align*}
 $$ \text{(\textbf{Note:} $\lambda$ is not a function in this case.)} $$
 \begin{itemize}
@@ -1163,12 +1101,12 @@ L &= \frac{1}{2}(\frac{1}{e}\dot{x}^2- em^2) \quad \text{(massless)}
 These two are equivalent ``on-shell" condition . \textbf{On-shell} means a particle or field satisfies its equation of motion - usually the relativistic energy momentum relation: $E^2 = \vec{p}~^2+m^2$ \\
 
 So a particle is on shell if: $p^\mu p_\mu = m^2$
-This is called the \textbf{mass-shell condition}.
+This is also called the \textbf{mass-shell condition}.
 
 % ---
 \begin{tcolorbox}[ title=\textbf{Question: What is a particle?}]
 % \vspace*{-0.5cm}
-Particle is something that carries a unitary representation of the Poincaré group.
+Particle is something that carries an irreducible unitary representation of the Poincaré group.
 \end{tcolorbox}
 % ---
 \begin{tcolorbox}[ title=\textbf{Question: What is Lorentz transformation?}]
@@ -1190,7 +1128,7 @@ Notes -
 \subsection{Poincaré transformation}
 Here the requirement that the origin remain invariant is relaxed, allowing transformations that preserve the interval between any two points including translation also. \\
 
-Linear transformation which leaves the distance square between any two points invariant constitute Poincaré transformation. It is also a group.
+Linear transformation which leaves the distance-square between any two points invariant constitute Poincaré transformation. It is also a group.
 % ---
 \begin{tcolorbox}[ title=\textbf{Question: What are groups? \hfill (set + binary operation)}]
 A group is denoted by $(G,*)$ is set of objects denoted $G$ and some operation on those objects denoted *, subject to the following -
@@ -1306,7 +1244,7 @@ Now, $U^\dagger U = \hat{\mathbb{I}}$ ; If isomorphic and acts on Hilbert space.
 This transformation acts on space time.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\linewidth]{L1_1.jpg}
+\includegraphics[width=0.6\linewidth]{C04_1.png}
 \caption*{}
 \end{figure}
 \begin{tcolorbox}[ title=\textbf{Notes:}]
@@ -1382,6 +1320,22 @@ Then by combining \eqref{eq:4.1} and \eqref{eq:4.2} we get,
 &= \Lambda \Lambda' \Lambda^{-1}, \Lambda a' +a - \Lambda \Lambda' \Lambda^{-1} a \\
 &= \left( \Lambda \Lambda' \Lambda^{-1}, \Lambda a' + (\mathbb{I} - \Lambda \Lambda' \Lambda^{-1}) a \right) \tag{4.7} \label{4.7}
 \end{align*}
+This result means:
+\begin{itemize}
+    \item Conjugating a Lorentz transformation by another Lorentz + translation produces a new Lorentz transformation plus a shifted translation.
+
+\item In other words, translations and Lorentz transformations do not commute independently — the Lorentz transformation acts nontrivially on translations.
+
+\item This is the hallmark of the semi-direct product structure of the Poincaré group.
+\end{itemize}
+So the calculation is demonstrating explicitly that the Poincaré group is a semi-direct product 
+\[
+\mathbb{R}^{1,3} \rtimes SO(1,3).
+\]
+
+It shows how translations transform under Lorentz transformations inside the group law, which is essential in Wigner’s classification of particles. \\
+
+
 Now, the theory of Lie groups tells us that we can write any unitary matrix in the form:
 \begin{align*}
 U(\theta) = e^{ i \vec{\theta}\cdot \vec{H} } \quad, \quad \theta=(\theta_1, \theta_2, \dots),\ H=(H_1, H_2, \dots)
@@ -1391,7 +1345,7 @@ This form holds under the assumption: $U(0) = \hat{\mathbb{I}}$
 $$ \boxed{\textbf{Unitary transformation transforms the additive space to multiplicative space.}} $$
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\linewidth]{L1_2.jpg}
+\includegraphics[width=0.7\linewidth]{C04_2.png}
 \caption*{}
 \end{figure}
 \begin{tcolorbox}[ title=\textbf{Note}]
@@ -1432,15 +1386,15 @@ Lie theory says that the substantial structure of group is encoded in its first 
 \begin{align*}
 W = -W^\top \quad \text{(Antisymmetric)}
 \end{align*}
-In $d$ dimensions, $d \times d = d^n$ parameters, main diagonal constitute of 0. Therefore independent $d^n -d$, lower and upper triangular part have the same input except the sign.
+In $d$ dimensions, there are $d \times d = d^2$ parameters, and main diagonal constitute of 0. Therefore independent $d^2 -d$, lower and upper triangular part have the same input except the minus sign.
 % Traceless matrix
-Hence number of the independent parameters are-
+Hence, number of the independent parameters are-
 \begin{align*}
 \frac{d^2 -d }{2} = \frac{d(d-1)}{2} = ~^d\mathbf{C}_2
 \end{align*}
 Then the affine or, Poincaré group has 
 \begin{align*}
-(\Lambda,a) \rightarrow \frac{d(d-1)}{2} + 1 = \frac{d(d+1)}{2} \quad \text{dimensions}
+(\Lambda,a) \rightarrow \frac{d(d-1)}{2} + d = \frac{d(d+1)}{2} \quad \text{dimensions}
 \end{align*}
 \begin{center}
     \textbf{This looks like rotation in $(d + 1)$ dimensions!}
@@ -1478,7 +1432,7 @@ d \rightarrow \text{ number of dimensions} \\
 \end{pmatrix}
 \right]
 \end{align*}
-It implies the idea that ``rotating in higher dimensions'' can relate to translation in lower dimensions. $\textbf{for example:}$  The rotation of laser points in $2D$ plane. When projected, it results in an apparent translation along the $z$ axis. \\
+It implies the idea that ``rotating in higher dimensions'' can relate to translation in lower dimensions. \\ $\textbf{for example:}$  The rotation of laser points in $2D$ plane. When projected, it results in an apparent translation along the $z$ axis. \\
 
 Now let Lorentz transformation be:
 \begin{align*}
@@ -1514,7 +1468,7 @@ Now combining equation \eqref{4.6}, \eqref{4.9}, \eqref{4.10}, \eqref{4.11} we w
 &\Rightarrow\quad i a_n'~ U(\Lambda, a) \hat{P}^n~ U^\dagger(\Lambda, a) + \frac{i}{2} W_{mn} ~U(\Lambda, a) \hat{J}^{mn}~ U^\dagger(\Lambda, a) \\
 & \quad \quad \quad= i {(\Lambda a')}_n \hat{P}^n + \frac{i}{2} {(\Lambda W \Lambda^{-1})}_{pq} \hat{J}^{pq} -i(\Lambda W \Lambda^{-1})_n~\hat{p}^n \tag{4.13}  \label{4.13}
 \end{align*}
-Now  matching the coefficients of $a'$ on both side of the equation \eqref{4.13},
+Now, matching the equations containing $a'$ on both side of the equation \eqref{4.13}, yields,
 \begin{align*}
 i ~a_n' ~U(\Lambda,a) \hat{P}^n ~U^\dagger(\Lambda, a) = i{(\Lambda a')}_m~\hat{P}^m = i~ \Lambda_m~^s~a_s'~\hat{P}^m = i~\Lambda_m~^n~a_n'~\hat{P}^m 
 \end{align*}
@@ -1522,11 +1476,12 @@ i ~a_n' ~U(\Lambda,a) \hat{P}^n ~U^\dagger(\Lambda, a) = i{(\Lambda a')}_m~\hat{
 \boxed{\therefore U(\Lambda, a) \hat{P}^n~ U^\dagger(\Lambda, a) = \Lambda_m~^n\hat{P}^m}
 \end{align*}
 Thus we can see that, $\hat{P}$ transforms like a vector under the group. It is a constant matrix. It doesn't depend on the coordinates or the values of $a'$.
+ \vspace{0.5cm}
 \begin{framed}
 \noindent \textbf{Assignment-1:}\\
 \noindent How does $\hat{J}^{rs}$ transform under Poincaré transformation? (It's a semi direct product)
 \end{framed}
-\vspace{-0.5cm}
+ \vspace{0.5cm}
 \begin{tcolorbox}[ title=\textbf{Note:}]
 \textbf{Direct Product and Semi-direct product}
 \newline
@@ -1540,7 +1495,7 @@ Poincaré group combines Lorentz transformations and spacetime translations as:
 (\Lambda', a')(\Lambda, a) = (\Lambda'\Lambda, \Lambda'a + a')
 \end{align*}
 
-Here, the second translation is transformed by $\Lambda'$, meaning the two parts interact nontrivially. Hence, this is not a direct product but a \textbf{semi-direct product}. The Lorentz part $\Lambda'$ transforms the translation $a$, indicating that the two subgroups are not independent.
+The second translation is transformed by $\Lambda'$, meaning the two parts interact nontrivially. So, this isn't a direct product but a \textbf{semi-direct} one. Lorentz part $\Lambda'$ transforms the translation $a$, indicating that the two subgroups aren't independent.
 \end{tcolorbox}
 \vspace{-0.7cm}
 \subsection*{Transformation of $\hat{J}^{pq}$ under Lorentz transformation}
@@ -1567,7 +1522,7 @@ Putting this value of $\Lambda^{-1}$ in equation \eqref{4.14} we get,
 \begin{align*}
 U \hat{J}^{pq}~ U^\dagger &= \Lambda_a~^p (\eta ~\Lambda^\top \eta)^q~_b \hat{J}^{ab} \\
 &= \Lambda_a~^p~\eta^q~_r~\Lambda^r~_s~\eta^s~_b \hat{J}^{ab}  \\
-&= \Lambda_a~^p~\Lambda^q~_s~\hat{J}^{as} \\
+&= \Lambda_a~^p~\Lambda^q~_s~\hat{J}^{as} \quad ; \text{[setting,s=b]} \\
 &= \Lambda_a~^p~\Lambda^q~_b~\hat{J}^{ab}
 \end{align*}
 \begin{align*}
@@ -1576,8 +1531,8 @@ U \hat{J}^{pq}~ U^\dagger &= \Lambda_a~^p (\eta ~\Lambda^\top \eta)^q~_b \hat{J}
 Now substituting, $ U=e^{ \left( \frac{i}{2}W_{cd}~\hat{J}^{cd} \right) }$ and $\Lambda^p~_a = \delta^p~_a + W^p~_a $
 Then,
 \begin{align*}
-& \quad \quad e^{ \left( \frac{i}{2}W_{cd}~\hat{J}^{cd} \right) } \cdot e^{ \left( -\frac{i}{2}W_{cd}~\hat{J}^{cd} \right) } = (\delta_a~^p + W^p~_a)(\delta^q~_b + W^p~_b) \hat{J}^{ab} \quad [\text{BCH Relation}]\\
-&\Rightarrow \hat{J}^{pq} + \frac{i}{2} W_{cd} [\hat{J}^{cd}, \hat{J}^{pq}] = \left( \delta_a~^p \delta^q~_b + \delta_a~^p~W^p~_b + W^p~_a \delta^q~_b + W^p~_a W^p{}_b \right)~ \hat{J}^{ab} \\
+& \quad \quad e^{ \left( \frac{i}{2}W_{cd}~\hat{J}^{cd} \right) } \hat{J}  e^{ \left( -\frac{i}{2}W_{cd}~\hat{J}^{cd} \right) } = (\delta_a~^p + W^p~_a)(\delta^q~_b + W^q~_b) \hat{J}^{ab} \quad [\text{BCH Relation}]\\
+&\Rightarrow \hat{J}^{pq} + \frac{i}{2} W_{cd} [\hat{J}^{cd}, \hat{J}^{pq}] = \left( \delta_a~^p \delta^q~_b + \delta_a~^p~W^q~_b + W^p~_a \delta^q~_b + W^p~_a W^q{}_b \right)~ \hat{J}^{ab} \\
 &\Rightarrow \hat{J}^{pq} + \frac{i}{2} W_{cd} [\hat{J}^{cd}, \hat{J}^{pq}] = \hat{J}^{pq} + W^q{}_b \hat{J}^{pb} + W^p{}_a \hat{J}^{a q} \\
 &\Rightarrow \frac{i}{2} W_{cd} [\hat{J}^{cd}, \hat{J}^{pq}] = W_{mb}~ \eta^{mq}~\hat{J}^{pb} + W_{na}~ \eta^{np}~\hat{J}^{aq} \\
 &\Rightarrow \frac{i}{2} W_{cd} [\hat{J}^{cd}, \hat{J}^{pq}] = W_{cd}~ \eta^{cq}~\hat{J}^{pd} + W_{cd}~ \eta^{cp}~\hat{J}^{dq} \quad [b=d, m=c, a=d, n=c] \\
@@ -1587,12 +1542,16 @@ Then,
 &\Rightarrow [\hat{J}^{cd}, \hat{J}^{pq}] = -i~\left( \eta^{cq}~\hat{J}^{pd} - \eta^{dq}~\hat{J}^{pc} + \eta^{cp}~\hat{J}^{dq} - \eta^{dp}~\hat{J}^{cq} \right) \\
 & \therefore [\hat{J}^{cd}, \hat{J}^{pq}] = -i~\left( \eta^{cq}~\hat{J}^{pd} - \eta^{dq}~\hat{J}^{pc} + \eta^{pc}~\hat{J}^{dq} - \eta^{pd}~\hat{J}^{cq} \right)
 \end{align*}
-\subsubsection*{Summary}
+\subsection*{Summary}
 Here we have successfully found the algebra of angular momentum without the relation $\hat{J} = \vec{r} \times \vec{p}$, just simply using the algebra of the Poincaré group.\\
 
-In addition, we know in $3D, \quad \hat{J}^m = i~\epsilon^{amn} \hat{J}_{a}$
+In addition, we know in $3D, \quad \hat{J}^{mn} = i~\epsilon^{amn} \hat{J}_{a}$
+
 \begin{framed}
-\textbf{Assignment-2:} Recover $3D$ rotation algebra from angular momentum.
+\noindent \textbf{Assignment-2:}
+\begin{itemize}
+    \item Recover $3D$ rotation algebra from angular momentum.
+\end{itemize}
 \end{framed}
 \newpage
 %-------------------------------
@@ -1600,10 +1559,11 @@ In addition, we know in $3D, \quad \hat{J}^m = i~\epsilon^{amn} \hat{J}_{a}$
 %-------------------------------
 \stepcounter{section}
 \renewcommand{\thesection}{\arabic{section}}
-\fancysection{(\textit{\textbf{Class-5})} Lecture \textbf{2}: Sat, May 24, 2025}{\textbf{\textit{A Glimpse of GR via The Classical Field Theory }}}
+\fancysection{(\textit{\textbf{Class-5})} Lecture \textbf{2}: Sat, May 24, 2025} {\textbf{\textit{A Glimpse of GR via The Classical Field Theory }}}
 %------------%
 \subsection{Road to GR}
-[General relativity is a classical field theory because no quantization is involved here] \\ 
+[General relativity is a classical field theory because no quantization is necessarily involved here] \\ 
+
 Now, in freely falling coordinates (FFC), the line element is given by:
 \begin{align*}
     ds^2 &= \eta_{ab}~d\xi^a d\xi^b \tag{5.1} \label{5.1} \\
@@ -1616,13 +1576,13 @@ Now, in freely falling coordinates (FFC), the line element is given by:
 \begin{tcolorbox}[ title=\textbf{Note:}]
 \begin{itemize}
     \item In Special Relativity (SR), there is no representation of gravity.
-    \item Only in curved space there is an existence of gravity hence acceleration arises.
+    \item Only in curved space, there is an existence of gravity ; hence, acceleration arises.
 \end{itemize}
 \end{tcolorbox}
 %-----------
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.4\linewidth]{figures/L2_1.jpg}
+\includegraphics[width=0.4\linewidth]{figures/C05_1.png}
 \caption*{}
 \vspace{-1em}
 \end{figure}
@@ -1679,8 +1639,8 @@ x^i = x^i_0 + \left( \frac{p^i}{m} \right)t
 \end{align*}
 This equation -
 \begin{itemize}
-    \item is valid only in Cartesian coordinates and flat spacetime.
-    \item has all quantities here carry upper indices (contravariant).
+    \item is valid both in Cartesian coordinates and flat spacetime.
+    \item all quantities here carry upper indices (contravariant).
 \end{itemize}
 
 \vspace{1em}
@@ -1722,7 +1682,7 @@ These equations \eqref{5.3} and \eqref{5.4} are inverse to each other — they r
 \vspace{-1cm}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.3\linewidth]{figures/L2_2.jpg}
+\includegraphics[width=0.3\linewidth]{figures/C05_2.png}
 \caption*{}
 \end{figure}
 \vspace{-1.5cm}
@@ -1740,7 +1700,7 @@ These equations \eqref{5.3} and \eqref{5.4} are inverse to each other — they r
 \vspace{-1cm}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.45\linewidth]{figures/L2_3.jpg}
+\includegraphics[width=0.45\linewidth]{figures/C05_3.png}
 \caption*{}
 \end{figure}
 \vspace{-1.5cm}
@@ -1775,7 +1735,7 @@ Here Second term is symmetric in $m,n$, thus the term doubles. Then applying int
 Here, in the first line, the term $2~G_{mn} \frac{dx^n}{d\tau} \delta x^m\Bigg|=0$ at the boundary. $\delta x^\mu$ is arbitrary, therefore to satisfy the action principle, the integrand must vanish which gives:
 \begin{align*}
 &\quad ~~ G_{mn}~\ddot{x}^n + \frac{1}{2} \left( \partial_p G_{mn} + \partial_n G_{mp} - \partial_m G_{np} \right) \dot{x}^n \dot{x}^p = 0 \\
-& \Rightarrow \ddot{x}^n + \frac{1}{2}G^{nm} \left( \partial_p G_{mn} + \partial_n G_{mp} - \partial_m G_{np} \right) \dot{x}^n \dot{x}^p = 0
+& \Rightarrow \underline{\ddot{x}^n} + \frac{1}{2}G^{nm} \left( \partial_p G_{mn} + \partial_n G_{mp} - \partial_m G_{np} \right) \underline{\dot{x}^n \dot{x}^p}= 0
 \end{align*}
 In the second term,
 \begin{align*}
@@ -1834,7 +1794,7 @@ If no invariant subspace exists, it is called an \textbf{irreducible representat
 \vspace{-0.5cm}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.3\linewidth]{figures/L2_4.jpg}
+\includegraphics[width=0.3\linewidth]{figures/C05_4.png}
 \caption*{}
 \end{figure}
 \vspace{-2cm}
@@ -1844,7 +1804,14 @@ R(g_1 g_2) = R(g_1) R(g_2), \quad R'(g_1 g_2) = R'(g_1) R'(g_2) \quad \forall~ g
 \end{align*}
 Suppose there exists a linear map (or matrix) $X: V \to V'$ such that for all $g \in G$,
 \begin{align*}
-X R(g) = R'(g) X
+X R(g) = R'(g) X \\
+\text{Then} \quad X = \lambda \mathbb{I}
+\end{align*}
+I.e., it's proportional to an identity matrix. \\ For example, if
+\begin{align*}
+\left[J_1,J_2\right] = i J_3 \\
+\text{and} \left[J^2,J_i\right] = 0 \\
+\text{Then} \quad J^2 \propto \mathbb{I}
 \end{align*}
 \begin{tcolorbox}[ title=Intertwiner]
 Let $R, R'$ be two irreps and 
@@ -1857,19 +1824,14 @@ To make this possible, there exists two possibilities for $X$.
 \end{tcolorbox}
 \noindent
 That is, $X$ \textit{intertwines} the two representations—it commutes with the group action.
-If $X$ commutes with all the matrices of an irrep, then $X = \lambda \mathbb{I}$, i.e., it's proportional to the identity matrix. Example:
-\begin{align*}
-    [J_1, J_2] = i J_3 \quad ;\quad [J^2, J_i] = 0 \quad \therefore J^2 \propto \mathbb{I}
-\end{align*}
-That is, any linear transformation that commutes with all the representation matrices must be a scalar multiple of the identity.
-% ---
+If $X$ commutes with all the matrices of an irrep, then $X = \lambda \mathbb{I}$, i.e., it's proportional to the identity matrix.
 \begin{tcolorbox}[ title=Note: Commutator is a derivative]
 Anything that follows the product rule, is called a \textbf{derivation}.
 \begin{align*}
     \frac{d}{dx}(uv) &= \frac{du}{dx}~v ~~+~~ u~\frac{dv}{dx} \\ \\
     [A, uv] ~&= [A, u]v ~+~ u[A, v]
 \end{align*}
-Therefore, \textbf{Commutation} is a \textbf{derivation}
+Therefore, \textbf{Commutation} is a \textbf{derivation.}
 \end{tcolorbox}
 % ---
 \begin{framed}
@@ -1914,19 +1876,16 @@ That means, conjugating any element of $N$ by any element of $G$ keeps it inside
 \Rightarrow &g\,g^{-1} = g\,g^{-1} \quad \therefore \quad h\,e\,h^{-1} = e \rightarrow \text{unaffected}
 \end{align*}
 \subsection*{Invariant} 
-\vspace{-1cm}
+Under conjugation, things get mapped, but some things remain unchanged — that is called \textbf{invariant}.
+\subsection*{Automorphism}
+An \textbf{automorphism} is a structure-preserving map from a mathematical object to itself.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\linewidth]{L3_1.jpg}
+\includegraphics[width=0.5\linewidth]{C06_1.png}
 \caption*{}
 \end{figure}
 \vspace{-1cm}
 \noindent
-Under conjugation, things get mapped, but some things remain unchanged — that is called \textbf{invariant}.
-
-\subsection*{Automorphism}
-An \textbf{automorphism} is a structure-preserving map from a mathematical object to itself.
-
 \subsection*{Invariant Subalgebra}
 A subalgebra $h \subset g$ is said to be \textbf{invariant} if:
 \begin{align*}
@@ -1941,7 +1900,7 @@ Therefore, if $h = e^A$ where $A \in$ Lie algebra and $h \in$ Lie group, then:
 \begin{center}
     ($g$ doesn’t have to be $g'$, it just has to map into the subalgebra.)
 \end{center}
-Because boosts and rotations are mixed under commutators, they don’t form invariant pieces.
+Because boosts and rotations are mixed under commutators, they don’t form invariant subspaces.
 % ---
 \begin{tcolorbox}[ title=Notes]
 \begin{itemize}
@@ -1971,7 +1930,7 @@ A congruence is a family of smooth curves such that through every point in a reg
 \vspace{-0.5cm}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\linewidth]{figures/L3_2.jpg}
+\includegraphics[width=0.7\linewidth]{figures/C06_2.png}
 \caption*{}
 \end{figure}
 \vspace{-1cm}
@@ -1986,7 +1945,7 @@ We have learned about congruence because $-$``The Lie derivative measures how a 
 % \vspace{-1cm}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.3\linewidth]{L3_3.jpg}
+\includegraphics[width=0.3\linewidth]{C06_3.png}
 \caption*{}
 \end{figure}
 \vspace{-1cm}
@@ -2009,7 +1968,7 @@ The evolution of the system itself. Negative time means back to its own position
 % \vspace{-0.5cm}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.35\linewidth]{L3_4.jpg}
+\includegraphics[width=0.35\linewidth]{C06_4.png}
 \caption*{}
 \end{figure}
 \vspace{-1cm}
@@ -2019,7 +1978,7 @@ The evolution of the system itself. Negative time means back to its own position
 \vspace{-0.5cm}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.4\linewidth]{L3_5.jpg}
+\includegraphics[width=0.4\linewidth]{C06_5.png}
 \caption*{}
 \end{figure}
 \vspace{-1cm}
@@ -2049,13 +2008,13 @@ Similarly, $V(x)$ is a vector field defining the flow, and $W(x)$ is another vec
 \begin{align*}
 \text{(where $W'\,^b$ is the new vector field at position $Q$, while $W^a$ is at position $P$)}
 \end{align*}
-This change tells us how the vector field $W$ changes when dragged along the flow generated by $V$. Therefore,
+This tells us how the vector field $W$ changes when dragged along the flow generated by $V$. Therefore,
 \begin{align*}
 & \quad \quad x \quad \rightarrow \quad x' + Vt \\
 & \quad ~~W^a(x) \rightarrow W'\,^b(x') = \frac{\partial x'^a}{\partial x^m} W^m(x) \\\\
 & \Rightarrow W'\,^b(x') = \frac{\partial}{\partial x^m}(x^a + V^a t)~W^m(x) \\\\
 & \Rightarrow W'\,^b(x + Vt) = \left( \delta^a_m + t\,\partial_m V^a \right)~W^m(x) \\\\
-& \Rightarrow W'\,^b(x)+ t\,V^b \partial'_b\,W^b(x) = \delta^a_m\,W^m(x) + t W^m(x) \partial_m V^a \\\\
+& \Rightarrow W'\,^b(x)+ t\,V^b \partial'_b\,W'^b(x) = \delta^a_m\,W^m(x) + t W^m(x) \partial_m V^a \\\\
 & \Rightarrow W'\,^b(x) - W^a(x) = t \left(W^m~\partial_m V^a - V^b~ \partial'_b ~W'\,^b \right) \\\\
 & \Rightarrow \frac{W'\,^b(x) - W^a(x)}{t} = W^m~\partial_m V^a - V^b~ \partial'_b ~W'\,^b \\\\
 &  \boxed{\therefore \mathfrak{L}_{\hat{V}} W^a = W^m~\partial_m V^a - V^b~ \partial'_b ~W'\,^b = W^m~\partial_m V^a - V^b~ \partial_b ~W^a}
@@ -2087,6 +2046,7 @@ Recall the Jacobi identity:
 \noindent
 \textbf{Exercise:}\quad Show that-
 \begin{align*}
+\left[ \mathfrak{L}_{\hat{V}}, \mathfrak{L}_{\hat{W}}\right] = 
 \mathfrak{L}_{\hat{V}} \mathfrak{L}_{\hat{W}} - \mathfrak{L}_{\hat{W}} \mathfrak{L}_{\hat{V}} = \mathfrak{L}_{[\hat{V},\hat{W}]}
 \end{align*}
 \end{framed}
@@ -2094,14 +2054,16 @@ SO far we've seen that a Lie derivative maps -
 \begin{itemize}
     \item Scalar to scalar
     \item Vector to vector
-    \item Tensor to tensor. All of the same type.
+    \item Tensor to tensor. \\
+    All of the same type.
 \end{itemize}
 % ---
 \begin{tcolorbox}[ title=Covector]
 A \textbf{covector} is a type of linear map that acts on vectors and returns real or complex numbers.
 \begin{itemize}
-    \item A vector is an element of the space V
-    \item A covector is an element of the dual space $V^*$
+    \item A vector is an element of the space V.
+    \item A covector is an element of the dual space $V^*$.
+    \item Dot product of a vector and covector produces a scalar.
 \end{itemize}
 \begin{align*}
 \text{(Vector)}^b \cdot \text{(Covector)}_b = \text{Scalar}
@@ -2120,6 +2082,13 @@ A \textbf{covector} is a type of linear map that acts on vectors and returns rea
 \begin{align*}
 \boxed{\therefore \mathfrak{L}_{\hat{V}} U_a = -(V^c~\partial_c U_a + \partial_a V^c ~U_c)}
 \end{align*}
+\begin{framed}
+\noindent
+\textbf{Exercise:}\quad Find the Lie derivative of a tensor field 
+\begin{align*}
+    \mathfrak{L}_{\hat{\nu}} \tilde{T^a_b}
+\end{align*}
+\end{framed}
 \newpage
 
 \stepcounter{section}
@@ -2130,7 +2099,7 @@ A \textbf{covector} is a type of linear map that acts on vectors and returns rea
 \vspace{-0.7cm}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.4\linewidth]{L4.jpeg}
+\includegraphics[width=0.4\linewidth]{figures/C07_1.png}
 \caption*{}
 \end{figure}
 \vspace{-1cm}
@@ -2145,7 +2114,7 @@ $\bullet$ Adjoint map and Lie derivative are not same.
 
 Adjoint definition :
 \begin{align*}
-\langle v,A \rangle = \langle A^*v , u \rangle
+\langle v,Au \rangle = \langle A^*v , u \rangle
 \end{align*}
 Whereas, Lie derivative:
 \begin{align*} \mathfrak{L}_v \, u = -[u,v] = [v,u] \end{align*}
@@ -2179,7 +2148,7 @@ d\xi^a &= \frac{\partial\xi^a}{\partial x}dx^m \tag{7.4} \label{7.4} \\
 \textbf{Notes :}
 \begin{itemize}
 \item A vector has to transform according to \eqref{7.4}.
-\item If $M^{-1}$ doesn't exist, we can onlyy go to one way, known as singular. Example - the origin.
+\item If $M^{-1}$ doesn't exist, we can only go to one way, known as singular. Example - the origin.
 \end{itemize}
 Using \eqref{7.4} to \eqref{7.3} we get
 \begin{align*}
@@ -2209,7 +2178,6 @@ A cyclic coordinate is a generalized coordinate $q_i$ that doesn't appear explic
     \frac{\partial \mathcal{L}}{\partial q_i} = 0
 \end{align*}
 Which implies $q_i$ is cyclic.
-
 \end{tcolorbox}
 Also,
 \begin{align*}
@@ -2217,82 +2185,118 @@ Also,
 \end{align*}
 Two Killing vectors also constitute another Killing vector.
 \subsection{Covariant Derivative}
+The \textbf{covariant derivative} is a generalization of the ordinary derivative to curved spaces (or to situations where vectors live in different tangent spaces at each point). To define it, we impose two basic requirements:
 
-\begin{itemize}
-    \item[1.] It has to satisfy Leibniz rule (Derivative).
-    \item[2.] Mapping from algebra to algebra.
-\end{itemize}
-Now, $D : A \rightarrow A$
-\begin{align*}
-D(ab) = (Da)b + a(Db) \quad; \quad a, b \in A \\
-\end{align*}
-For a constant $c$,
-\begin{align*}
-D(ca) = (Dc)a + c(Da) = c(Da)
-\end{align*}
-\begin{align*}
-    \therefore (Dc) \text{ needs to be zero for a constant } c
-\end{align*}
+\begin{enumerate}
+    \item It must satisfy the \textbf{Leibniz rule} (like an ordinary derivative):
+    \[
+    D(ab) = (Da)b + a(Db), \qquad a,b \in A ,
+    \]
+    where $A$ is the algebra of functions.  
 
-Also,
-\begin{align*}
-    D g_{ab} = 0 \quad \Rightarrow \quad \nabla_m~ g_{ab} = 0
-\end{align*}
-
+    \item It should reduce to the usual derivative on scalars and vanish on constants:
+    \[
+    D(c) = 0, \qquad c \in \mathbb{R}.
+    \]
+    \end{enumerate}
+To illustrate, $\quad$
+    D(ca) = (Dc)a + c(da) = c(da) \\
+    $\therefore$ (Dc) \text{needs to be zero.}
+\subsubsection*{Metric Compatibility}
+We also demand that the derivative preserves the metric:
+\[
+D g_{ab} = 0 \quad \;\;\Rightarrow\;\; \nabla_m g_{ab} = 0.
+\]
+\subsubsection*{Scalars}
+For a scalar field $\phi$, the covariant derivative reduces to the ordinary derivative:
+\[
+\nabla_a \phi = \partial_a \phi.
+\]
+So scalars are straightforward, $\nabla_a$ hits on a scalar and produces a vecotr.
 \begin{itemize}
     \item $\nabla \rightarrow$ generic case
     \item $\partial \rightarrow$ flat space only
 \end{itemize}
+\subsubsection*{Vectors}
+For a vector, the situation is more subtle. In general,
+\[
+\nabla_a v^b \neq \partial_a v^b.
+\]
 
-When $\nabla_a$ hits a scalar $\phi$, it produces a vector:
-\begin{align*}
-    \nabla_a \phi = \partial_a \phi \quad \text{(vector)}
-\end{align*}
-But,
-\begin{align*}
-    \nabla_a u^b \ne \partial_a u^b \quad \text{in this way.}
-\end{align*}
-Like,
-\begin{align*}
-& U^b \rightarrow U'^c = M^c{}_b \, U^b \\
-\Rightarrow ~& \partial_d'~U'^c = \partial_d' (M^c{}_b \, U^b) \\
-\Rightarrow ~& \partial'_d~U'^c = M^c\,_b \,\partial'_d \,U^b + (\partial'_d M^c{}_b)\, U^b
-\end{align*}
-Here exist an additive part, $(\partial'_d M^c{}_b)\, U^b$ that is the problem part which keeps the traces of previous map, mixing of objects of different type. Therefore, to kill it, we need to get:
-\begin{align*}
-\partial'_d\,M^c{}_b = 0.
-\end{align*}
+To see why, consider a change of basis:
+\[
+v^b \;\to\; v'^c = M^c{}_b \, v^b.
+\]
+Differentiating:
+\[
+\partial_d' v'^c 
+= \partial_d' (M^c{}_b v^b) 
+= M^c{}_b \, \partial_d' v^b + (\partial_d' M^c{}_b)\, v^b.
+\]
+Here, the extra term 
+\[
+(\partial_d' M^c{}_b)\, v^b
+\]
+is a problem --- it mixes derivatives of the transformation matrix itself.
+The extra additive term spoils the transformation law of $\partial_d' v'^c$. It keeps the traces of previous map.
+In other words, the ordinary derivative of a vector does \textbf{not} transform like a vector. 
+\subsubsection*{Solution: Introduce a Connection}
+Therefore, to define a consistent derivative of tensors, we need to cancel this unwanted term.
+To cancel that ``bad'' term, one might try to demand
+\[
+\partial_d' M^c{}_b = 0,
+\]
+but this is not true in general coordinates.
+
+Instead, we add a correction term (the connection $\Gamma$) to the derivative:
+\[
+\nabla_a v^b = \partial_a v^b + \Gamma_a {}^b{}_c v^c.
+\]
+This ensures that the transformation law works out correctly.
+
+More generally, we write
+\[
+\nabla_a = \partial_a + A_a,
+\]
+where $A_a$ is the connection (called ``connexion'' in older books).
+
 Hence,
 \begin{align*}
 \nabla'_a (M U) = M \,\nabla_a U \quad \text{and} \quad \nabla'_a \rightarrow M^{-1} \nabla_a \, M.
 \end{align*}
-Now,
-\begin{align*}
-\nabla_a = \partial_a + A_b
-\end{align*}
-This $A_b$ is the additive part called the connection. In older books it was called \textbf{connexion}.
+Then the covariant derivative of a vector is:
+\[
+\nabla_a v^b = \partial_a v^b + \Gamma_a{}^b{}_c \, v^c,
+\]
+where $\Gamma_a{}^b{}_c$ are the connection coefficients (Christoffel symbols in Riemannian geometry).
 
-Also,
+Similarly, for a covector:
+\[
+\nabla_a v_b = \partial_a v_b - \Gamma_{ab}{}^c\, v_c.
+\]
+
+\subsection*{Summary}
 \begin{align*}
-& \nabla_a \phi = \partial_a \phi \\
-\Rightarrow~ &\nabla_a U^b = \partial_a U^b + {\Gamma_a\,^b}_{c}\, U^c \tag{7.5} \label{7.5} \\
-\Rightarrow~ & \nabla_a V_b = \partial_a V_b - \Gamma_{ab}^c V_c
+\nabla_a \phi &= \partial_a \phi \quad &\text{(scalar)} \\
+\nabla_a v^b &= \partial_a v^b + \Gamma_a{}^b{}_c v^c \quad &\text{(vector)} \\
+\nabla_a v_b &= \partial_a v_b - \Gamma_{ab}{}^c v_c \quad &\text{(covector)}
 \end{align*}
-The connection in \eqref{7.5} is called \textit{Levi-Civita connection}. Now let,
+Now let,
 \begin{align*}
-& U^a \nabla_a = \phi \\
-\Rightarrow~ & \nabla_c (U^a \nabla_a) = \partial_c \phi \\
-\Rightarrow~ & (\nabla_c U^a)\nabla_a + U^a (\nabla_c \nabla_a) = \partial_c \phi
+& U^a V_a = \phi \\
+\Rightarrow~ & \nabla_c (U^a V_a) = \partial_c \phi \\
+\Rightarrow~ & (\nabla_c U^a)V_a + U^a (\nabla_c V_a) = \partial_c \phi
 \end{align*}
 Then,
 \begin{align*}
-\nabla_a (V_b\,W_c) &= (\nabla_a V_b) W_c + V_b (\nabla_a W_c) \\
-&= \partial_a (V_b W_c) - \Gamma^d_{ab} V_d W_c - \Gamma^d_{ac} V_b W_d \\
-\therefore \nabla_a~g_{bc} &= \partial_a\,g_{bc} - \Gamma^d_{ab}~g_{dc} - \Gamma^d_{ac}~g_{bd} 
+\nabla_a (V_b\,W^c) &= (\nabla_a V_b) W^c + V_b (\nabla_a W^c) \\
+&= (\partial_a V_b)W^c - (\Gamma_{ab}{}^d V_d) W^c - V_b(\partial_a W^c) - V_b(\Gamma_a{}^b{}_c W^c) \\
+&= \partial_a (V_b W^c)-\Gamma_{ab}{}^d V_d W^c - \Gamma_a{}^b{}_c W^c V_b \\
+\therefore \nabla_a~g_{bc} &= \partial_a\,g_{bc} - \Gamma_{ab}{}^d~g_{dc} - \Gamma^d_{ac}~g_{bd}
 \end{align*}
 Previously, we know that:
 \begin{align*}
-\mathfrak{L}_V W_a &= V^c~\partial_c W_a + W_c\, \partial_a V^c \\
+\mathfrak{L}_V W_a &= -\left(V^c~\partial_c W_a + W_c\, \partial_a V^c)\right) \\
 \therefore \mathfrak{L}_V U^a &= V^c~ \partial_c U^a - U^c\, \partial_c V^a
 \end{align*}
 \begin{tcolorbox}[ title=HW]
@@ -2361,8 +2365,10 @@ From multivariable calculus,
 \begin{align*}
 &~~ \quad d^n x \to d^n x' = \left| \frac{\partial x'}{\partial x} \right| d^n x \\
 &\Rightarrow d^n x' = \det(M^{-1})\, d^n x = \frac{1}{\det(M)}\, d^n x \\
-&\Rightarrow \frac{\partial x'}{\partial x} = \det\left(\frac{\partial x'^m}{\partial x^n}\right)\end{align*}
-(Jacobian)
+&\Rightarrow \frac{\partial x'}{\partial x} = \det\left(\frac{\partial x'^m}{\partial x^n}\right)
+\quad (Jacobian)
+\end{align*}
+
 Now,
 \begin{align*}
 \det(G') = \det(M^T\, G\, M) &= \det(M^T)\,\det(G)\,\det(M) \\
@@ -2389,15 +2395,15 @@ Quantum Mechanics (QM) says, in the Schrödinger picture:
     % Subfigure 1: Point
     \begin{subfigure}[t]{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/L5_1.jpeg}
-        \caption*{\underline{\textbf{Point}}\\begin{align*}1ex]}
+        \includegraphics[width=\textwidth]{figures/C08_1.png}
+        \caption*{\underline{\textbf{Point}}}
     \end{subfigure}
     \hfill
     % Subfigure 2: Field
     \begin{subfigure}[t]{0.4\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/L5_2.jpeg}
-        \caption*{\underline{\textbf{Field}}\\begin{align*}1ex]}
+        \includegraphics[width=\textwidth]{figures/C08_2.png}
+        \caption*{\underline{\textbf{Field}}}
     \end{subfigure}    
     \caption*{}
 \end{figure}
@@ -2414,13 +2420,34 @@ S = \int \mathcal{L} \, dt = \int \left[ \int d^3x \, \mathcal{L}[\phi] \right] 
 \subsection*{Tenet:}
 \begin{enumerate}
     \item[(a)] Action is invariant under a set of transformations.
-    \begin{itemize}
-        \item Space-time symmetries (Poincaré and diffeomorphism)
-        \item Internal symmetries
-    \end{itemize}
-    \begin{align*}
-    ds^2 = (dt)^2 - dx \cdot dx \quad \to \quad \text{Automorphism}
-    \end{align*}
+     \item[(b)] $\delta S = 0$ \quad $\to$ equation of motion
+    \item[(c)] $\mathcal{L}[\phi]$ will be a polynomial of $\phi$ and its first-order derivative
+\end{enumerate}
+    \subsection*{Classification of symmetries}  
+    There are several ways to classify symmetries. Symmetries can be discrete or continuous. They can also be
+global or local. For elementary particles, we can define two general classes of symmetries:
+
+\begin{itemize}
+  \item \textbf{Spacetime symmetries:} These symmetries correspond to transformations on a field theory 
+  acting explicitly on the spacetime coordinates,
+  \[
+    x^\mu \;\mapsto\; x'^\mu(x^\nu), \quad \mu, \nu = 0,1,2,3 .
+  \]
+  Examples are rotations, translations and, more generally, Lorentz- and Poincar\'e transformations 
+  defining the global symmetries of special relativity, as well as general coordinate transformations 
+  that are the local symmetries defining general relativity.
+
+  \item \textbf{Internal symmetries:} These are symmetries that correspond to transformations of the 
+  different fields in a field theory,
+  \[
+    \Phi^a(x) \;\mapsto\; M^a{}_b \, \Phi^b(x) .
+  \]
+  Roman indices $a, b$ label the corresponding fields. If $M^a{}_b$ is constant then the symmetry 
+  is a global symmetry; in case of spacetime-dependent $M^a{}_b(x)$ the symmetry is called a local symmetry.
+\end{itemize}
+    %\begin{align*}
+    %ds^2 = (dt)^2 - dx \cdot dx \quad \to \quad \text{Automorphism}
+    %\end{align*}
 Now,
 \vspace{-0.5cm}
 \begin{center}
@@ -2448,15 +2475,11 @@ and
 JT^+ |-\frac{1}{2} \rangle = J~ |\frac{1}{2} \rangle
 \end{align*}
 \end{tcolorbox}
-
-    \item[(b)] $\delta S = 0$ \quad $\to$ equation of motion
-    \item[(c)] $\mathcal{L}[\phi]$ will be a polynomial of $\phi$ and its first-order derivative
-\end{enumerate}
-Now the Potential,
-\begin{align*}
-V[\phi] = \phi^r + a \phi^3 + a' \phi^4 + \dots
-\end{align*}
-not  $e^\phi$ or $\sin\, \phi, cos\,\phi$ since we can take it in 1+1 dimension (In case $\phi(t, \sigma)$ )
+%Now the Potential,
+%\begin{align*}
+%V[\phi] = \phi^r + a \phi^3 + a' \phi^4 + \dots
+%\end{align*}
+%not  $e^\phi$ or $\sin\, \phi, cos\,\phi$ since we can take it in 1+1 dimension (In case $\phi(t, \sigma)$ )
 \subsubsection*{Example:}
 \begin{align*}
 S[\phi] = \alpha\, \phi_i \phi_i + \beta\, \partial \phi_i \, \partial \phi_i + \gamma_i\, \phi_i
@@ -2474,7 +2497,7 @@ Now taking variation,
 The variation is assumed to be between two differentiable configurations.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\linewidth]{L5_3.jpeg}
+    \includegraphics[width=0.4\linewidth]{C08_3.png}
     \caption*{}
 \end{figure}
 \vspace{-1.5cm}
@@ -2484,10 +2507,10 @@ The variation is assumed to be between two differentiable configurations.
 &= \partial \phi_2(x) - \partial \phi_1(x) \\ 
 \therefore \partial(\delta \phi) &= \delta (\partial \phi)
 \end{align*}
-So, \textbf{\textit{variation and differentiation commute}}. Hence,
+So, \textbf{\textit{variation and differentiation commute}}. \\ Hence,
 \begin{align*}
 \delta S &= 2\alpha\, \phi_i\, \delta \phi_i + 2\beta \, \partial \phi_i \, \partial(\delta \phi_i) + \gamma_i \,\delta \phi_i \\
-&= (2\alpha \,\phi_i + \gamma_i)\,\delta \phi_i - 2\beta \, \partial^2 \phi_i \, \delta \phi_i + \int (\partial \phi_i \, \partial \phi_i) \, d^4x \bigg|_{\text{boundary}} \\
+&= (2\alpha \,\phi_i + \gamma_i)\,\delta \phi_i - 2\beta \, \partial^2 \phi_i \, \delta \phi_i + 2 \beta \partial \phi_i \, \delta \phi_i \bigg|_{\text{boundary}} \\
 &= \delta \phi_i \left( 2\alpha \phi_i + \gamma_i - 2\beta \, \partial^2 \phi_i \right)
 \end{align*}
 Since $\delta \phi_i$ is arbitrary,
@@ -2500,7 +2523,7 @@ Since $\delta \phi_i$ is arbitrary,
 \begin{align*}
 (2\beta \, \partial^2 - 2\alpha) \phi_i = \gamma_i
 \quad \quad \text{(No problem)}\end{align*}
-\item If $\beta = \beta(x)$:
+\item But if $\beta = \beta(x)$:
 \begin{align*}
 2 \partial\,(\beta \, \partial \phi_i) - 2\alpha_i \phi_i = \gamma_i
 \end{align*}
@@ -2527,7 +2550,7 @@ S[\phi] = \alpha\, \phi_i \phi_i + \beta\, \partial \phi_i \, \partial \phi_i + 
 \textbf{Note:} The last term is important for $\pi$-meson.
 \end{framed}
 \begin{tcolorbox}[ title=Note]
-A huge problem in Quantum Mechanics is linear independence which results in the potential \( V(x)\). $V(x)$ is not being spacetime invariant. A fundamental theory should not have the potential \( V(x) \).
+A huge problem in Quantum Mechanics is linear independence which results in the potential \( V(x)\). $V(x)$ is not being a spacetime invariant. A fundamental theory should not have the potential \( V(x) \).
 \end{tcolorbox}
 
 \textbf{Klein-Gordon Action:}
@@ -2572,7 +2595,7 @@ Now for the action,
 \begin{align*}
 S = \int \mathcal{L}(\phi, \partial \phi) \sqrt{-g}~ d^4x
 \end{align*}
-The determinant of $g$ is negative so we put a minus sign inside to make the $(-g)$ positive. However we omit it in flat space:
+The determinant of $g$ is negative so we put a minus sign inside to make the quantity under the square root positive. However we omit it in flat space:
 \begin{align*}
 \delta S &= \int \left[ \frac{\partial \mathcal{L}}{\partial \phi} \delta \phi + \frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi)} \delta(\partial_\mu \phi) \right] d^4x \\
 &= \int \left[ \frac{\partial \mathcal{L}}{\partial \phi} \delta \phi + \frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi)} \partial_\mu(\delta \phi) \right] d^4x \\
@@ -2604,7 +2627,7 @@ Let's verify this,
     \hfill
     % \vspace{-1cm}
     \begin{minipage}[t]{0.35\textwidth}
-        \includegraphics[width=\linewidth]{figures/L5_5.jpeg}
+        \includegraphics[width=\linewidth]{figures/C08_5.png}
     \end{minipage}
     % Space-like Space
     \begin{minipage}[t]{0.6\textwidth}
@@ -2616,7 +2639,7 @@ Let's verify this,
     \end{minipage}%
     \hfill
     \begin{minipage}[t]{0.35\textwidth}
-        \includegraphics[width=\linewidth]{figures/L5_4.jpeg}
+        \includegraphics[width=\linewidth]{figures/C08_4.png}
     \end{minipage}
     % Null-like Space
     \begin{minipage}[t]{0.6\textwidth}
@@ -2629,7 +2652,7 @@ Let's verify this,
     \end{minipage}%
     \hfill
     \begin{minipage}[t]{0.35\textwidth}
-        \includegraphics[width=\linewidth]{figures/L5_6.jpeg}
+        \includegraphics[width=\linewidth]{figures/C08_6.png}
     \end{minipage}
 
 \end{figure}
@@ -2673,7 +2696,7 @@ Electromagnetism is \textbf{not} a theory of \textbf{field strength tensor}, but
 
 Now, 
 \begin{align*}
-\mathcal{L} = -\frac{1}{4} F^{ab} F_{ab} \quad;\quad F_{ab} = \partial_{[a}A_{b]} = \partial_a A_b - \partial_b A_a
+\mathcal{L} = -\frac{1}{4} F^{ab} F_{ab} \quad;\quad F_{ab} = \partial_{[a}A_{b]} = \frac{1}{2} \left(\partial_a A_b - \partial_b A_a\right)
 \end{align*}
 \begin{tcolorbox}[ proofbox, title=Note about the factor-$\frac{1}{2}$ ]
 \begin{itemize}
@@ -2683,7 +2706,7 @@ Now,
 \end{tcolorbox}
 To find the equation of motion from the Lagrangian, we vary $A$,
 \begin{align*}
-\delta \mathcal{L} &= -\frac{1}{4} F^{ab}~\delta F_{ab}  -\frac{1}{4} \delta F_{ab}~ F^{ab} \\
+\delta \mathcal{L} &= -\frac{1}{4} F^{ab}~\delta F_{ab}  -\frac{1}{4} \delta F^{ab}~ F_{ab} \\
 &= -\frac{1}{2} F_{ab}~ \delta F^{ab} \\
 &= -\frac{1}{2} F_{ab}~\delta ( \partial^a A^b - \partial^b A^a ) \\
 &= -F_{ab}~ \delta (\partial^a A^b) \tag{9.1} \label{9.1} \\
@@ -2724,7 +2747,7 @@ J_b \, A^b \to \text{Interaction term}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.3\linewidth]{figures/C09_1.jpeg}
+    \includegraphics[width=0.3\linewidth]{figures/C09_1.png}
     \caption*{}
 \end{figure}
 \vspace{-1.5cm}
@@ -2739,7 +2762,7 @@ A_a \rightarrow A_a' = A_a + \partial_a F \tag{9.2} \label{9.2}
 \end{align*}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\linewidth]{figures/C09_2.jpeg}
+    \includegraphics[width=0.4\linewidth]{figures/C09_2.png}
     \caption*{}
 \end{figure}
 \vspace{-1cm}
@@ -2772,7 +2795,7 @@ Now, we want the action (Lagrangian) to be invariant under gauge transformation 
 \subsection{Covariant Derivative}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.3\linewidth]{figures/C09_3.jpeg}
+    \includegraphics[width=0.3\linewidth]{figures/C09_3.png}
     \caption*{}
 \end{figure}
 \vspace{-1.5cm}
@@ -2797,19 +2820,19 @@ Also $D_\mu$ is an associative operation.
 \end{tcolorbox}
 
 \begin{align*}
-&\quad \quad \quad D_\mu'b = M ~D_\mu ~ M^{-1} \\
+&\quad \quad \quad D_\mu' = M ~D_\mu ~ M^{-1} \\
 &\Rightarrow (\partial_\mu + i A'_\mu) = M (\partial_\mu + i A_\mu) M^{-1} \\
-&\Rightarrow \partial_\mu + i A'_\mu = \partial_\mu + i ~M A_\mu M^{-1} \quad [\because M \partial_\mu M^{-1} = \partial_\mu]\\
+&\Rightarrow \partial_\mu + i A'_\mu = \partial_\mu + M(\partial_\mu M^{-1}) + iM A_\mu M^{-1} \quad [\because M \partial_\mu M^{-1} = \partial_\mu]\\
 &\Rightarrow i A'_\mu = M (\partial_\mu M^{-1}) + i~ M A_\mu M^{-1}\\
 &\Rightarrow i A'_\mu = M \partial_\mu M^{-1} + i ~M A_\mu M^{-1} \\
 &\therefore ~~~ A'_\mu = M A_\mu M^{-1} - i ~M \partial_\mu M^{-1}
 \end{align*}
-
+\newpage
 \textbf{Findings:}
 \begin{itemize}
 \item $D$ is matrix valued.
 \item $D_\mu$ transforms covariantly $\to$ Tensor
-\item $A_\mu$ doesn't transform covariently $\to$ Tensor
+\item $A_\mu$ doesn't transform covariently $\to$ Not a tensor
 \end{itemize}
 Now,
 \begin{align*}
@@ -2879,10 +2902,10 @@ Using \eqref{9.5} in \eqref{9.4} we get,
 \therefore \delta S_{YM}&= \int d^D x \, \mathrm{Tr}\left( \left[ D_\mu, \tilde{F}^{\mu \nu}\right] \delta A_\nu \right) = 0
 \end{align*}
 \begin{align*}
-\therefore \left[ D_\mu, F^{\mu \nu}\right]=0 \quad (\tilde{F}_{\mu \nu} \to A^1 + A^2 \to A^3 \quad \text{highly nonlinear})
+\therefore \left[ D_\mu, \tilde{F}^{\mu \nu}\right]=0 \quad (\text{Here,} \to A^1 + A^2 \to A^3 \quad \text{highly nonlinear})
 \end{align*}
 \begin{tcolorbox}
-Proof of \eqref{9.5},
+Derivation of the trace term under the integral sign,
 \begin{align*}
 \mathrm{Tr}\big( A[X,B] \big) = - \mathrm{Tr}\big([X,A]B \big)  
 \end{align*}
@@ -2902,7 +2925,7 @@ Proof of \eqref{9.5},
 \fancysection{(\textit{\textbf{Class-10})} Lecture \textbf{7}: Sat, July 5, 2025}{\textbf{\textit{Path Integral Formalism}}}
 %---
 \subsection{Quantization}
-\subsubsection{What is Quantization?}
+\subsubsection*{What is Quantization?}
 In quantum mechanics, canonical quantization is a recipe that takes us from the Hamiltonian formalism of classical dynamics to the quantum theory. The recipe tells us to
 take the generalized coordinates $q_a$ and their conjugate momenta $p^a$ and promote them to operators. 
 \newline
@@ -2919,7 +2942,7 @@ Then, we can calculate overlaps like:
 \begin{tcolorbox}[ title=Overlaps]
 In quantum mechanics, states are represented as vectors in a Hilbert space. The overlap between two quantum states \( \ket{\psi} \) and \( \ket{\phi} \) is their inner product:
 \begin{align*}
-\braket{\phi|\psi} \quad \text{(Complex number)}
+\langle{\phi|\psi}\rangle \quad \text{(Complex number)}
 \end{align*}
 \end{tcolorbox}
 This is only possible because we quantized—i.e., built a Hilbert space of states and defined how operators act.
@@ -2927,14 +2950,14 @@ This is only possible because we quantized—i.e., built a Hilbert space of stat
 \boxed{\textbf{No Hilbert Space = No quantization.}}
 \end{align*}
 
-\subsubsection{Why Quantization?}
+\subsubsection*{Why Quantization?}
 \begin{itemize}
     \item Matches with experimental results.
-    \item The ultimate goal is to calculate \textbf{overlaps}. No operators / Hilbert space is necessarily involved.
+    \item The ultimate goal is to calculate \textbf{overlaps}. %No operators / Hilbert space is necessarily involved.
 \end{itemize}
 \vspace{1cm}
 \begin{tcolorbox}[ title=Note]
-\subsubsection*{Why in quantum mechanics we take \( [a, a^\dagger] = 1 \)but why not \( a^\dagger \ket{0} = 0 \)?}
+\subsubsection*{Why in quantum mechanics we take \( [a, a^\dagger] = 1 \) but why not \( a^\dagger \ket{0} = 0 \)?}
 Because if \( a^\dagger \ket{0} = 0 \), then:
 \begin{align*}
 (x + ip) \psi = 0 \quad \Rightarrow \quad \left( x - \frac{d}{dx} \right) \psi = 0
@@ -2944,7 +2967,7 @@ If \( \psi \sim A e^{+x^2/2} \), it won't be normalizable.
 \subsection{Quantization Methods}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.1\linewidth]{figures/C10_1.jpeg}
+    \includegraphics[width=1.1\linewidth]{figures/C10_1.png}
     \caption*{}
 \end{figure}
 % \vspace{}
@@ -3052,7 +3075,7 @@ But for many particles,
 \begin{align*}\psi \sim e^{-x_1^2/2} ~\cdot e^{-x_2^2/2} \dots \dotsc \sim \prod_i e^{-x_i^2/2} \end{align*}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\linewidth]{figures/C10_3.jpeg}
+    \includegraphics[width=0.4\linewidth]{figures/C10_3.png}
     \caption*{}
 \end{figure}
 % \vspace{}
@@ -3069,15 +3092,14 @@ As we can see there are infinite derivatives $\big(\frac{\partial}{\partial x}\b
 \end{align*}
 - Eigenvalues are unbounded  
 - \(1 \leq i,j \leq \mathbb{N}\)  
-- Degrees of freedom are \textbf{finite} \\begin{align*}1em]
+- Degrees of freedom are \textbf{finite}
 
 \textbf{In Quantum Field Theory:}
 \begin{align*}
 [\phi(x), \pi(y)] = i\, \delta^3(x - y)\, \hat{\mathbb{I}}
 \end{align*}
 - Degrees of freedom are \textbf{infinite}  
-- Representations of the commutation relations are \textbf{not unitarily equivalent} \\begin{align*}1em]
-
+- Representations of the commutation relations are \textbf{not unitarily equivalent}
 \textbf{Another way to realize this:}
 \begin{align*}
 [x_i, p_j] = i \hbar \delta_{ij}
@@ -3096,8 +3118,6 @@ But the trace of the left-hand side:
 \end{align*}
 \end{tcolorbox}
 \noindent
-We use the Heisenberg picture,
-
 \subsubsection*{Free Particle Wavefunction}
 
 \begin{align*}
@@ -3110,13 +3130,21 @@ We use the Heisenberg picture,
 
 Also,
 \begin{align*}
-\psi(x,t) = \braket{x |\, \psi, t}_S = \braket{x,t\, | \psi}_H
+\psi(x,t) = \braket{x |\psi, t}_S = \braket{x,t|\psi}_H
 \end{align*}
 
 We are interested in this "kernel":
 \begin{align*}
-\braket{x',t' \,|\, x,t}
+\langle{x',t' \,|\, x,t}\rangle
 \end{align*}
+In path integrals, the kernel often refers to the propagation amplitude between states.
+For example, in quantum mechanics we write:
+\[
+K(x_f, t_f; x_i, t_i) 
+= \langle x_f, t_f \mid x_i, t_i \rangle
+= \int \mathcal{D}x(t)\; e^{\tfrac{i}{\hbar} S[x]} ,
+\]
+which is called the \emph{kernel of propagation}.\\
 
 \textbf{Why This Kernel?}
 
@@ -3124,7 +3152,7 @@ We assume we are dealing with linear equations:
 \begin{align*}
 \hat{L} \phi(x) = J(x)  \quad ; \quad \text{Effect} \rightarrow \text{Cause} \tag{10.1} \label{10.1}
 \end{align*}
-
+This is a local equation.
 Recall Ohm's law:
 
 \begin{align*}
@@ -3139,20 +3167,11 @@ Inversion of \eqref{10.1} yields:
 \end{align*}
 
 Where:
-
 \begin{itemize}
-    \item \( G(x,y) \): Green’s Function (Kernel)
-    \item \( \hat{L} \, G(x, y) = \delta(x,y) \quad \) (not \( \delta(x-y) \))
-\end{itemize}
-Effect at point $x$ caused by a source of unit strength localized at point $y$. That is: 
-$$\langle b | V | a \rangle$$
-\vspace{0.5cm}
-
-\textbf{Important Notes:}
-\begin{itemize}
-    \item \( \delta(x, y) \rightarrow \) Localized cause
-    \item \( G(x, y) \) is not necessarily symmetric
-    \item Operator \( \hat{L} \) possesses translation symmetry
+    \item $G(x,y)$ : Green's function (kernel).
+    \item $\hat{L}\, G(x,y) = \delta(x,y)$ ; 
+    here, $\delta(x,y)$ is a localized delta function, 
+    not $\delta(x-y)$, since the system lacks translation symmetry.
 \end{itemize}
 \begin{tcolorbox}
 Checking \eqref{10.1}:
@@ -3163,19 +3182,33 @@ Checking \eqref{10.1}:
     \therefore \phi(x) &= \int G(x,y) J(y) \, dy
 \end{align*}
 \end{tcolorbox}
-
+\textbf{Important Notes:}
+\begin{itemize}
+    \item \( \delta(x, y) \rightarrow \) Localized cause
+    \item \( G(x, y) \) is not necessarily symmetric
+    \item Operator \( \hat{L} \) possesses translation symmetry
+\end{itemize}
+Effect at point $x$ caused by a source of unit strength localized at point $y$. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/scatter.png}
+\end{figure}
+\vspace{-0.5cm}
+That is: 
+$$\langle b | V | a \rangle$$ \qquad From right to left.
+\vspace{0.5cm}
 \subsection{Double Slit}
 \vspace{-1.5cm}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/C10_4.jpeg}
+    \includegraphics[width=0.5\linewidth]{figures/C10_4.png}
     \caption*{}
 \end{figure}
 \vspace{-2cm}
 \begin{align*}
 \langle x', t' | x, t \rangle &= \sum_i \langle x', t' | x_i'', t_2 \rangle \langle x_i'', t_2 | x, t \rangle
  \\
-&= \int dx'' \, \langle x', t' | x'' \rangle \langle x' | t \rangle
+&= \int dx'' \, \langle x', t' | x'' \rangle \langle x'' | x, t \rangle
 \end{align*}
 \textbf{Completeness Theorem:}
 \begin{align*}
@@ -3190,7 +3223,7 @@ Hence,
 \end{align*}
 Now, we need to measure:
 \begin{align*}
-\langle x',\, t + \delta t \,| x, t \rangle
+\langle x',\, t + dt \,| x, t \rangle
 \end{align*}
 Recall,
 \begin{align*}
@@ -3253,9 +3286,9 @@ e^{i \frac{m}{2} v^2 \Delta t} \\\\
 \end{align*}
 So,
 \begin{align*}
-\langle x', t' | x, t \rangle = \int dx'\,dx'' \, \prod_i e^{{i m \big[\frac{x_{i+1} - x_i}{2 \Delta t}}\big]^2} = \int \mathcal{D}x \, e^{i S[x]}
+\langle x', t' | x, t \rangle = A \int dx'\,dx'' \, \prod_i e^{{\frac{im}{2}\big[\frac{x_{i+1} - x_i}{\Delta t}}\big]^2 \Delta t} = \int \mathcal{D}x \, e^{i S[x]}
 \end{align*}
-Where $\mathcal{D}x$ is an infinite-dimensional factor.
+Where $\mathcal{D}x$ = A $\prod dx_i$ is an infinite-dimensional factor.
 
 \newpage
 
@@ -3278,8 +3311,7 @@ For scattering, which is also an operator:
 \hat{S} = \lim_{\substack{t_i \to -\infty \\ t_f \to +\infty}} \mathcal{U}(t_f, t_i) = \hat{T} \exp\left( -\frac{i}{\hbar} \int_{t_i}^{t_f} H_{\text{int}}(t) \, dt \right)
 \end{align*}
 \begin{align*}
-\text{Here,}\quad \hat{T} &\to \text{amounts to time ordering operator} \\
-\hat{S} &\to \text{also an operator}
+\text{Here,}\quad \hat{T} &\to \text{amounts to time ordering operator}
 \end{align*}
 For additive systems:
 \begin{align*}
@@ -3307,6 +3339,10 @@ Here, $\hat{T}$ will act only on the field operators. $J(x_i)$ is not an operato
 \begin{align*}
 \hat{T}[\phi(x_1)\phi(x_2)] = \theta(t_1 - t_2) \phi(x_1)\phi(x_2) + \theta(t_2 - t_1) \phi(x_2)\phi(x_1)
 \end{align*}
+\begin{itemize}
+    \item For bosonic field, there will be a ``$+$ve'' sign in between the two terms.  
+\item For fermionic field, there will be a ``$-$ve'' sign in between.
+\end{itemize}
 \begin{tcolorbox}
 \begin{itemize}
 \item \(x_i = (t_i, \vec{x}_i)\) - For each field, a classical source is needed to generate it.
@@ -3325,13 +3361,11 @@ Here, $\hat{T}$ will act only on the field operators. $J(x_i)$ is not an operato
 0 & ;~\text{ if } t_1 \text{ is earlier}
 \end{cases}
 \end{align*}
-\item For bosonic field, there will be a ``$+$ve'' sign in between.  
-\item For fermionic field, there will be a ``$-$ve'' sign in between.
 \end{itemize}
 \end{tcolorbox}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{C11_2.jpeg}
+    \includegraphics[width=0.5\linewidth]{C11_2.png}
     \caption*{}
 \end{figure}
 \vspace{-1cm}
@@ -3352,7 +3386,7 @@ The diagram is a spacetime plot in the $t_1-t_2$ plane. Each point corresponds t
 \subsection*{Pictorial View}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\linewidth]{C11_1.jpeg}
+    \includegraphics[width=0.9\linewidth]{C11_1.png}
     \caption*{}
 \end{figure}
 \vspace{-1cm}
@@ -3381,9 +3415,9 @@ G(x_1, x_2) = \bra{0} \,\hat{T}[\phi(x_1)\phi(x_2)]\, \ket{0}
 \subsection*{Why do we need time-ordered products?}
 \subsubsection*{Issue: 2}
 For example, consider the Klein-Gordon (KG) field with no self-interaction.  
-The action is:
+The Lagrangian is:
 \begin{align*}
-S = -\frac{1}{2} \partial_\mu \phi_i \,\partial^\mu \phi_i -\frac{1}{2} m^2 \phi_i^2
+\mathcal{L} = -\frac{1}{2} \partial_\mu \phi_i \,\partial^\mu \phi_i -\frac{1}{2} m^2 \phi_i^2
 \end{align*}
 From this, the equation of motion will be:
 \begin{align*}
@@ -3408,7 +3442,7 @@ And the solution would be:
 Where $\phi_i^0$ is the solution in the absence of $J$. It is like the background/noise without the source. This equation is valid for linear superposition.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.3\linewidth]{C11_3.jpeg}
+    \includegraphics[width=0.3\linewidth]{C11_3.png}
     \caption*{}
 \end{figure}
 \vspace{-1.5cm}
@@ -3416,7 +3450,7 @@ Where $\phi_i^0$ is the solution in the absence of $J$. It is like the backgroun
 Here, $J(y)$ should be a classical source. When we have no idea of the input, but we want to calibrate the interacting system, then we need a source which is well defined and has no fluctuation if it exists at all.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{C11_4.jpeg}
+    \includegraphics[width=0.8\linewidth]{C11_4.png}
     \caption*{}
 \end{figure}
 \vspace{-1.5cm}
@@ -3426,27 +3460,20 @@ How do we identify a QFT, and how do we say that we know a QFT?
 \subsubsection*{Answer}
 QFT is identified by all its Green's functions. Thus by knowing all the Green's functions, we can say that we know the theory is a QFT.
 \end{tcolorbox}
-In free theory, it suffices to know the 2-point function $J(x)$ to get the Green's function.
-
-% If the system is linear:
-% \begin{align*}
-% \phi(x) = \int G(x,y) J(y) \, d^4 y
-% \end{align*}
-% \begin{figure}[H]
-%     \centering
-%     \begin{subfigure}[b]{0.45\linewidth}
-%         \centering
-%         \includegraphics[width=\linewidth]{figures/C11_5.jpeg}}
-%         \caption*{Linear}
-%     \end{subfigure}
-%     \hfill
-%     \begin{subfigure}[b]{0.35\linewidth}
-%         \centering
-%         \includegraphics[width=\linewidth]{figures/C11_6.jpeg}}
-%         \caption*{Non-linear}
-%     \end{subfigure}
-%     % \vspace{-0.5cm}
-% \end{figure}
+In interacting theory, it suffices to know the 2-point linear function $J(x)$ to get the Green's function.
+ \begin{figure}[H]
+     \centering
+         \includegraphics[width=0.4\linewidth]{figures/C11_5.png}
+         \caption*{Linear}
+     \end{figure}
+     If it's not linear
+      \hfill
+     \begin{figure}[H]
+         \centering
+         \includegraphics[width= 0.4\linewidth]{figures/C11_6.png}
+         \caption*{Non-linear}
+     \end{figure}
+      \vspace{-0.5cm}
 then the solution will be,
 \begin{align*}
 (\Box + m^2)\phi_i = J_i - \lambda \phi_i^2 =J''
@@ -3479,7 +3506,7 @@ which means the system's response to a point impulse at time $t'$.\\
 
 And given:
 \begin{align*}
-\delta(t) = \frac{1}{2\pi} \int_{\mathbb{R}\equiv(-\infty,+\infty)} d\omega \, e^{i\omega t}
+\delta(t) = \frac{1}{2\pi} \int_{\mathbb{R}\to (-\infty,+\infty)} d\omega \, e^{- i\omega t}
 \end{align*}
 Setting $t' = 0$, then:
 \begin{align*}
@@ -3498,21 +3525,14 @@ Now, applying the operator $\left( \frac{d^2}{dt^2} + \omega_0^2 \right)$ to bot
 & \Rightarrow G(\omega) = \frac{1}{\omega_0^2 - \omega^2} \\
 & \therefore G(t) = \frac{1}{2\pi} \int_{\mathbb{R}} \left( \frac{1}{\omega_0^2 - \omega^2}\right) \, e^{-i\omega t} \, d\omega
 \end{align*}
+\begin{framed}
+\noindent \textbf{Exercise:}
+\begin{itemize}
+    \item Find the solution of the G(t).
+\end{itemize}
+\end{framed}
 
-% \begin{framed}
-% Exercise
-% \end{framed}
-
-% \subsection*{Solution of $G(t)$:}
-
-% The integral has poles at $\omega = \pm \omega_0$. Hence, there are altogether 4 different ways of calculating the integration:
-
-% \begin{itemize}
-%     \item When $t > 0$, we need to choose the \textbf{lower} half plane.
-%     \item When $t < 0$, we need to choose the \textbf{upper} half plane.
-% \end{itemize}
-
-\section*{Quantization}
+ \section*{Quantization}
 First, the unequal-time commutation relation between $\hat{x}$ and $\hat{p}$ for a quantum harmonic oscillator will be as follows:  
 
 In the Heisenberg picture, the operators evolve with time, not the states. Therefore, the time evolution of an operator $\hat{\mathcal{O}}$ is given by:
@@ -3569,21 +3589,21 @@ Now:
 & (\partial_x^2 + m^2) \, \langle 0 | T \big[ \phi(x) \phi(y) \big] | 0 \rangle
 \\
 \Rightarrow & \big( \frac{\partial^2}{\partial {t_x}^{2}} -\nabla_x^2 + m^2 \big) \langle 0 |\theta (t_x - t_y ) \phi_x \phi_y + \theta (t_y - t_x ) \phi_y \phi_x | 0 \rangle
-\end{align*}
+\end{align*} \\ 
 Breaking down the differentiation part: it is symmetric in $x \leftrightarrow y$
 \begin{align*}
-(-\nabla_x ^2 + m^2) [\theta (t_x - t_y) \, \phi(x) \phi(y)] =\theta (t_x - t_y)[(-\nabla_x ^2 + m^2)\,\phi_1]\, \phi_2 \qquad \text{and}, \\
-\frac{\partial^2}{\partial_t ^2} [ \theta(t_1 -t_2) \phi_1 \phi_2 ]
-\end{align*}
-Replacing $\pi = \dot{\phi}$ and $\phi(x_1) = \phi_1$, $\phi(x_2) = \phi_2$, $t_x = t_1$, $t_y = t_2$:
-Now,
+(-\nabla_x ^2 + m^2) [\theta (t_x - t_y) \, \phi(x) \phi(y)] =\theta (t_x - t_y)[(-\nabla_x ^2 + m^2)\,\phi_1]\, \phi_2 
+\end{align*} \\ 
+and replacing $\pi = \dot{\phi}$ and $\phi(x_1) = \phi_1$, $\phi(x_2) = \phi_2$, $t_x = t_1$, $t_y = t_2$
 \begin{align*}
-&\partial_{t_1} \left[ \delta(t_1 - t_2) \phi_1 + \theta(t_1 - t_2) \dot{\phi}_1 \right] \phi_2 \\
-&= \big[ \delta'(t_1 - t_2) \phi_1 + \delta(t_1 - t_2) \dot{\phi}_1 + \theta(t_1 - t_2) \ddot{\phi}_1 + \delta (t_1 - t_2) \ddot{\phi}_1 \big] \phi_2
+\frac{\partial^2}{\partial_t ^2} [ \theta(t_1 -t_2) \phi_1 \phi_2 ]
+= &\partial_{t_1} \left[ \delta(t_1 - t_2) \phi_1 + \theta(t_1 - t_2) \dot{\phi}_1 \right] \phi_2 \\
+&= \big[ \delta'(t_1 - t_2) \phi_1 + \delta(t_1 - t_2) \dot{\phi}_1 + \theta(t_1 - t_2) \ddot{\phi}_1 + \delta (t_1 - t_2) \dot{\phi}_1 \big] \phi_2
 \\ 
 &= \delta'(t_1 - t_2) \phi_1 \phi_2 + 2\delta(t_1 - t_2) \dot{\phi}_1 \phi_2 + \theta(t_1 - t_2) \ddot{\phi}_1 \phi_2
 \end{align*}
-Where we used :
+\newpage
+Where we have used :
 \begin{enumerate}
 \item The derivative of step function is the delta function:
 \[
@@ -3594,30 +3614,22 @@ Where we used :
 \frac{d^2}{dx^2}(uv) = \frac{d^2u}{dx^2} +2 \frac{du}{dx}\frac{dv}{dx} + \frac{d^2 v}{dx^2} 
 \]
 \end{enumerate}
-% Inserting these in the eqn we get,
-% \begin{align*}
-% (\partial_t ^2 - \nabla_1 ^2 +m^2) \langle 0 | T[\phi_1 \phi_2] |0 \rangle \\
-% \end{align*}
-Lesson: Path integrals naturally calculate the time-ordered correlators.  
+Now, putting in the KG equation yields,
+} \\
 
-% Hence,
-% \begin{align*}
-% \langle 0 | T \big[ x(t_1) \, x(t_2) \big] | 0 \rangle = 0
-% \end{align*}
-}
-
+Lesson: Path integrals naturally calculate the time-ordered correlators. 
 \newpage
 
 \stepcounter{section}
 \renewcommand{\thesection}{\arabic{section}}
 \fancysection{(\textit{\textbf{Class-12})} Lecture \textbf{9} : Sat, July 16, 2025}{\textbf{\textit{Green's Function Continued}}}
 {
-\renewcommand{\theequation}{11.\arabic{equation}}
+\renewcommand{\theequation}{12.\arabic{equation}}
 \setcounter{equation}{0}
 \noindent
 Path integral begins by defining a partition function and postulated as:
 \begin{align*}
-    Z[g] = \int \mathcal{D}\phi \, e^{iS[\phi, g]}
+    Z[g] = \int_{\text{all config}} \mathcal{D}\phi \, e^{iS[\phi, g]}
 \end{align*}
 \begin{align*}
 \text{Here,}\quad 
@@ -3635,53 +3647,45 @@ It follows from Newton's fundamental theorem of calculus:
 Now,
 \begin{align*}
 \delta G[F(x)] &= G[F + \delta F] - G[F] \quad;\quad \text{There will be NO variation in $x$ here.} \\
-\Rightarrow Frac{\delta G[F(x)]}{\delta F} 
-&= \lim_{\delta F \to 0} Frac{G[F + \delta F] - G[F]}{\delta F(x)}
+\Rightarrow \frac{\delta G[F(x)]}{\delta F} 
+&= \lim_{\delta F \to 0} \frac{G[F + \delta F] - G[F]}{\delta F(x)}
 \end{align*}
 Hence,
 \begin{align*}
-    G[F + \epsilon] - G[F] = 0
+    G[F + f] - G[F] = 0
 \end{align*}
-Because it is just translation in function.
-% \begin{figure}
-%     \centering
-%     \includegraphics[width=0.5\linewidth]{}
-%     \caption{Caption}
-%     \label{fig:placeholder}
-% \end{figure}
-% \begin{align*}
-%     \underbrace{\rule{3cm}{0.4pt}}_{\text{cohomology}}
-% \end{align*}
-Therefore, the lemma follows: the space function to be considered is closed. Hence the result follows:
+Because it is just translation in function.\\
+Therefore, the lemma follows: the space function to be considered is closed. \\
+Hence the result :
 \begin{align*}
-&\int \mathcal{D}\phi \, e^{iS[\phi]} \frac{\delta \left[ e^{\frac{i}{\hbar}S[\phi]} \right]}{\delta \phi} = 0 \\
+&\int \mathcal{D}\phi \frac{\delta \left[ e^{\frac{i}{\hbar}S[\phi]} \right]}{\delta \phi} = 0 \\
 \Rightarrow~ & i\int \mathcal{D}\phi \, e^{iS[\phi]} \frac{\delta S}{\delta \phi} = 0
 \end{align*}
 Under the assumption that this integral is dominated by a single configuration and the fact $e^{iS[\phi]} \neq 0$, hence
 \begin{align*}
     \frac{\delta S}{\delta \phi} = 0 \quad \text{: classical EOM.}
 \end{align*}
-Now,
+Now, if there is a classical source $J(x)$
 \begin{align*}
-    Z[J] &= \mathcal{N} \int \mathcal{D}\phi \, e^{i(S[\phi] + J \phi)} = e^{iW[J]} \qquad \text{and} \\
-    J \phi &= \int d^4x \, J(x) \phi(x)
+    Z[J] &= \mathcal{N} \int \mathcal{D}\phi \, e^{i(S[\phi] + J. \phi)} = e^{iW[J]} \qquad \text{and} \\
+    J. \phi &= \int d^4x \, J(x) \phi(x)
 \end{align*}
 The choice of the normalization constant $\mathcal{N}$ will be fixed by demanding $Z[0] = 1$ and $W$ can be real or complex.
 
 Now, if we want to have expectation value of $\phi$:
 \begin{align*}
-    \langle \phi(J) \rangle = \int \mathcal{D}\phi \, \phi \, e^{i(S[\phi] + J \phi)}\Big|_{J=0}
+    \langle \phi(J) \rangle = \int \mathcal{D}\phi \, \phi \, e^{i(S[\phi] + J. \phi)}\Big|_{J=0}
 \end{align*}
 Now, replacing $\phi \to \frac{1}{i} \frac{\delta}{\delta J}$ and $\frac{i}{\hbar} \longleftrightarrow 1$, we get:
 \begin{align*}
-\langle \phi(J) \rangle &=  \frac{1}{i}  \int \mathcal{D}\phi \,\frac{\delta}{\delta J(x)} e^{i(S[\phi] + J \phi)} \\
-&=\frac{1}{i} \frac{\delta}{\delta J(x)} \int \mathcal{D}\phi \, e^{i(S[\phi] + J \phi)} = \frac{1}{i} \frac{\delta}{\delta J} \left[ e^{iW[J]} \right]
+\langle \phi(J) \rangle &=  \frac{1}{i}  \int \mathcal{D}\phi \,\frac{\delta}{\delta J(x)} e^{i(S[\phi] + J. \phi)} \\
+&=\frac{1}{i} \frac{\delta}{\delta J(x)} \int \mathcal{D}\phi \, e^{i(S[\phi] + J. \phi)} = \frac{1}{i} \frac{\delta}{\delta J} \left[ e^{iW[J]} \right]
 \end{align*}
 Where $J$ is the conjugate or the Fourier transform of $\phi$.
 
 Now, from the previous lemma:
 \begin{align*}
-&\int \mathcal{D}\phi \, \frac{\delta S}{\delta \phi} e^{i(S[\phi] + J\phi)} = 0 \\
+&\int \mathcal{D}\phi \, \frac{\delta S}{\delta \phi} e^{i(S[\phi] + J.\phi)} = 0 \\
 \Rightarrow & \quad \frac{\delta S}{\delta \phi} \bigg|_{\phi \rightarrow\frac{1}{i}\frac{\delta}{\delta J} } ~ \int \mathcal{D}\phi\, e^{i(S[\phi] + J\phi)} = 0 \\
 \Rightarrow & \quad \frac{\delta S}{\delta \phi} \bigg|_{\phi \rightarrow\frac{1}{i}\frac{\delta}{\delta J} } ~ e^{iW[J]} \, \mathbb{I} = 0
 \end{align*}
@@ -3689,37 +3693,88 @@ Now, from the previous lemma:
 Now lets look at,
 \begin{align*}
 \partial_x \left[ e^{i\theta(x)} \psi(x) \right] &= (\partial_x e^{i\theta(x)}) \psi(x) + e^{i\theta(x)} \partial_x \psi(x) \\
-&= e^{i\theta(x)} \left[ ~\theta(x) + i (\,\partial_x \theta(x)\,)~ \right] \psi(x)
+&= e^{i\theta(x)} \left[ ~\partial_x(x) + i (\,\partial_x \theta(x)\,)~ \right] \psi(x)
 \end{align*}
 Applying this in the previous eqn we get,
 \begin{align*}
 e^{iW[J]} &\left[ \frac{\delta S}{\delta \phi}\bigg|_{\phi \rightarrow \phi_c + \frac{1}{i}\frac{\delta}{\delta J} }  \right] \mathbb{I} = 0 \\
 \therefore &\left[ \frac{\delta S}{\delta \phi}\bigg|_{\phi \rightarrow \phi_c + \frac{1}{i}\frac{\delta}{\delta J} }  \right] \mathbb{I} = 0 \qquad [\because e^{iW[J]} \neq 0]
 \end{align*}
-Not same as classical one. It’s the quantum mechanically corrected classical equation. This is the Schwinger–Dyson equation.
+Not same as classical one. It’s the quantum mechanically corrected classical equation. This is called the famous $\textbf{Schwinger–Dyson equation.}$
 
 \subsubsection*{Example}
-\subsection{Anharmonic oscillator}:
+\subsection{Anharmonic oscillator} In DeWitt notation
 \begin{align*}
-    \quad S = \frac{1}{2} \partial \phi \, \partial \phi - &\underline{\frac{1}{2} m \phi^2 - \frac{1}{3!} g\phi^3} \\
+     S = \frac{1}{2} \partial \phi \, \partial \phi - &\underline{\frac{1}{2} m^2 \phi^2 - \frac{1}{3!} g\phi^3} \\
     &\quad (\text{potential})
 \end{align*}
-Now
+Now, we start with the Lagrangian density:
+\[
+\mathcal{L} = \tfrac{1}{2} (\partial_\mu \phi)(\partial^\mu \phi) 
+- \tfrac{1}{2} m^2 \phi^2 
+- \tfrac{g}{3!}\phi^3.
+\]
+
+The action is
+\[
+S[\phi] = \int d^4x \, \mathcal{L}.
+\]
+Therefore, variation of the action is:
+
+\[
+\delta S = \int d^4x \left[ (\partial_\mu \phi)(\partial^\mu \delta \phi) 
+- m^2 \phi \, \delta \phi 
+- \tfrac{g}{2}\phi^2 \delta \phi \right].
+\]
+Applying integration by parts to the first part of the kinetic term:
+\[
+= - \int d^4x \, (\partial_\mu \partial^\mu \phi) \, \delta \phi 
++ \text{boundary term}.
+\]
+
+The boundary term vanishes, so
+\[
+\delta S = \int d^4x \left[ - (\partial_\mu \partial^\mu \phi) \delta \phi 
+- m^2 \phi \delta \phi 
+- \tfrac{g}{2}\phi^2 \delta \phi \right].
+\]
+Then factoring out $\delta \phi$:
+\[
+\delta S = \int d^4x \, \delta \phi(x) \, 
+\Big( -\partial^2 \phi(x) - m^2 \phi(x) - \tfrac{g}{2}\phi^2(x) \Big).
+\]
+
+Thus
+\[
+\frac{\delta S}{\delta \phi(x)} 
+= -\partial^2 \phi(x) - m^2 \phi(x) - \tfrac{g}{2}\phi^2(x).
+\]
+The Euler--Lagrange equation reads
+\[
+\frac{\delta S}{\delta \phi(x)} = 0
+\quad \Rightarrow \quad
+(-\partial^2 - m^2)\phi(x) - \tfrac{g}{2}\phi^2(x) = 0.
+\]
+\subsubsection*{Final Result}
+\[
+\boxed{(-\partial^2 - m^2)\phi(x) - \tfrac{g}{2}\phi^2(x) = 0}
+\]
+Hence, the correct classical equation of motion for the cubic anharmonic oscillator in QFT is 
 \begin{align*}
-    \frac{\delta S}{\delta \phi} = (\partial^2 + m^2)\phi + \frac{g \phi^2}{2} = 0 \quad \rightarrow \quad \text{Classical EOM.}
+    \frac{\delta S}{\delta \phi} = (\partial^2 + m^2)\phi + \frac{g \phi^2}{2} = 0 
 \end{align*}
-Schwinger–Dyson equation for this system is obtained by shifting  $\phi$,
+Now, the Schwinger–Dyson equation for this system is obtained by shifting  $\phi$,
 \begin{align*}
-    \phi :\phi \rightarrow \phi + \frac{1}{i} \frac{\delta}{\delta J}
+    \phi :\phi \rightarrow \phi + \frac{\hbar}{i} \frac{\delta}{\delta J}
 \end{align*}
-Then,
+That is, 
 \begin{align*}
-&(\partial^2 + m^2) \left[ \phi + \frac{\hbar}{i} \frac{\delta}{\delta J} \right] 
-+ \frac{g}{2} \left( \phi + \frac{\hbar}{i} \frac{\delta}{\delta J} \right)
-\left( \phi + \frac{\hbar}{i} \frac{\delta}{\delta J} \right) \mathbb{I} = 0 \\
-\Rightarrow &(\partial^2 + m^2)\phi \mathbb{I} + (\partial^2 + m^2) \frac{\hbar}{i} \frac{\delta}{\delta J} \mathbb{I}
-+ \frac{g}{2} \phi^2 \mathbb{I} + \frac{g}{2} \left( \frac{1}{i} \frac{\delta}{\delta J} \right)^2 \mathbb{I} + \frac{g}{2} \left( \phi \frac{1}{i} \frac{\delta}{\delta J} + \frac{1}{i} \frac{\delta}{\delta J} \phi \right) \mathbb{I} = 0 \\
-\Rightarrow &(\partial^2 + m^2)\phi + \frac{g\phi^2}{2} + \frac{\hbar}{2i} \frac{\delta \phi}{\delta J} = 0
+    \phi \mathbb{I} \rightarrow \phi + \frac{\hbar}{i} \frac{\delta}{\delta J} \mathbb{I} = \phi \\
+    \phi^3 \mathbb{I} \rightarrow \left( \phi + \frac{\hbar}{i} \frac{\delta}{\delta J}\right) \phi = \phi^2 + \frac{\hbar}{i} \frac{\delta \phi}{\delta J} \\
+\end{align*}
+Therefore, the equation of motion turns out to be 
+\begin{align*}
+\left( \Box + m^2\right) \phi + \frac{g \phi^2}{2} + \frac{\hbar}{2i} \frac{\delta\phi}{\delta J} = 0
 \end{align*}
 \newpage
 }
@@ -3751,7 +3806,7 @@ Now, in particular, a shift is observed:
 &= \frac{g}{3!} \left( \phi_c + \frac{\hbar}{i} \frac{\delta}{\delta J} \right)
 \left( \phi_c^2 + \frac{\hbar}{i} \frac{\delta \phi_c}{\delta J} \right)
 \\
-&= \frac{g}{3!} \left[ \phi_c^3 + \underbrace{2 \frac{\hbar}{i} \phi_c \frac{\delta \phi_c}{\delta J} + \left( \frac{\hbar}{i} \right)^2 \frac{\delta^2 \phi_c}{\delta J^2}} \right] \\
+&= \frac{g}{3!} \left[ \phi_c^3 + \underbrace{3 \frac{\hbar}{i} \phi_c \frac{\delta \phi_c}{\delta J} + \left( \frac{\hbar}{i} \right)^2 \frac{\delta^2 \phi_c}{\delta J^2}} \right] \\
 & \qquad \qquad \qquad \quad\small\text{Quantum correction}
 \end{align*}
 \begin{tcolorbox}
@@ -3770,7 +3825,7 @@ Z = \sum_{\text{configs}} e^{-\beta H} \quad \longrightarrow \quad \int d \, (\t
 Here, $F$ = free energy. There are two kinds of free energy: \textbf{Helmholtz} and \textbf{Gibbs}. Also for this system, the Internal energy $U$ is the Hamiltonian.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.45\linewidth]{figures/C13_1.jpeg}
+    \includegraphics[width=0.45\linewidth]{figures/C13_1.png}
     \caption*{}
     % \label{fig:placeholder}
 \end{figure}
@@ -3786,7 +3841,7 @@ Euler equation for a homogeneous function:
 This is called the Gibbs–Duhem equation. Here the $ S,V,N $ are pure extensive variables. After applying Legendre transformation, we can get:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/C13_2.jpeg}
+    \includegraphics[width=0.5\linewidth]{figures/C13_2.png}
     \caption*{}
     % \label{fig:placeholder}
 \end{figure}
@@ -3802,7 +3857,7 @@ $\rightarrow$ The system can be considered as a field. Here, $\phi$ is called th
 \vspace{-1cm}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\linewidth]{figures/C13_3.jpeg}
+    \includegraphics[width=0.4\linewidth]{figures/C13_3.png}
     \caption*{}
     % \label{fig:placeholder}
 \end{figure}
@@ -3819,18 +3874,18 @@ Remember, $E, H$ are the field $J$, and $D, B$ are the induction (not field).
 
 Then,
 \begin{align*}
-Z = e^{-\beta F} = e^{\beta A} \quad \Rightarrow \quad Z[J] = \int \mathcal{D}\phi \; e^{i(S + J \phi)} = e^{iW[J]}
+Z = e^{-\beta F} = e^{\beta A} \quad \Rightarrow \quad Z[J] = \int \mathcal{D}\phi \; e^{i(S + J. \phi)} = e^{iW[J]}
 \end{align*}
 \textcolor{red}{\textbf{Note: All of these are Schwingerian ways of doing things.}}
 
 \subsection{Free theory}
-Free theory means there is no interaction present. The action is written as:
+Free theory means there is no interaction present. The action is written as in the presence of a classical source:
 \begin{align*}
 & S = \frac12 \phi^T A \phi + J^T \phi ~\qquad , \quad A = -(\Box + m^2) \\
-& S = \frac12 (\partial \phi)^2 - \frac12 m^2 \phi^2 ~,~ A =~~ (\Box + m^2)
+& S = \frac12 (\partial \phi)^2 - \frac12 m^2 \phi^2
 \end{align*}
 \begin{align*}
-\therefore Z[J] = &\int \underline{\mathcal{D}\phi} \; e^{\frac12 \phi^T A \phi + J^T \phi} \quad [ \mathcal{D}\phi \equiv \tiny\text{\(\prod d\phi\)} ]
+\therefore Z[J] = &\int \underline{\mathcal{D}\phi} \; e^{\frac12 \phi^T A \phi + J^T \phi} \quad [ \mathcal{D}\phi \equiv \text{\(\prod d\phi\)} ]
 \end{align*}
 $A$ = symmetric matrix with \textit{positive} eigenvalues.
 \begin{align*}
@@ -3845,7 +3900,7 @@ Hence,
 \end{align*}
 Measure is rotation invariant.
 
-Now, recall The integration for a multilinear function:
+Now, recall the integration for a multilinear function:
 \begin{align*}
 &\int \prod_{i} dy_i \, e^{-\lambda_i y_i^2 + (b'^T y)} 
 \quad \text{where} \quad b' = R^T b
@@ -3864,7 +3919,7 @@ $$\sqrt{\det A} \times\sqrt{\det A} = \det A$$
 \end{tcolorbox}
 Now,
 \begin{align*}
-Z[J] = \frac{N \left[ \prod_{i=1}^\infty \sqrt{\pi} \right]}{\sqrt{\det A}}
+Z[J] = \prod_{i=1}^\infty \frac{\sqrt{\pi}}{{\sqrt{\det A}}}
 e^{ \left[ \frac14 \,iJ^T\, \left( \frac{2}{-i} \right) \frac1A \,iJ \right] }
 = \frac{N}{\sqrt{\det A}} \;
 e^{ -\frac12 J^T A^{-1} J }
@@ -3928,7 +3983,7 @@ This is not true in $\phi^3$ theory because it is neither even nor odd.
 Pictorially,
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.15\linewidth]{figures/C13_4.jpeg}
+    \includegraphics[width=0.15\linewidth]{figures/C13_4.png}
     \caption*{}
     % \label{fig:placeholder}
 \end{figure}
@@ -3952,7 +4007,7 @@ Z[J] &= e^{-\frac{i}{2} J_x (A^{-1})_{xy} J_y} \\
 \vspace{-0.5cm}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.55\linewidth]{figures/C13_5.jpeg}
+    \includegraphics[width=0.55\linewidth]{figures/C13_5.png}
     \caption*{}
     % \label{fig:placeholder}
 \end{figure}
@@ -3966,7 +4021,7 @@ Exercise : Do this calculation for 6-point function and calculate $\langle \phi_
 Extras: New particle finding
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.2\linewidth]{figures/C13_6.jpeg}
+    \includegraphics[width=0.2\linewidth]{figures/C13_6.png}
     \caption*{}
     % \label{fig:placeholder}
 \end{figure}
@@ -3983,7 +4038,7 @@ K \to \pi + \pi + \pi \quad (\text{no leptonic})
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.3\linewidth]{figures/C13_7.jpeg}
+    \includegraphics[width=0.3\linewidth]{figures/C13_7.png}
     \caption*{}
     % \label{fig:placeholder}
 \end{figure}
@@ -3998,14 +4053,17 @@ Here,
 \end{align*}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.15\linewidth]{figures/C13_8.jpeg}
+    \includegraphics[width=0.15\linewidth]{figures/C13_8.png}
     \caption*{}
     % \label{fig:placeholder}
 \end{figure}
 % \vspace{-2.3cm}
 \end{tcolorbox}
-\newpage
 
+\newpage
+% ------------------------------------------
+% Class 14
+% ------------------------------------------
 \stepcounter{section}
 \renewcommand{\thesection}{\arabic{section}}
 \fancysection{(\textit{\textbf{Class-14})} Lecture \textbf{11} : Sat, Aug 9, 2025}{\textbf{\textit{Feynman Diagram}}}
@@ -4021,12 +4079,11 @@ S = \frac{1}{2} \phi^T A \phi + \frac{1}{2} \chi^T A\, \chi + \chi^T B \, \phi -
 \end{align*}
 Find the propagators for this field.
 \end{tcolorbox}
-
 \subsubsection*{What to think of QFT?}
 \vspace{-0.5cm}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{figures/C14_01.jpg}
+    \includegraphics[width=0.7\linewidth]{figures/C14_01.png}
     \caption*{}
     % \label{fig:placeholder}
 \end{figure}
@@ -4048,7 +4105,7 @@ Yukawa Lagrangian:
 Here, $2$ incoming particles + interaction + $2$ outgoing particles.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.3\linewidth]{figures/C14_02.jpg}
+    \includegraphics[width=0.2\linewidth]{figures/C14_01.png}
     \caption*{}
     % \label{fig:placeholder}
 \end{figure}
@@ -4056,7 +4113,7 @@ Here, $2$ incoming particles + interaction + $2$ outgoing particles.
 Hence, Yukawa interaction term $g \phi \bar{\psi} \psi$ and corresponding diagram:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.3\linewidth]{figures/C14_03.jpg}
+    \includegraphics[width=0.3\linewidth]{figures/C14_03.png}
     \caption*{Tree Diagram}
     % \label{fig:placeholder}
 \end{figure}
@@ -4069,7 +4126,7 @@ Hence, Yukawa interaction term $g \phi \bar{\psi} \psi$ and corresponding diagra
 \vspace{-0.5cm}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.3\linewidth]{figures/C14_04.jpg}
+    \includegraphics[width=0.3\linewidth]{figures/C14_04.png}
     \caption*{Here is one loop inside.}
     % \label{fig:placeholder}
 \end{figure}
@@ -4084,7 +4141,7 @@ Now, from perturbation theory, we know:
 Pictorial view:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/C14_05.jpg}
+    \includegraphics[width=0.8\linewidth]{figures/C14_05.png}
     \caption*{}
     % \label{fig:placeholder}
 \end{figure}
@@ -4103,7 +4160,7 @@ Now, from the eigenvalue equation:
 \\
 \Rightarrow &(\hat{H} - H_0) \ket{\psi} = V \ket{\psi} \quad, \quad \hat{H} = H_0 + V
 \end{align*}
-Its inverse is the propagator: $A^{-1} \equiv \Delta$
+Its ($\hat{H}-H_0)$ inverse is the propagator: $A^{-1} \equiv \Delta$
 \\
 
 From the last class, we get:
@@ -4118,7 +4175,7 @@ G_N = \frac{1}{i^N} \frac{1}{Z[0]} \frac{\delta^n Z[J]}{\delta J_1 \, \delta J_2
 Then, the $4$-point Green function can be written as a pictorial view as:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/C14_06.jpg}
+    \includegraphics[width=0.8\linewidth]{figures/C14_06.png}
     \caption*{Here, $A_1$ and $A_2$ are the amplitudes.}
     % \label{fig:placeholder}
 \end{figure}
@@ -4128,7 +4185,7 @@ These diagrams are called the \textit{disconnected diagrams} because there is no
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.2\linewidth]{figures/C14_07.jpg}
+    \includegraphics[width=0.2\linewidth]{figures/C14_07.png}
     \caption*{An example of a connected diagram}
     \label{fig:placeholder}
 \end{figure}
@@ -4136,7 +4193,7 @@ These diagrams are called the \textit{disconnected diagrams} because there is no
 \subsection{Mandelstam variables}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.3\linewidth]{figures/C14_08.jpg}
+    \includegraphics[width=0.3\linewidth]{figures/C14_08.png}
     \caption*{}
     \label{fig:placeholder}
 \end{figure}
@@ -4170,6 +4227,47 @@ From the mass-shell (on-shell) condition $p^2 = m^2 \Rightarrow E^2-\mathbf{p}^2
 \begin{align*}
 s + t + u = m_1^2 + m_2^2 + m_3^2 + m_4^2
 \end{align*}
+\textbf{Proof:}
+We consider the $2 \to 2$ scattering process
+\[
+p_1 + p_2 \;\to\; p_3 + p_4 ,
+\]
+with on-shell conditions $p_i^2 = m_i^2$ for $i=1,\dots,4$. 
+Expanding each:
+\begin{align*}
+s &= (p_1+p_2)^2 
+   = p_1^2 + p_2^2 + 2 p_1\!\cdot\! p_2 
+   = m_1^2 + m_2^2 + 2 p_1\!\cdot\! p_2, \\
+t &= (p_1-p_3)^2 
+   = p_1^2 + p_3^2 - 2 p_1\!\cdot\! p_3 
+   = m_1^2 + m_3^2 - 2 p_1\!\cdot\! p_3, \\
+u &= (p_1-p_4)^2 
+   = p_1^2 + p_4^2 - 2 p_1\!\cdot\! p_4 
+   = m_1^2 + m_4^2 - 2 p_1\!\cdot\! p_4.
+\end{align*}
+
+Adding them:
+\begin{align*}
+s+t+u &= 3m_1^2 + m_2^2 + m_3^2 + m_4^2
++ 2 p_1\!\cdot\! p_2 - 2 p_1\!\cdot\! p_3 - 2 p_1\!\cdot\! p_4 .
+\end{align*}
+Now use momentum conservation $p_1 + p_2 = p_3 + p_4$, so that
+\[
+p_2 = p_3 + p_4 - p_1.
+\]
+Hence
+\begin{align*}
+2p_1\!\cdot\! p_2 - 2p_1\!\cdot\! p_3 - 2p_1\!\cdot\! p_4
+&= 2p_1\!\cdot\!(p_3+p_4-p_1) - 2p_1\!\cdot\! p_3 - 2p_1\!\cdot\! p_4 \\
+&= -2p_1^2 \\
+&= -2 m_1^2.
+\end{align*}
+
+Therefore,
+\[
+s+t+u = m_1^2 + m_2^2 + m_3^2 + m_4^2,
+\]
+which is the required identity. \\
 In the pion case, all masses are equal, hence:
 \begin{align*}
 s + t + u = 4 m_\pi^2
@@ -4178,7 +4276,7 @@ s + t + u = 4 m_\pi^2
 \textbf{Geometry:} In equilateral triangle,
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.3\linewidth]{figures/C14_09.jpg}
+    \includegraphics[width=0.3\linewidth]{figures/C14_09.png}
     \caption*{}
     \label{fig:placeholder}
 \end{figure}
@@ -4186,13 +4284,11 @@ s + t + u = 4 m_\pi^2
 \[
 s+u+v = \text{sum of the perpendicular distance} = \text{sum of total height area}
 \]
-In free theory, only propagators exist. There is nothing beyond the propagator. Also there can also be products of propagators as well,
-\newpage
-\noindent
+In free theory, only propagators exist. There is nothing beyond the propagator. Also there can also be products of propagators as well. \\
 \textbf{A case for interacting theory}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.55\linewidth]{figures/C14_10.jpg}
+    \includegraphics[width=0.55\linewidth]{figures/C14_10.png}
     \caption*{}
     \label{fig:placeholder}
 \end{figure}
@@ -4205,7 +4301,7 @@ The Lagrangian,
 \end{align*}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.3\linewidth]{figures/C14_11.jpg}
+    \includegraphics[width=0.3\linewidth]{figures/C14_11.png}
     \caption*{}
     \label{fig:placeholder}
 \end{figure}
@@ -4288,12 +4384,13 @@ Potential,\quad \(V(\phi) = \frac{\lambda}{4!} \phi^4\). Then:
 \end{align*}
 Looking at the Second Term, lets consider:
 \begin{align*}
-e^{\frac{i}{2} J_m \Delta^{mn} J_n} =
+e^{\frac{i}{2} J_m \Delta^{mn} J_n} \\
+=
 \end{align*}
 \vspace{-1cm}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.55\linewidth]{figures/C14_12.jpg}
+    \includegraphics[width=0.55\linewidth]{figures/C14_12.png}
     \caption*{}
     \label{fig:placeholder}
 \end{figure}
@@ -4336,8 +4433,8 @@ e^{\frac{i}{2} J_m \Delta^{mn} J_n} =
 Now, focus on the derivative term:
 \begin{align*}
 \frac{\delta^4}{\delta J_{j_1} \dots \delta J_{j_4}}
-&\left[ \underbrace{(J_m \Delta_{mn} J_n)} \underbrace{(J_p \Delta^{pq} J_q)} \right] \\
-& \qquad ~~ M \qquad \qquad N
+&\left[ \underbrace{(J_m \Delta_{mn} J_n)} \underbrace{(J_p \Delta_{pq} J_q)} \right] \\
+& \qquad ~~ M \qquad \qquad M
 \end{align*}
 % \vspace{-1.2cm}
 \begin{align*}
@@ -4355,7 +4452,7 @@ Now:
 &= \frac{\partial J_m}{\partial J_i} \Delta_{mn} J_n + J_n \Delta_{mn} \frac{\partial J_i}{\partial J_i} \\
 &= \delta_{mi} \Delta_{mn} J_n + J_m \Delta_{mn} \delta_{ni} \\
 &= \Delta_{i n} J_n +  J_n \Delta_{ni} \\
-\therefore \frac{\partial}{\partial J_i} (J_m \Delta_{mn} J_n)  &= 2 \Delta^{i n} J_n
+\therefore \frac{\partial}{\partial J_i} (J_m \Delta_{mn} J_n)  &= 2 \Delta_{i m} J_m
 \end{align*}
 Here, $\Delta_{mn} \equiv \Delta_{nm}$ (symmetric) because $A$ is symmetric
 ($A^T = A$).
@@ -4364,7 +4461,7 @@ The derivative term $\frac{\partial}{\partial J_i}$ amputates the propagator.
 That is:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/C14_13.jpg}
+    \includegraphics[width=0.8\linewidth]{figures/C14_13.png}
     \caption*{}
     \label{fig:placeholder}
 \end{figure}
@@ -4383,7 +4480,7 @@ That is:
 \subsection*{Back to the Previous Calculation}
 \begin{align*}
 &= 4 \, \frac{\partial^2}{\partial J_{i}}
-\left[ (J_p \Delta_{pq} J_q) \; \Delta)_{i n} \delta_{in}
+\left[ (J_p \Delta_{pq} J_q) \; \Delta_{i n} \delta_{in}
 + (\Delta_{in} J_n)\times 2\Delta_{pi} J_p \right]
 \\
 &= 4 \, \frac{\partial^2}{\partial J_{i}^2} 
@@ -4403,13 +4500,12 @@ That is:
 &= 24 \Delta_{ii} \Delta_{ii} = 4! \Delta_{ii}\Delta_{ii} 
 \end{align*}
 The $4!$ arises due to the term $\frac{\lambda}{4!}\phi^4$ where a $4!$ term was present in the denominator.
-\newpage
 \subsection*{Pictorial view}
 \begin{enumerate}
 \item $\Delta_{ii}$ = self-interacting term = generates loop.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{figures/C14_14.jpg}
+    \includegraphics[width=0.7\linewidth]{figures/C14_14.png}
     \caption*{}
     \label{fig:placeholder}
 \end{figure}
@@ -4417,7 +4513,7 @@ The $4!$ arises due to the term $\frac{\lambda}{4!}\phi^4$ where a $4!$ term was
 \item $\Delta_{ii} \Delta_{ii}$ term corresponds to connecting two vertices, giving additional loop contributions.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/C14_15.jpg}
+    \includegraphics[width=0.6\linewidth]{figures/C14_15.png}
     \caption*{}
     \label{fig:placeholder}
 \end{figure}
@@ -4427,27 +4523,26 @@ Here
 \vspace{-1cm}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{figures/C14_16.jpg}
+    \includegraphics[width=0.7\linewidth]{figures/C14_16.png}
     \caption*{}
     \label{fig:placeholder}
 \end{figure}
 \vspace{-1.5cm}
 
 \begin{tcolorbox}
-Free theory generates only tree graphs. Sequential diagrams of the partition function due to the potential $\left( V = \frac{\lambda}{4!} \phi^4 \right)$ contain disconnected diagrams as well.
+Free theory generates only tree graphs. Sequential diagrams of the partition function due to the potential $\left( V = \frac{\lambda}{4!} \phi^4 \right)$ will be 
 \end{tcolorbox}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{figures/C14_17.jpg}
-    \caption*{$+$ Disconnected Diagrams}
+    \includegraphics[width=0.7\linewidth]{figures/C14_17.png}
+    \caption*{}
     \label{fig:placeholder}
 \end{figure}
-% \vspace{-1.5cm}
 \subsection*{Therefore:}
 % \vspace{-1cm}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{figures/C14_18.jpg}
+    \includegraphics[width=0.7\linewidth]{figures/C14_18.png}
     \caption*{}
     \label{fig:placeholder}
 \end{figure}
@@ -4457,31 +4552,29 @@ Free theory generates only tree graphs. Sequential diagrams of the partition fun
 \item Quadratic (free theory) generates only tree graphs.
 \item Interaction leads to loops.
 \item $Z[J]$ generates all graphs, including disconnected graphs.
+\item $W[J]$ generates only connected graphs.
 \end{enumerate}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{figures/C14_19.jpg}
+    \includegraphics[width=0.7\linewidth]{figures/C14_19.png}
     \caption*{}
     \label{fig:placeholder}
 \end{figure}
-% \vspace{-1.5cm}
 \begin{framed}
-\noindent
 \textbf{Exercise:} For $V=\frac{{g \phi^3}}{3!}$, Calculate the $2^{\text{nd}}$ order contribution to $Z[J]$ due to this interaction
 \end{framed}
 Connected graph = product of disconnected graphs.
 \vspace{1cm}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.2\linewidth]{figures/C14_20.jpeg}
+    \includegraphics[width=0.2\linewidth]{figures/C14_20.png}
     \caption*{This is the only connected graph in free theory}
     \label{fig:placeholder}
 \end{figure}
-\newpage
 \subsection*{Post-class discussion:}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\linewidth]{figures/C14_21.jpg}
+    \includegraphics[width=0.4\linewidth]{figures/C14_21.png}
     \caption*{}
     \label{fig:placeholder}
 \end{figure}
@@ -4497,6 +4590,1565 @@ There is a constant in the diagram (momentum conservation), hence at vertex: $V 
 \end{align*}
 
 Trick: $\hbar^n$, where $n =$ number of loops in the diagram.
+
+\newpage
+% ------------------------------------------
+% Class 15
+% ------------------------------------------
+\stepcounter{section}
+\renewcommand{\thesection}{\arabic{section}}
+\fancysection{(\textit{\textbf{Class-15})} Lecture \textbf{12} : Sat, Aug 23, 2025}{\textbf{\textit{Feynman Diagram Continued}}}
+
+\subsection{Decomposing Connected Correlators}
+\noindent From the previous class, we learned that,
+\[
+Z[J] = e^{iW[J]}\quad , \quad W[J] = -i \ln Z[J].
+\]
+Here, $Z[J]$ generates all diagrams, both connected and disconnected.
+For example:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/C15_1.png}
+    %\caption*{}
+    %\label{fig:placeholder}
+\end{figure}
+\vspace{-1cm}
+\[
+W[J]~~\text{generates only connected diagrams.}
+\]
+\textbf{Remark:}\\
+Recall,
+\[
+\langle \phi_1 \phi_2 \dots \phi_n \rangle 
+= \langle 0 | T \{ \phi(x_1) \phi(x_2) \dots \phi(x_n) \} | 0 \rangle
+= \int \mathcal{D}\phi \; \phi_1 \phi_2 \dots \phi_n \, e^{iS}
+\]
+And,
+\[
+Z[J] = \langle 0 | T \left( e^{i J.\phi} \right) | 0 \rangle.
+\]
+Then, Green’s function for $n$ points is
+\[
+G_n(x_1, \dots, x_n) \equiv G_{1\dots n} 
+= \frac{\delta^n Z[J]}{\delta J_1 \delta J_2 \dots \delta J_n}\Bigg|_{J=0}.
+\]
+And
+\[
+G^c_{1\dots n} 
+= \frac{ \delta^n W[J]}{\delta J_1 \delta J_2 \dots \delta J_n}\Bigg|_{J=0}, 
+\quad J_i \equiv J(x_i)\quad, \quad {(\text{c=connected)}}
+\]
+% \[
+% \Rightarrow \quad
+% G^c_{1\dots n} 
+% = (-i)^n \frac{\delta^n [\ln Z[J]]}{\delta J_1 \delta J_2 \dots \delta J_n}\Bigg|_{J=0}.
+% \]
+\[
+\Rightarrow \quad
+G^c_{1\dots n} 
+= \frac{i(-i)\,\delta^n \left(\ln Z[J]\right)}{\delta J_1 \delta J_2 \dots \delta J_n}\Bigg|_{J=0}.
+\]
+If $n=2$, i.e.\ the two-point Green function, then
+\begin{align*}
+G^c_{12} 
+&= \frac{\delta^2 \left(\ln Z[J]\right)}{\delta J_1 \delta J_2}\Bigg|_{J=0} 
+\\
+&= \frac{\delta}{\delta J_2} \left( \frac{1}{Z[J]} \frac{\delta Z[J]}{\delta J_1} \right)\Bigg|_{J=0}
+\\
+&= \left(\frac{1}{Z[J]} \frac{\delta^2 Z[J]}{\delta J_1 \delta J_2} -\frac{1}{Z^2 [J]} \frac{\delta Z}{\delta J_1} \frac{\delta Z}{\delta J_2} \right) \Bigg|_{J=0}
+\\
+&= G_{12} - \left( \frac{1}{Z[J]} \frac{\delta Z}{\delta J_1} \right) \left( \frac{1}{Z[J]} \frac{\delta Z}{\delta J_2} \right)
+\\
+\therefore G^c_{12} &=G_{12} - G^c_1 G^c_2
+\end{align*}
+Similarly, for $n=3$, i.e.\ the three-point Green function:
+\begin{align*}
+G_{123}^c 
+&= \frac{\delta^3 \left(\ln Z[J]\right)}{\delta J_1 \delta J_2 \delta J_3}\Bigg|_{J=0}
+\\
+&= \frac{\delta}{\delta J_3} \left( \frac{1}{Z} \frac{\delta^2 Z}{\delta J_1 \delta J_2} 
+- \frac{1}{Z^2} \frac{\delta Z}{\delta J_1} \frac{\delta Z}{\delta J_2} \right)\Bigg|_{J=0}
+\\
+&= \frac{1}{Z} \frac{\delta^3 Z}{\delta J_1 \delta J_2 \delta J_3}
+- \frac{1}{Z^2} \frac{\delta Z}{\delta J_3} \frac{\delta^2 Z}{\delta J_1 \delta J_2} + \frac{2}{Z^3} \frac{\delta Z}{\delta J_3}\frac{\delta Z}{\delta J_1}\frac{\delta Z}{\delta J_2}
+\\
+& \qquad - \frac{1}{Z^2} \frac{\delta^2 Z}{\delta J_1 \delta J_3} \frac{\delta Z}{\delta J_2} 
+- \frac{1}{Z^2} \frac{\delta^2 Z}{\delta J_2 \delta J_3} \frac{\delta Z}{\delta J_1}
+\\
+\therefore G_{123}^c 
+&= G_{123} - G^c_3 G_{12} + 2G^c_1 G^c_2 G^c_3 - G^c_2 G_{13} - G^c_1 G_{23}  \tag{A} \label{A}
+\end{align*}
+Now, from the two-point function we have found
+\begin{align*}
+G^c_{12} &= G_{12} - G^c_1 G^c_2 \\
+\therefore G_{12} &= G^c_{12} + G^c_1 G^c_2
+\end{align*}
+Putting this in \eqref{A} yields,
+\begin{align*}
+G_{123}^c 
+&= G_{123} - G^c_3 G_{12} + 2G^c_1 G^c_2 G^c_3 - G^c_2 G_{13} - G^c_1 G_{23}
+\\
+&= G_{123} - G^c_3 (G^c_{12} + G^c_1 G^c_2) + 2G^c_1 G^c_2 G^c_3 - G^c_2 (G^c_{13} + G^c_1 G^c_3) - G^c_1 (G^c_{23} + G^c_2 G^c_3)
+\\
+&= G_{123} - G^c_3 G^c_{12} - G^c_3 G^c_1 G^c_2 + 2G^c_1 G^c_2 G^c_3 - G^c_2 G^c_{13} - G^c_2 G^c_1 G^c_3 - G^c_1 G^c_{23} - G^c_1 G^c_2 G^c_3
+\\
+\therefore G_{123}^c
+&= G_{123} - G^c_3 G^c_{12} - G^c_1 G^c_2 G^c_3 - G^c_2 G^c_{13} - G^c_1 G^c_{23}
+\end{align*}
+Pictorial view:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/C15_2.png}
+\end{figure}
+
+%Comparing this result with statistical mechanics, it’s seen %that
+%\[
+%W \;\; \leftrightarrow \;\; \text{Helmholtz free energy}.
+%\]
+\begin{framed}
+\noindent \textbf{Exercise:} Decompose the full 4-point function in terms of the connected Green's function of 4th order or less.
+Hamiltonian is defined on cotangent space, and the Lagrangian is defined on tangent space.
+\end{framed}
+Comparing the result with statistical mechanics, it is seen that
+\[
+W \leftrightarrow \text{Helmoltz Free Energy}
+\]
+And 
+\begin{align*}
+\bar{\phi} &= \langle\phi \rangle = \frac{\delta W}{\delta J_i} \quad , \quad \text{(1-point)}
+\\
+\frac{\delta^2}{\delta J_i \delta J_j} &= \frac{\delta \bar{\phi}}{\delta J_i} = G_{ij}(J) \quad \text{(not entirely right)}
+\end{align*}
+But we need to get back to $\bar{\phi}$ in the argument.
+\begin{tcolorbox}
+\begin{itemize}
+    \item \textbf{Hamiltonian} is defined on the \textbf{cotangent} space.
+    \item \textbf{Lagrangian} is defined on the \textbf{tangent} space.
+    \item Philosophically, $H = \frac{p^2}{2m}$ is more accurate rather than $\frac12 mv^2$.
+\end{itemize}
+\end{tcolorbox}
+
+\subsection{Effective Action}
+In the path-integral formalism, the generating functional of connected Green’s function is $W[J]$. The Legendre transform of $W[J]$ defines the effective action:
+\[
+\Gamma[\phi] = W[J] \pm J \cdot \phi
+\]
+where $J \cdot \phi \equiv \int d^4 x \, J(x)\phi(x)$.
+In free theory, $S$ and $\Gamma$ are exactly equal. \\
+
+From the previous equation:
+\[
+\frac{\delta \Gamma(\phi)}{\delta \bar{\phi}} + J = 0
+\]
+Compareing this with classical EOM:
+\[
+\frac{\delta S}{\delta \phi} + J = 0
+\]
+Thus, quantum corrections are encoded in the \textit{Schwinger–Dyson} equation. SD equation:
+\[
+\left( \frac{\delta S}{\delta \phi} + J \right) \mathbb{I}\Bigg|_{\phi \to \phi + \frac{\hbar}{i}\frac{\delta}{\delta J}}
+= \left( \frac{\delta S}{\delta \phi} \right) \mathbb{I}\Bigg|_{\phi \to \phi + \frac{\hbar}{i}\frac{\delta}{\delta J}} 
+=
+\frac{\delta \Gamma(\phi)}{\delta \phi}.
+\]
+We choose $S$ and observe $\Gamma$. 
+\begin{tcolorbox}
+\begin{itemize}
+    \item In QCD, there are different bases: $\delta \Gamma \rightarrow$ Baryons, $\delta S \rightarrow$ quarks, gluons.
+    \item $S$ and $\Gamma$ can be expanded in terms of polynomial in their respective arguments.
+\end{itemize}
+\end{tcolorbox}
+
+\subsubsection{One-Loop Effective Action}
+
+We can determine the generic form of the effective action at the one-loop level by solving the Schwinger–Dyson (SD) equation.
+
+We can write Taylor’s theorem as:
+\[
+f(x+a) = e^{a \frac{d}{dx}} f(x).
+\]
+
+Therefore,
+\[
+\frac{\delta \Gamma}{\delta \phi_a}
+= \frac{\delta S}{\delta \phi_a} \left[ \phi + \frac{1}{i} G \frac{\delta}{\delta \phi} \right]
+= e^{\frac{1}{i} G \frac{\delta}{\delta \phi}} \frac{\delta S}{\delta \phi_a}.
+\]
+
+Here, $\hat{A}_{ab} = G_{bc} \frac{\delta}{\delta \phi_c}$.  
+Assuming $G_{bc}$ is symmetric, we can write:
+\[
+\hat{A}_{ab} = \tfrac{1}{2} G_{bc} \frac{\delta}{\delta \phi_c}.
+\]
+
+Expanding to first order in $\hbar$, the RHS becomes:
+
+\[
+\frac{\delta \Gamma}{\delta \phi_a}
+= \frac{\delta S}{\delta \phi_a} 
++ \frac{1}{2i} G_{bc} \frac{\delta^2 S}{\delta \phi_b \delta \phi_c}.
+\]
+
+But $G_{bc} = \left( \frac{\delta^2 S}{\delta \phi_b \delta \phi_c} \right)^{-1}$, so:
+
+\[
+\frac{\delta \Gamma}{\delta \phi_a}
+= \frac{\delta S}{\delta \phi_a} + \frac{1}{2i} \frac{\delta}{\delta \phi_a} \text{Tr}\,\ln G^{-1}.
+\]
+
+Thus, the one-loop effective action (up to an additive constant) is:
+
+\[
+\Gamma = S - \frac{\hbar}{2i} \ln \det G.
+\]
+
+\newpage
+% ------------------------------------------
+% Class 16
+% ------------------------------------------
+\stepcounter{section}
+\renewcommand{\thesection}{\arabic{section}}
+\fancysection{(\textit{\textbf{Class-16})} Lecture \textbf{13} : Thrs, Aug 28, 2025}{\textbf{\textit{1-Loop Effective Potential}}}
+
+\noindent \textbf{Reference:} Ramond
+
+\subsection*{Digression}
+(Historical: Due to Riemann)
+\subsection{Riemann zeta-function}
+\[
+\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s}
+\]
+Here,
+\[
+\zeta(0) = -\frac{1}{2}, 
+\qquad \zeta(-1) = -\frac{1}{12}.
+\]
+
+\subsection*{Definition}
+If an operator $\hat{A}$, which is self-adjoint (typically elliptic), then the associated zeta function is
+\[
+\zeta_A(s) \equiv \sum \frac{1}{\lambda_i^s},
+\]
+where $\hat{A}\phi_i = \lambda_i \phi_i$.
+
+\subsection{Elliptic Operators}
+It is a 2nd order differential equation and the sequence of eigenvalues have the same sign. Example: Laplace equation. Here $\lambda$ can’t be complex, but zeta can be complex. Self-adjoint is similar to Hermitian, so if there are infinite eigenvalues, then they are not equal.
+\begin{tcolorbox}
+All self-adjoint $\Rightarrow$ Hermitian operators, but not all Hermitian operators are self-adjoint.
+\end{tcolorbox}
+
+\noindent \textbf{Target:} To calculate $\ln \det A$.  \\
+
+\noindent The derivative of $\zeta_A(s)$ w.r.t.\ $s$ is:
+\begin{align*}
+\zeta_A'(s) &= -\sum_n \frac{\ln \lambda_n}{\lambda_n^s} \\
+\therefore \zeta_A'(0) &= -\sum_n \ln \lambda_n = -\ln \left( \prod_n \lambda_n \right) = -\ln \det A
+\end{align*}
+If action has an imaginary part, i.e.\ if $e^{-iEt}$ ($E$ is imaginary), then it means the system is unstable (decay or growth).\\
+
+Again, we know that
+\[
+W[J] = \frac{1}{i}\ln Z[J]
+\]
+and
+\begin{align*}
+\frac{\delta W}{\delta J_m} &= \phi_m 
+\\
+\Rightarrow \frac{\delta \phi_m}{\delta J_n} &= G_{mn} = G_{nm} =\frac{\delta^2 W[J]}{\delta J_m \, \delta J_n}
+\end{align*}
+Then via Legendre transformation:
+\begin{align*}
+& ~\quad\Gamma[\phi] = W[J] - J\phi
+\\
+&\Rightarrow \frac{\delta \Gamma}{\delta \phi} = -J
+\\
+&\Rightarrow \frac{\delta S}{\delta \phi} \Bigg|_{\phi \to \bar{\phi} + \frac{\hbar}{i}\frac{\delta}{\delta J}} \mathbb{I} = \frac{\delta \Gamma}{\delta \bar{\phi}}
+\end{align*}
+\begin{center}
+    $S = \Gamma$, when there is no quantum correction. 
+\end{center}
+Here,
+\vspace{-1cm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/C16_1.png}
+\end{figure}
+Apart from the first figure, the rest of these are quantum corrections; still, they are junk, i.e., redundant. So we need 1PI (1-particle irreducible) diagram. These are subsets of connected diagrams. \\
+
+The following is an example of 1PR (1-particle reducible):
+\vspace{-0.5cm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/C16_2.png}
+\end{figure}
+It is 1PR because it can be cut into two pieces and then form 1PI. Whereas 1PI:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/C16_3.png}
+\end{figure}
+\vspace{-0.5cm}
+1PI cannot be cut at the middle to produce another 1PI.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.3\linewidth]{figures/C16_4.png}
+\end{figure}
+There are 5 internal lines here, among which only two of them are independent ($I_2,\,I_3$). So, the number of loops = 2 \\
+
+Now,
+\begin{align*}
+& \frac{\delta \phi_m}{\delta J_k} \frac{\delta J_k}{\delta \phi_n} = \delta_{mn} \qquad \text{and,}
+\\
+\int d^Dy &\, \frac{\delta \phi_m(x)}{\delta J(y)} \frac{\delta J(y)}{\delta \phi_n(z)} = \delta^D(x-z) \qquad \text{hence,}
+\\\\
+\therefore &\frac{\delta \phi_m}{\delta J_k} \cdot 
+\frac{\delta J_k}{\delta \phi_n}
+= \delta_{mn}
+\end{align*}
+% Hence,
+% \[
+% \frac{\delta^2 W[J]}{\delta J_m \, \delta J_k} \cdot 
+% \frac{\delta^2 \Gamma}{\delta \phi_k \, \delta \phi_n}
+% = \delta_{mn}.
+% \]
+\textbf{This is an exact relation, not an approximation.}\\
+
+Here,
+\begin{align*}
+\frac{\delta^2 W[J]}{\delta J_k \, \delta J_n}
+&= G_{mn} = \text{2-point Green function}
+\\
+\frac{\delta^2 \Gamma}{\delta \phi_k \, \delta \phi_n} 
+&= \text{Inverse of the 2-point Green function}
+\end{align*}
+Therefore, the 2-point function is the inverse of the quadratic part.\\
+
+Now, the partition function $Z$ can be defined as:
+\[
+Z = \int \mathcal{D}\phi \, e^{S_0[x] + J x} 
+= e^{\frac{i}{2} J A^{-1} J}, \qquad 
+W = \tfrac{1}{2} J A^{-1} J,
+\]
+where 
+\[
+S[x] + J x = \tfrac{1}{2} x^T A x + J x.
+\]
+And,
+\[
+\frac{\delta^2 W[J]}{\delta J_m \, \delta J_n}\, \frac{\delta^2 J}{\delta \phi_k\, \delta \phi_n}
+= G^c_{mk}\, \Gamma_{kn} = - \delta_{mn}
+\]
+This is how Schwinger’s approached to Feynman diagrams.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\linewidth]{figures/C16_5.png}
+\end{figure}
+\begin{itemize}
+    \item Open blobs will be $G^c_{mn}$.  
+    \item Full blobs will be all 1PI’s.  
+\end{itemize}
+Now,
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/C16_5.5.png}
+\end{figure}
+\vspace{-0.5cm}
+\begin{align*}
+&\Rightarrow \frac{\delta G^c_{mk}}{\delta J_s} \,\Gamma_{kn}
++ G^c_{mk} \, \frac{\delta \Gamma_{kn}}{\delta J_s} = 0
+\\
+&\Rightarrow G^c_{smk} \, \Gamma_{kn} 
+= - G^c_{mk} \,\frac{\delta \bar{\phi}_a}{\delta J_s}\, \frac{\delta \Gamma_{km}}{\delta \bar{\phi}_a} = - G^c_{mk} \, G^c_{sa} \, \Gamma_{akn}
+\\
+&\Rightarrow G^c_{smk} \, \Gamma_{kn} \,G^c_{np}
+= - G^c_{mk} \, G^c_{sa} \, \Gamma_{akn} \,G^c_{np}
+\\
+\end{align*}
+\[
+\Rightarrow G^c_{smp} = G^c_{smp} 
+= G^c_{mk} \, G^c_{pn} \,  G^c_{sa} \, \Gamma_{kma} \quad[\Gamma_{kn} \,G^c_{np} =-\delta_{kp}]
+\]
+As partial derivatives commute, ordering is not necessary.  
+
+Thus,
+\[
+G^c_{smp} \equiv \text{3-point function = all connected}
+\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{figures/C16_6.png}
+\end{figure}
+The derivative of $\Gamma$ :
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/C16_7.png}
+\end{figure}
+For 4-points:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/C16_8.png}
+\end{figure}
+\newpage
+Now,
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/C16_9.png}
+\end{figure}
+\vspace{-0.5cm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/C16_10.png}
+\end{figure}
+\vspace{-0.5cm}
+\noindent\textbf{Detour:}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/C16_11.png}
+\end{figure}
+Hence,
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/C16_12.png}
+\end{figure}
+For 4-point, the diagrams would be like -
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.66\linewidth]{figures/C16_13.png}
+\end{figure}
+
+\newpage
+% ------------------------------------------
+% Class 17
+% ------------------------------------------
+\stepcounter{section}
+\renewcommand{\thesection}{\arabic{section}}
+\fancysection{(\textit{\textbf{Class-17})} Lecture \textbf{14} : Sat, Aug 30, 2025}{\textbf{\textit{Dimentional Regularization}}}
+
+\subsection{Zeta function regularization}
+\[
+\ln \det A = -\zeta_A'(0)
+\]
+\[
+\hat{A}\psi_n = \lambda_n \psi_n, \quad A^\dagger = A, \quad \lambda_n > 0
+\]
+\[
+\zeta_A(s) = \sum_n \frac{1}{\lambda_n^s}
+\]
+
+\subsubsection{Mellin transform}
+the Mellin transform is a mathematical tool closely related to the Fourier and Laplace transforms, but it works on multiplicative rather than additive scales. \\
+The Mellin transform is like a bridge between integrals, gamma functions, and $\zeta$-functions. That’s why it shows up in $\zeta$-function regularization: it connects the heat kernel expansion to the spectral $\zeta$-function.
+For a function $f(x)$ with $x > 0$, the Mellin transform is defined as
+\[
+\mathcal{M}\{f\}(s) = \int_{0}^{\infty} x^{s-1} f(x)\, dx,
+\]
+where $s$ is a complex variable. 
+
+It ``weights'' the function by powers of $x$.
+
+Convergence depends on $f(x)$ and the real part of $s$.
+If $f(x) = e^{-x}$, then
+\[
+\mathcal{M}\{e^{-x}\}(s) = \int_{0}^{\infty} x^{s-1} e^{-x}\, dx = \Gamma(s).
+\]
+\\
+\[
+\Gamma(s) = \int_0^\infty t^{s-1} e^{-t} \, dt
+\]
+\[
+\lambda^{-s} = \frac{1}{\Gamma(s)} \int_0^\infty t^{s-1} e^{-\lambda t} \, dt
+\]
+\[
+\zeta_A(s) = \frac{1}{\Gamma(s)} \int_0^\infty t^{s-1} \sum_n e^{-\lambda_n t} \, dt
+\]
+
+Define the heat kernel for the operator $A$:
+\[
+G_A(x,x';\tau) \equiv \sum_n \psi_n(x) \psi_n^*(x') e^{-\lambda_n \tau}
+\]
+
+\[
+\frac{\partial G_A}{\partial \tau} = -\sum_n \lambda_n \psi_n(x) \psi_n^*(x') e^{-\lambda_n \tau}
+= -A G_A(x,x';\tau)
+\]
+
+\[
+\left( \frac{\partial}{\partial \tau} + A \right) G_A(x,x';\tau) = 0
+\]
+with boundary condition
+\[
+G_A(x,x';\tau=0) = \delta^D(x-x').
+\]
+\begin{align*}
+\frac{\partial u}{\partial t} - \alpha \nabla^2 = 0
+\end{align*}
+Compare with heat equation:
+\[
+\frac{\partial \phi}{\partial \tau} = A \phi, \qquad \hat{A} = -\nabla^2.
+\]
+
+Recall:
+\[
+G(x,x';\tau=0) = \sum_n \psi_n(x)\psi_n^*(x') = \delta(x-x')
+= \sum_n |x\rangle\langle x|
+\]
+
+Thus if $x=x'$,
+\[
+\int G_A(x,x;\tau) \, d^D x = \sum_n e^{-\lambda_n \tau} \int \psi_n(x)\psi_n^*(x) \, d^D x
+= \sum_n e^{-\lambda_n \tau}.
+\]
+
+Hence
+\[
+\zeta_A(s) = \frac{1}{\Gamma(s)} \int_0^\infty \tau^{s-1} \int G_A(x,x;\tau) \, d^D x \, d\tau.
+\]
+
+\subsection{Heat kernel}
+\noindent \textbf{Free scalar field in $D$ dimensions}
+We will work with Euclidean spacetimes.
+In Minkowski spacetime, the d'Alembertian (box) operator is
+\[
+\Box = \partial_\mu \partial^\mu = \frac{\partial^2}{\partial t^2} - \nabla^2,
+\]
+with signature $(+,-,-,-)$.
+
+Under the Wick rotation $t \to -i\tau$, we have
+\[
+\frac{\partial}{\partial t} = i \frac{\partial}{\partial \tau} \quad \implies \quad \frac{\partial^2}{\partial t^2} = - \frac{\partial^2}{\partial \tau^2}.
+\]
+
+Therefore, the box operator in Euclidean spacetime becomes
+\[
+\Box \;\longrightarrow\; - \frac{\partial^2}{\partial \tau^2} - \nabla^2 = - \Box_E,
+\]
+where
+\[
+\Box_E = \frac{\partial^2}{\partial \tau^2} + \nabla^2
+\]
+is the Euclidean Laplacian, which is positive definite.
+
+\[
+(\Box + m^2)\phi = 0 \quad \Rightarrow \quad [-\Box_E^2 + m^2]\phi = 0
+\]
+\[
+\Box_E \equiv \partial_\mu \partial^\mu
+\]
+For a translationally invariant system, the field can be expanded in Fourier modes:
+\[
+\phi_n(k, x) = e^{ik \cdot x} \phi_n(\tau), \qquad
+\phi(x, \tau) = \int d^D k \, \phi(k, \tau) e^{ik \cdot x}.
+\]
+The Euclidean propagator satisfies
+\[
+\frac{\partial}{\partial \tau} G_A(x, x'; \tau) = - A \, G_A(x, x'; \tau),
+\]
+where \(A = -\nabla^2 + m^2\). Expanding in eigenfunctions \(A \psi_n = \lambda_n \psi_n\) gives
+\[
+G_A(x, x'; \tau) = \sum_n \psi_n(x) \psi_n^*(x') e^{-\lambda_n \tau}.
+\]
+Fourier transforming gives
+\[
+\frac{\partial \phi_n(k, \tau)}{\partial \tau} = - (k^2 + m^2) \phi_n(k, \tau).
+\]
+Solving this first-order ODE yields
+\[
+\phi_n(k, \tau) = A \, e^{-(k^2 + m^2)\tau},
+\]
+where \(A = \phi(0)\) is a constant determined by the initial condition.\\
+The inverse Fourier transform gives
+\[
+\phi_n(x, \tau) = A \int d^D k \, e^{-k^2 \tau} e^{ik \cdot x} \, e^{-m^2 \tau}.
+\]
+Using the standard D-dimensional Gaussian Fourier transform,
+\[
+\int d^D k \, e^{- \tau k^2} e^{i k \cdot x} = \left( \frac{\pi}{\tau} \right)^{D/2} e^{- x^2 / 4\tau},
+\]
+we obtain
+\[
+\phi(x, \tau) = A \left( \frac{\pi}{\tau} \right)^{D/2} e^{-x^2 / 4\tau} e^{-m^2 \tau}.
+\]
+By translation invariance, the heat kernel depends only on \(x - x'\):
+\[
+G_A(x, x'; \tau) = G_A(x - x'; \tau) = \int d^D k \, G_A(k, \tau) e^{ik \cdot (x - x')}.
+\]
+\[
+\phi(x, \tau) = \int d^D k \, \phi(k, 0) \, G_A(k, \tau) \, e^{i k \cdot x}
+= \int d^D x' \, G_A(x - x'; \tau) \, \phi(x', 0).
+\]
+
+\[
+G_A(x - x'; \tau) = A \left( \frac{\pi}{\tau} \right)^{D/2} e^{-(x - x')^2 / 4\tau} e^{-m^2 \tau}.
+\]
+Initial condition at $\tau = 0$
+\[
+G_A(x - x'; 0) = \delta^D(x - x') = \int d^D k \, G_A(k, 0) e^{ik \cdot (x - x')}.
+\]
+
+From the Fourier-space normalization
+\[
+G_A(k; 0) = \frac{1}{(2\pi)^D}.
+\]
+ Final heat kernel in position space
+\[
+\boxed{
+G_A(x - x'; \tau) = \frac{1}{(4\pi \tau)^{D/2}} \, e^{-(x - x')^2 / 4\tau} \, e^{-m^2 \tau}
+}
+\]
+\subsection{What is regularization?}
+\[
+\ln \det A = \int dx \, \langle x|\ln A|x\rangle
+\]
+\[
+= \int d^D k \, \langle k|\ln A|k\rangle
+= \int d^D k \, \ln(k^2+m^2).
+\]
+
+This is divergent, so we have to make some regularization.
+
+\medskip
+
+Also see
+\[
+\int_0^\infty dx \, \sin x \, dx
+\]
+(no well-defined value as it is oscillating).
+
+We have to take finite test:
+\[
+\int_0^A e^{\lambda x} \sin x \, dx
+\]
+
+Hence,
+\[
+\zeta_A(s) = \frac{1}{\Gamma(s)} \int_0^\infty \tau^{s-1} \int G_A(x,x;\tau) \, d^D x \, d\tau.
+\]
+\[
+\zeta_A(s) = \frac{1}{\Gamma(s)} \int_0^\infty \frac{\tau^{s-1}}{(4\pi \tau)^{D/2}} e^{-m^2 \tau} \, d\tau \, d^D x
+\]
+
+\[
+= \int \frac{d^D x}{\Gamma(s)(4\pi)^{D/2}} \int_0^\infty \tau^{s - \tfrac{D}{2} - 1} e^{-m^2 \tau} \, d\tau
+\]
+
+\[
+= \int \frac{d^D x}{\Gamma(s)(4\pi)^{D/2}} \, 
+\frac{\Gamma\!\left(s - \tfrac{D}{2}\right)}{(m^2)^{\,s - D/2}}
+\]
+
+In $D=4$:
+\[
+\frac{\Gamma(s-2)}{\Gamma(s)} 
+= \frac{\Gamma(s-2)}{(s-1)(s-2)\,\Gamma(s-2)}
+= \frac{1}{(s-1)(s-2)}.
+\]
+Then, 
+\begin{align*}
+    \zeta_a(s) = \frac{1}{(4\pi)^2 (m^2)^{s-2}} \int \frac{d^4x}{(s-1)(s-2)}
+\end{align*}
+We start from the spectral zeta function:
+\[
+\zeta_A(s) = \frac{V}{(4\pi)^2} \frac{(m^{-2})^{s-2}}{(s-1)(s-2)}.
+\]
+Expand $(m^2)^{s-2}$
+
+\[
+(m^2)^{s-2} = m^{-4} (m^2)^s = m^{-4} e^{s \ln m^2} 
+\approx m^{-4} (1 + s \ln m^2 + \mathcal{O}(s^2)).
+\]
+ Expand $\frac{1}{(s-1)(s-2)}$ via partial fractions
+
+\[
+\frac{1}{(s-1)(s-2)} = \frac{1}{s-1} - \frac{1}{s-2}.
+\]
+
+Expand each term around $s=0$:
+
+\[
+\frac{1}{s-1} = -1 - s - s^2 - \dots, \quad
+\frac{1}{s-2} = -\frac{1}{2} - \frac{s}{4} - \dots
+\]
+
+Subtracting:
+
+\[
+\frac{1}{s-1} - \frac{1}{s-2} = -\frac{1}{2} - \frac{3}{4} s + \dots
+\]
+ Multiply expansions
+
+\[
+\zeta_A(s) = \frac{V_4}{(4\pi)^2} m^{4} (1 + s \ln m^2)^{-1} \left( -\frac{1}{2} - \frac{3}{4} s + \dots \right)
+\]
+
+\[
+\zeta_A(s) = \frac{V_4}{(4\pi)^2} m^{4} \left[ -\frac{1}{2} + s \left( -\frac{3}{4} - \frac{1}{2} \ln m^2 \right) + \dots \right].
+\]
+\[
+\zeta'_A(0) = \frac{V_4}{(4\pi)^2} m^{4} \left( -\frac{3}{4} - \frac{1}{2} \ln m^2 \right)
+\]
+One-loop effective action
+\[
+\Gamma = \frac{1}{2} \ln \det A = - \frac{1}{2} \zeta'_A(0) 
+= \frac{V_4}{2 (4\pi)^2} m^{4} \left( \frac{3}{4} + \frac{1}{2} \ln m^2 \right)
+\]
+
+\newpage
+% ------------------------------------------
+% Class 18
+% ------------------------------------------
+\stepcounter{section}
+\renewcommand{\thesection}{\arabic{section}}
+\fancysection{(\textit{\textbf{Class-18 (Online)})} Lecture \textbf{15} : Fri, Sep 5, 2025}{\textbf{\textit{Dimensional Regularization Continued}}}
+
+From the previous class,
+\[
+\zeta_A(s) = \frac{1}{\Gamma(s)}\int \tau^{s-1} d^4 x \, G_A(x,x,\tau)
+\]
+
+Then,
+\[
+G_A(x,x',\tau) = \sum_k \psi_k(x) \psi_k^*(x') e^{-\lambda_k \tau}
+\]
+
+Now from the diffusion equation
+\[
+(\Box_E + m^2) \phi = 0
+\]
+
+\[
+\Rightarrow G_A(x,y,\tau) = \frac{1}{(4 \pi \tau)^{D/2}} 
+\exp\!\left(-\frac{(x-y)^2}{4\tau}\right) e^{-m^2 \tau}
+\]
+
+\[
+\Rightarrow G_A(x,x,\tau) = \frac{1}{(4 \pi \tau)^{D/2}} e^{-m^2 \tau}
+\]
+
+Hence,
+\[
+\zeta_A(s) = \frac{1}{(4\pi)^{D/2}} \int_0^\infty d\tau \, \tau^{s - D/2 - 1} e^{-m^2 \tau}
+\]
+
+\[
+= \frac{1}{(4\pi)^{D/2}} \frac{\Gamma(s - D/2)}{(m^2)^{s - D/2}}
+\]
+
+$m^2$ is assumed to be a parameter independent of $x$.
+
+If $D=4$,
+\[
+\zeta_A'(s=0) = \frac{1}{(4\pi)^2} \frac{d}{ds} \left( \frac{\Gamma(s-2)}{(m^2)^{s-2}} \right)\Bigg|_{s=0}
+\]
+Again, we know the identity of the gamma function is
+
+\[
+\frac{\Gamma(n)}{\lambda^n} = \int_0^\infty d\sigma \, \sigma^{n-1} e^{-\lambda \sigma}
+\]
+
+\[
+\Rightarrow K_A'(0) = \frac{1}{(4\pi)^2} \left[ 
+\frac{\Gamma(s-1)\Gamma(2)}{\Gamma(s)} m^{4} - \Gamma(s-1)(s-2) m^2 \ln m^2
+\right]_{s=0}
+\]
+
+\[
+= m^4 \left[ \frac{2\Gamma'(0) - \Gamma(0) + 3 - 2 \ln m^2}{4} \right]
+\]
+
+---
+
+\[
+\Gamma^{(1)} = \text{Tr} \ln G = \int d^4x \, \langle a | \ln G | a \rangle
+\]
+
+\[
+= \int d^4x \, dx' \, \langle x |\ln G \langle|x' \rangle
+\]
+
+\[
+=\int d^4k  dk'\langle k| ln G | k' \rangle
+\]
+
+\[
+= \int \frac{d^4k}{(2\pi)^4} \ln (k^2+m^2)
+\]
+
+
+\[
+I(D,I\beta) = \int d^Dk \, F(k,I\beta)
+\]
+
+Regularization is a way of controlling the infinity in your calculations.
+
+\[
+I(\Lambda,m^2) = \int_0^\Lambda d^Dk \, \ln (k^2+m^2)
+\]
+
+\[
+\Rightarrow I(D,m^2) = \int_0^\infty d^Dk \, \ln (k^2+m^2)
+\]
+
+For $D=1$ this is divergent as $\Lambda \to \infty$.
+
+\[
+\Rightarrow \frac{\partial I(D,m^2)}{\partial m^2} = \int_0^\Lambda \frac{d^Dk}{k^2+m^2}
+\]
+
+For $D=1$, this is clearly finite as $\Lambda \to \infty$.
+
+\[
+= \alpha(m)
+\]
+
+\[
+\Rightarrow \frac{\partial I}{\partial (m^2)} = \int \frac{d^Dk}{(k^2+m^2)}
+\quad \text{[this is logarithmically divergent as $D=4$]}
+\]
+
+So, we can render these integrals finite by differentiating with respect to the coupling parameters.
+
+For 1D system,
+\[
+\frac{\partial I}{\partial (m^2)} = \int_{-\infty}^\infty \frac{dk}{k^2+m^2} = \frac{\pi}{m}
+\]
+
+\[
+\Rightarrow I = \pi \int \frac{1}{m} dm
+\]
+
+\[
+= \pi \int \frac{1}{\sqrt{u}} du
+\quad\text{where } m^2 = u \Rightarrow m = \sqrt{u}
+\]
+
+\[
+= 2\pi \sqrt{u} = 2\pi m
+\]
+The one integral to bind them all:
+\[
+\int \frac{d^Dk}{(k^2+m^2)^\alpha} = \int d^{D-1}\Omega \int \frac{k^{D-1} dk}{(k^2+m^2)^\alpha}
+\]
+
+Solid angle of a $(D-1)$ dimensional sphere:
+
+\[
+S^1: x^2+y^2 = R^2, \quad S^2: x^2+y^2+z^2 = R^2
+\]
+
+And,
+\[
+\int_{-\infty}^\infty dx \, e^{-x^2} dx = \sqrt{\pi}
+\]
+
+\[
+\Rightarrow \prod_{i=1}^D \int_{-\infty}^\infty dx_i \, e^{-x_i^2} = \pi^{D/2}
+\]
+
+\[
+\Rightarrow \int e^{-r^2} \prod_i dx_i = \pi^{D/2}
+\]
+
+\[
+d^DV = \Omega^{D-1} \times R^{D-1}
+\]
+
+\[
+\int e^{-r^2} r^{D-1} dr \, \Omega^{D-1} = \pi^{D/2}
+\]
+
+Let $r^2 = t \;\Rightarrow\; \sqrt{t} = r \;\Rightarrow\; dr = \frac{1}{2\sqrt{t}} dt$
+
+\[
+\Rightarrow \frac{1}{2} \int_0^\infty e^{-t} \, t^{\frac{D}{2}-1} dt \, \Omega^{D-1} = \pi^{D/2}
+\]
+
+\[
+\therefore \; \Omega^{D-1} = \frac{2\pi^{D/2}}{\Gamma(D/2)}
+\]
+
+Then,
+\[
+\int \frac{d^D k}{(k^2+m^2)^\alpha}
+= \frac{2\pi^{D/2}}{\Gamma(D/2)} \int_0^\infty \frac{dk \, k^{D-1}}{(k^2+m^2)^\alpha}
+\]
+
+Let $k = mz$, then
+
+\[
+= \frac{2\pi^{D/2}}{\Gamma(D/2)} \, \frac{1}{m^{2\alpha-D}} \int_0^\infty \frac{dz \, z^{D-1}}{(z^2+1)^\alpha}
+\]
+Let, u = $z^2$ \quad dz =   $\frac{du}{2\sqrt{u}}$
+\[
+= \frac{2\pi^{D/2}}{\Gamma(D/2)} \, \frac{1}{(m^2)^{\alpha - D/2}} \cdot \frac{1}{2} \int_0^\infty \frac{u^{\tfrac{D}{2}-1}}{(u+1)^\alpha} \, du
+\]
+
+\[
+= \frac{\pi^{D/2}}{\Gamma(D/2)} \int_0^\infty \frac{u^{\tfrac{D}{2}-1}}{(1+u)^\alpha} \, du
+\]
+
+\[
+= \frac{\pi^{D/2}}{\Gamma(D/2)} \, B\!\left(\frac{D}{2}, \alpha - \frac{D}{2}\right)
+\]
+
+\[
+= \frac{\pi^{D/2}}{\Gamma(D/2)} \, \frac{\Gamma\!\left(\tfrac{D}{2}\right) \, \Gamma\!\left(\alpha - \tfrac{D}{2}\right)}{\Gamma(\alpha)}
+\]
+
+\[
+= \frac{\pi^{D/2} \, \Gamma\!\left(\alpha - \tfrac{D}{2}\right)}{\Gamma(\alpha)} \, \frac{1}{(m^2)^{\alpha - D/2}}
+\]
+This is the master integral in dimensional regularization.
+It’s what people mean by “the one integral to bind them all.”
+
+\newpage
+% ------------------------------------------
+% Class 19
+% ------------------------------------------
+\stepcounter{section}
+\renewcommand{\thesection}{\arabic{section}}
+\fancysection{(\textit{\textbf{Class-19 (Online)})} Lecture \textbf{16} : Wed, Sep 10, 2025}{\textbf{\textit{1-Loop Corrected Effective Action}}}
+
+\subsection{Alternate explanation of the 1-loop correction}
+
+\[
+Z[J] = \int \mathcal{D}\phi \;
+e^{\tfrac{i}{\hbar} \big( S(\phi) + J \phi \big)}
+= e^{i W[J]}
+\]
+At $J=0$,
+\[
+Z[J=0] = 1, \quad \Rightarrow \quad \Gamma = W - J\bar{\phi}
+\]
+if J = 0 then $\Gamma$ = W \\
+Then,
+\[
+e^{\tfrac{i}{\hbar} \Gamma[\bar{\phi}]}
+= \int \mathcal{D}\phi \;
+e^{\tfrac{i}{\hbar} S(\phi)}
+\]
+
+Assume we have a background (classical) solution $\bar{\phi}$, around which we expand in a functional Taylor series:
+\[
+S[\phi] = S[\bar{\phi}] 
++ \left.\frac{\delta S}{\delta \phi}\right|_{\bar{\phi}} (\phi - \bar{\phi})
++ \tfrac{1}{2} \left.\frac{\delta^2 S}{\delta \phi^2}\right|_{\bar{\phi}} (\phi - \bar{\phi})^2 + \cdots
+\]
+
+For the classical solution,
+\[
+\left. \frac{\delta S}{\delta \phi} \right|_{\phi = \bar{\phi}} = 0
+\]
+
+Hence, around this solution,
+\[
+S[\phi] = S[\bar{\phi}] + \tfrac{1}{2} \left.\frac{\delta^2 S}{\delta \phi \, \delta \phi}\right|_{\bar{\phi}} (\phi - \bar{\phi})^2 + \cdots
+\]
+The 2nd derivative is written as 
+\[
+\frac{\delta^2 S}{\delta \bar{\phi^2}} (\phi - \bar{\phi})^2 = \int d^Dx \, d^Dy \, (\phi - \bar{\phi})_x \left( \frac{\delta^2 S}{\delta \bar{\phi}}\right)_{xy} (\phi - \bar{\phi})_y
+\]
+
+Therefore,
+\[
+e^{\tfrac{i}{\hbar} \Gamma[\bar{\phi}]} 
+= e^{\tfrac{i}{\hbar} S[\bar{\phi}]} 
+\int \mathcal{D}(\delta \phi) \;
+e^{\tfrac{i}{2\hbar} (\delta \phi)^2 \,
+\frac{\delta^2 S}{\delta \bar{\phi^2}} \,
+(\delta \phi)}
+\]
+
+\[
+= e^{\tfrac{i}{\hbar} S[\bar{\phi}]} \,
+\left[ \det\left( \frac{\delta^2 S}{\delta \phi^2} \right) \right]^{-\tfrac{1}{2}} \times \text{const}
+\]
+
+\[
+= e^{\tfrac{i}{\hbar} S[\bar{\phi}]} \,
+\exp\!\Bigg[ -\tfrac{1}{2} \ln \det \Big( \tfrac{\delta^2 S}{\delta \phi^2} \Big)_{\phi=\bar{\phi}} \Bigg]
+\]
+
+Standard integral:
+\[
+\int dx \, e^{-\tfrac{1}{2} x^T A x} 
+= \frac{\pi^{N/2}}{\sqrt{\det A}}, 
+\quad 
+A^{-1/2} = (e^{\ln A})^{-1/2}, 
+\quad 
+\ln \det A = \mathrm{Tr} \ln A
+\]
+Taking the logarithm of both sides,
+\[
+\frac{i}{\hbar} \Gamma[\bar{\phi}]
+= \frac{i}{\hbar} S[\bar{\phi}] - \tfrac{1}{2} \mathrm{Tr} \ln A
+\]
+
+\[
+\Rightarrow \quad
+\Gamma[\bar{\phi}]
+= S[\bar{\phi}] + \frac{i\hbar}{2} \, \mathrm{Tr} \ln \Big( \frac{\delta^2 S}{\delta \phi^2} \Big)
+\]
+
+\[
+\Rightarrow \quad
+\Gamma[\bar{\phi}] = S[\bar{\phi}] - \frac{i\hbar}{2} \, \mathrm{Tr} \ln G
+\]
+
+\subsection*{Example}
+
+\[
+S = 
+\frac{1}{2}\partial_\mu \phi \, \partial^\mu \phi 
+- \frac{1}{2} m^2 \phi^2 - V(\phi) 
+\]
+
+\[
+\frac{\delta^2 S}{\delta \phi(x) \delta \phi(y)} 
+= \Big( - (\Box + m^2) - V''(\phi) \Big) \delta(x-y)
+\]
+
+Thus,
+\[
+\ln \det \Big( \frac{\delta^2 S}{\delta \phi^2} \Big) 
+= \mathrm{Tr} \ln \Big( - (\Box + m^2) - V''(\bar{\phi}) \Big) \delta(x-y)
+\]
+Switch to momentum space using:
+\[
+\delta^D(x-y) = \int d^Dk \; e^{ik(x-y)}
+\]
+
+Hence,
+\[
+\ln \det \Big( \frac{\delta^2 S}{\delta \phi^2} \Big) 
+= \mathrm{Tr} \ln \Big[ k^2 - m^2 - V''(\bar{\phi}) \Big]_k
+\]
+
+For a free Lagrangian, $V''(\phi)=0$:
+\[
+G^{-1} = (p^2 - m^2), 
+\quad G(p) = \frac{1}{p^2 - m^2}
+\]
+
+Here, $m$ is identified as the pole in the Green’s function.  
+
+In presence of interaction, one sees that the pole is getting shifted from
+\[
+m^2 \;\to\; m^2 + V''(\bar{\phi})
+\]
+call the Archimedean bath. \\
+Using the expansion:
+\[
+\frac{1}{A-B} = \frac{1}{A} + \frac{1}{A}B\frac{1}{A} + \frac{1}{A}B\frac{1}{A}B\frac{1}{A} + \cdots
+\]
+
+Therefore,
+\[
+\frac{1}{k^2 - m^2 - V''(\bar{\phi})}
+= \frac{1}{k^2 - m^2}
++ \frac{1}{k^2 - m^2} V''(\bar{\phi}) \frac{1}{k^2 - m^2} + \cdots
+\]
+
+This corresponds to the Dyson series.  
+
+\subsection*{1-loop effective action}
+
+\[
+\Gamma^{(1)} = S + \frac{\hbar}{2i} \, \mathcal{O}
+\]
+
+where
+\[
+\mathcal{O} = \;\; \text{(loop diagrams placeholder)} 
+\]
+
+This shows that the 1-loop exact effective action sums over all vertex insertions that can be performed.  
+
+\[
+i \int \frac{d^D \bar{k}}{(2\pi)^D} \frac{1}{(\bar{k}^2 + m^2)^\alpha}
+= \frac{1}{(4\pi)^{D/2}} \frac{\Gamma(\alpha - D/2)}{\Gamma(\alpha)(m^2)^{D/2 - \alpha}}
+\]
+
+For $n$ such vertex insertions: each minus comes from the propagator 
+in a Euclideanized way,
+\[
+(-1)^n \int \frac{d^Dk}{(2\pi)^D} \frac{[V''(\phi)]^n}{(k^2+m^2)^n}.
+\]
+
+Using dimensional regularization,
+\[
+\int \frac{d^Dk}{(2\pi)^D} \frac{1}{(k^2+m^2)^n} 
+= \frac{1}{(4\pi)^{D/2}} \frac{\Gamma\!\left(n-\tfrac{D}{2}\right)}{\Gamma(n)} 
+\frac{1}{(m^2)^{\,n-D/2}}.
+\]
+
+Thus,
+\[
+=(-1)^n \frac{[V''(\phi)]^n}{(4\pi)^{D/2}}
+\frac{1}{\Gamma(n)} \frac{\Gamma\!\left(n-\tfrac{D}{2}\right)}{(m^2)^{\,n-D/2}}.
+\]
+
+So,
+\[
+\Gamma[\phi] = \frac{\hbar}{2i} \sum_{n=1}^{\infty} 
+\left[ -\frac{V''(\phi)}{m^2} \right]^n 
+\frac{\Gamma\!\left(n-\tfrac{D}{2}\right)}{\Gamma(n)} 
+(m^2)^{D/2}.
+\]
+
+\textbf{HW:} Resume this series (the first terms) to obtain a closed expression.
+
+\newpage
+% ------------------------------------------
+% Class 20
+% ------------------------------------------
+\stepcounter{section}
+\renewcommand{\thesection}{\arabic{section}}
+\fancysection{(\textit{\textbf{Class-20})} Lecture \textbf{17} : Sat, Sep 13, 2025}{\textbf{\textit{Calculating Effective Action \& Potential}}}
+
+\noindent \textbf{Reference:} Ramond \\
+\subsection{Calculation}
+From the last class we had
+\[
+\left( \frac{\partial}{\partial \tau} + \hat{A} \right) H(x,x';\tau) = 0,
+\]
+where 
+\[
+H(x,x';\tau) = \frac{1}{(4\pi \tau)^{D/2}} 
+\exp\!\left(-\frac{(x-x')^2}{4\tau} - m^2 \tau \right).
+\]
+
+Now define the zeta function
+\[
+\zeta_A(s) = \frac{1}{\Gamma(s)} \int_0^\infty  
+\tau^{s-1} \int d^Dx H(x,x',\tau)
+\]
+
+We want $\tau$ dimensionless.  
+So rescale $\tau \to \frac{\tau}{m^2}$, then
+\[
+\zeta_A(s) = \frac{V}{(4\pi)^{D/2}\Gamma(s)} 
+\int_0^\infty d\tau \, \tau^{s-1 - D/2} 
+e^{-\frac{\mu^2}{m^2} \tau}.
+\]
+
+Hence,
+\[
+\zeta_A(s) = \frac{V \, \Gamma\!\left(s-\tfrac{D}{2}\right)}
+{(4\pi)^{D/2}\Gamma(s)} 
+\left(\frac{\mu^2}{m^2}\right)^{s-D/2}.
+\]
+We will hereafter continue ourselves with $D = 4$.
+
+\[
+\Rightarrow \zeta_A(s)
+= \frac{V}{(4\pi)^2 (s-1)(s-2)} \left( \frac{\mu^2}{m^2} \right)^{s-2}
+\]
+
+\[
+\zeta'_A(s=0)= V \frac{2s-3}{(s-1)(s-2)} 
+\left( \frac{\mu^2}{m^2} \right)^{-2}
++ \frac{1}{(s-1)(s-2)}
+\]
+
+\[
+= V \left[
+\frac{3}{4} \left( \frac{\mu^2}{m^2} \right)^{-2}
++ \frac{1}{2} \left( \frac{\mu^2}{m^2} \right)^{-2}
+\ln\!\left( \frac{\mu^2}{m^2} \right)
+\right]
+\]
+
+\[
+= \frac{V}{(4\pi)^2} m^4 \left[
+\frac{1}{2} \ln\!\left( \frac{\mu^2}{m^2} \right) + \frac{3}{4}
+\right] \frac{1}{(\frac{1}{4\pi})^2}
+\]
+
+\[
+= \frac{V m^4}{32 \pi^2 \mu^4} \left[
+\ln\!\left( \frac{\mu^2}{m^2} \right) + \frac{3}{2}
+\right]
+\]
+Hence, the effective action:
+\[
+\Gamma_1 = - \frac{Vm^4}{64 \pi^2 \mu^4} 
+\left[
+\ln\!\left( \frac{\mu^2}{m^2} \right) + \frac{3}{2}
+\right]
+\]
+\textbf{Assignment:}
+\begin{framed}
+\begin{enumerate}
+    \item Redo today's calculation for $D=3,6$
+    \item Fix the today's $\mu$ factor.
+\end{enumerate}
+\end{framed}
+If we have a potential $V(\phi) = \frac{\lambda}{4} \phi^4 + \frac{1}{2} m^2 \phi^2$,
+then
+\[
+\frac{\partial^2 V}{\partial \phi^2}
+= m^2 + 3 \lambda \phi^2.
+\]
+Expanding the Action\\
+
+The action is:
+\[
+S = S[\phi] + \frac{\delta S}{\delta \phi} (\phi - \bar{\phi})
++ \frac{1}{2!} \frac{\delta^2 S}{\delta \phi^2} (\phi - \bar{\phi})^2 + \dots
+\]
+
+We need to focus on the 2nd derivative of the action.
+
+The general framework requires the replacement:
+\[
+m^2 \longrightarrow \frac{d^2 V}{d\phi^2}.
+\]
+
+Recall, quantum corrections:
+\[
+S_{\text{eff}} = S + \hbar \Gamma_1 + \hbar^2 \Gamma_2 + \dots
+\]
+
+The power of $\hbar$ defines the order of the scattering amplitude:
+\[
+\hbar^{I - V}, \qquad \text{1-loop: } L = I - V + 1.
+\]
+
+Example:
+\[
+V(\phi) = \frac{1}{2} m^2 \phi^2 + \frac{\lambda}{4!} \phi^4
+\quad \Rightarrow \quad
+m^2 = \frac{d^2 V}{d\phi^2}.
+\]
+Quantum fluctuations shift the potential.  
+The 1-loop correction is called \(V_1\).
+
+The general formula in \(D=4\) dimensions is:
+\[
+V_1(\phi) \;=\; \frac{\hbar}{64\pi^2} \, M^4(\phi) 
+\left( \ln\frac{M^2(\phi)}{\mu^2} - \tfrac{3}{2} \right),
+\]
+where
+\[
+M^2(\phi) \quad \text{is the field-dependent effective mass} \\
+\mu \quad \text{is the renormalization scale}.
+\]
+Here,
+\[
+M^2(\phi) \;=\; m^2 + \tfrac{\lambda}{2}\,\phi^2.
+\]
+Total Effective Potential : \\
+Now we add the quantum correction to the classical part:
+\[
+V_T(\phi) = V(\phi) + V_1(\phi),
+\]
+where
+\[
+V(\phi) = \text{classical potential}, \qquad
+V_1(\phi) = \text{1-loop correction}.
+\]
+
+Thus,
+\[
+V_T(\phi) = \text{effective potential, which includes quantum effects}.
+\]
+
+\subsection{Effective Mass}
+
+The effective mass squared is the curvature of the effective potential at the vacuum:
+\[
+m_{\text{eff}}^2 = \left.\frac{d^2 V_T}{d\phi^2}\right|_{\phi=0}.
+\]
+
+Explicitly:
+\[
+m_{\text{eff}}^2 = m^2 + \left.\frac{d^2 V_1}{d\phi^2}\right|_{\phi=0}.
+\]
+
+So the classical mass \(m^2\) is shifted by quantum corrections from \(V_1\). \\
+Then,
+\[
+V_1 = \frac{\hbar}{64 \pi^2} 
+\left[ m^2 + \frac{1}{2} \lambda \phi^2 \right]^2
+\left[
+\ln\!\left( \frac{m^2 + \frac{1}{2} \lambda \phi^2}{\mu^2} \right)
+- \frac{3}{2}
+\right].
+\]
+
+And therefore:
+\[
+V_T = V + V_1.
+\]
+
+\[
+\Rightarrow m_{\text{eff}}^2 = 
+\left. \frac{d^2 V_T}{d\phi^2} \right|_{\phi=0}
+= m^2 + \left. \frac{d^2 V_1}{d\phi^2} \right|_{\phi=0}.
+\]
+\subsubsection*{Derivative with respect to $\phi$}
+
+\[
+\frac{\partial V_1}{\partial \phi}
+= \frac{\partial}{\partial \phi} \left[
+\left( m^2 + \frac{\lambda}{2} \phi^2 \right)^2
+\ln\!\left( \frac{m^2 + \frac{\lambda}{2} \phi^2}{\mu^2} \right)
+- \frac{3}{2}
+\right].
+\]
+
+Let $y = m^2 + \frac{\lambda}{2} \phi^2$, then:
+\[
+\frac{\partial y}{\partial \phi} = \lambda \phi,
+\]
+
+and
+\[
+\frac{\partial V_1}{\partial \phi}
+= \frac{\partial y}{\partial \phi}
+\frac{\partial}{\partial y}
+\left[
+y^2 \ln\!\left( \frac{y}{\mu^2} \right) - \frac{3}{2} y^2
+\right].
+\]
+
+\[
+\frac{\partial}{\partial y} \left[ y^2 \ln\!\left( \frac{y}{\mu^2} \right) \right]
+= 2 y \ln\!\left( \frac{y}{\mu^2} \right) + y.
+\]
+
+Thus:
+\[
+\frac{\partial V_1}{\partial \phi}
+= \lambda \phi \left[
+2 y \ln\!\left( \frac{y}{\mu^2} \right) - 2 y
+\right].
+\]
+
+And:
+\[
+V_T' = \lambda \phi 
+\left[
+2 y \ln\!\left( \frac{y}{\mu^2} \right) - 2 y
+\right]
++ \lambda \phi \left[
+2 y \ln\!\left( \frac{y}{\mu^2} \right) + 2 y
+\right].
+\]
+
+Therefore:
+\[
+V_T' = \lambda \phi \, 2 \left( m^2 + \frac{\lambda}{2} \phi^2 \right)
+\ln\!\left( \frac{m^2 + \frac{\lambda}{2} \phi^2}{\mu^2} \right).
+\]
+
+\subsection{Renormalization Group Idea}
+
+Observables change w.r.t.\ change in $\mu$.
+
+The group of all such changes is called the 
+\textbf{Renormalization Group (RG)}.
+
+Alternative way:
+\[
+\Gamma_1 = - \frac{\hbar}{2i} \operatorname{Tr} \ln G_0.
+\]
+
+\[
+i \Gamma_1 = \frac{\hbar}{2} 
+\int \frac{d^4 k_E}{(2\pi)^4} \ln (k^2 + m^2).
+\]
+
+Switch to Euclidean momentum integration:
+\[
+= \frac{\hbar}{8 \pi^2} 
+\int_0^{\Lambda} k^3 dk \, \ln (k^2 + m^2)
+= \frac{\hbar}{16 \pi^2} 
+\int_0^{\Lambda^2} z \ln (z + m^2) dz,
+\]
+
+where $z = k^2$.
+
+Differentiating w.r.t.\ $m^2$:
+\[
+\frac{d \Gamma_1}{d m^2}
+= \frac{\hbar}{16 \pi^2}
+\int_0^{\Lambda^2} \frac{z}{z + m^2} dz
+= \frac{\hbar}{16 \pi^2}
+\int_0^{\Lambda^2} \left[ 1 - \frac{m^2}{z + m^2} \right] dz.
+\]
+
+``DO!!'' (perform the integral explicitly)
+
+\subsection{Current Algebra}
+
+\textbf{Lagrangian:} 
+\[
+L = L(\phi, \partial_\mu \phi)
+\]
+
+Action:
+\[
+S = \int d^4x \, L
+\]
+
+Variation:
+\[
+\delta S = \int d^4x \left[ 
+\frac{\partial L}{\partial \phi}\,\delta\phi 
++ \frac{\partial L}{\partial (\partial_\mu \phi)} \delta (\partial_\mu \phi)
+\right]
+\]
+
+\subsection*{Euler--Lagrange equation}
+\[
+\frac{\partial L}{\partial \phi} = \partial_\mu \left( \frac{\partial L}{\partial(\partial_\mu \phi)} \right)
+\]
+
+Thus,
+\[
+\delta S = \int d^4x \, \partial_\mu \left( \frac{\partial L}{\partial(\partial_\mu \phi)} \delta\phi \right)
+\]
+
+\subsection*{Noether Current}
+\[
+j^\mu = \frac{\partial L}{\partial (\partial_\mu \phi)} \delta \phi
+\]
+
+For symmetries related to Lie groups:
+\[
+\delta \phi = i \epsilon^a T^a \phi
+\]
+
+General form:
+\[
+J^\mu_a = \frac{\partial L}{\partial (\partial_\mu \phi)} (T^a \phi)
+\]
+
+Charges:
+\[
+Q^a = \int d^3x \, \frac{\partial L}{\partial (\partial_\mu \phi)_m} (T^a_{mn}) \phi_n
+\]
+Charge Expression
+\[
+Q^a = \int d^3x \, \pi_m (T^a)_{mn}\phi_n
+\]
+
+Observables are bilinears of the fields, not the field itself.  
+These structures also extend to Poincaré symmetry.  
+
+Let $T^a$ satisfy a Lie algebra:
+\[
+[T^a, T^b] = i f^{ab}{}_c T^c
+\]
+$\pi, \phi$ satisfy the bosonic equal-time commutation relations (ETCR):
+\[
+[\phi_m(x), \pi_n(y)] = i \delta_{mn}\delta^3(x-y)
+\]
+
+\textbf{Check:}
+\[
+[Q^a, Q^b] = i f^{abc} Q^c
+\]
+
+\subsubsection*{Dirac Lagrangian}
+\[
+L = \bar{\psi} (i \slashed{\partial} - m)\psi
+\]
+
+Canonical momentum:
+\[
+\frac{\partial L}{\partial (\partial_0 \psi)} = i \psi^\dagger
+\]
+
+\subsubsection*{Commutator Identity}
+\[
+[A, BC] = [A,B]C + B[A,C]
+\]
+
+Also:
+\[
+\{A,BC\} = \{A,B\}C - B\{A,C\}
+\]
+
+\subsubsection*{Commutation vs Anticommutation}
+
+\begin{itemize}
+  \item Fermions (spin $1/2$) $\rightarrow$ Anticommutation relations
+  \item Bosons (integer spin) $\rightarrow$ Commutation relations
+\end{itemize}
+
+For bosons:
+\[
+[\phi(x), \phi(y)] = 0
+\]
+
+For fermions:
+\[
+\{\psi(x), \psi(y)\} = 0
+\]
+\[
+\{\psi(x), \psi^\dagger(y)\} = 0
+\]
+
+If $x=y$, then
+\[
+2\psi^2(x) = 0 \quad \Rightarrow \quad \psi^2(x)=0
+\]
+which is not possible.
+
+\subsection{Grassmann Algebra}
+
+\[
+dx_i \, dx_j = - dx_j \, dx_i
+\]
+\[
+dx_i \, dx_i = 0
+\]
+
+In Berezin algebra, $\eta_i \eta_j = - \eta_j \eta_i, \; \eta_i^2=0$.
+
+General function:
+\[
+f(\eta) = a + a_i \eta_i + a_{ij} \eta_i \eta_j + \dots
+\]
+
+Maximum number of Taylor coefficients for $n$ Grassmann variables:
+\[
+2^n
+\]
+
+\subsection*{Differentiation Rules}
+\[
+\frac{\partial}{\partial \eta_1}(a_1 \eta_1 + a_{12} \eta_1 \eta_2) = a_1 + a_{12}\eta_2
+\]
+\[
+\frac{\partial}{\partial \eta_2}(a_2 \eta_2 + a_{12} \eta_1 \eta_2) = a_2 - a_{12}\eta_1
+\]
+
+\subsection*{Integration Rules}
+\[
+\int d\eta \; \eta = 1, \quad \int d\eta \; = 0
+\]
+
+\subsection*{Properties}
+\[
+\eta^2 = 0, \quad \eta \to \lambda \eta, \quad d\eta \to \frac{1}{\lambda} d\eta
+\]
+
+Integration and differentiation are identical operations:
+\[
+\int d\eta \; \eta = 1
+\]
+
+\subsection*{Assignment}
+\[
+\int d\eta_1 \dots d\eta_N \; e^{\eta^T A \eta} = \det(A)
+\]
+
+By induction method:
+\[
+\eta^T = -\eta, \quad A^T = -A
+\]
 
 
 %-------------------------------
